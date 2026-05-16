@@ -178,10 +178,14 @@ async def _elevenlabs_tts(text: str) -> str | None:
     try:
         async with httpx.AsyncClient(timeout=20.0) as c:
             r = await c.post(url, json=body, headers=headers)
-            r.raise_for_status()
+        if r.status_code != 200:
+            print(f"[voice] elevenlabs {r.status_code}: {r.text[:200]}", flush=True)
+            return None
         return base64.b64encode(r.content).decode("ascii")
     except Exception as e:
-        print(f"elevenlabs tts failed: {e}")
+        import traceback
+        print(f"[voice] elevenlabs exception: {e!r}", flush=True)
+        traceback.print_exc()
         return None
 
 
