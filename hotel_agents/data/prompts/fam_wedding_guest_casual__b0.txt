@@ -1,0 +1,280 @@
+Generate 10 diverse synthetic families anchored on the archetype below, each with a complete 5-day Bay Area itinerary. Write the JSON array to `C:\Users\sarta\rosea\hotel_agents\data\families_part_wedding_guest_casual__b0.jsonl` — **one record per line, JSONL not JSON array**.
+
+## Anchor archetype
+```json
+{
+  "id": "wedding_guest_casual",
+  "name": "Wedding Guest Casual",
+  "description": "Solo or plus-one attending a friend's weekend wedding in Sonoma. Ceremony, reception, and maybe a breakfast after. Out-of-towner seeking atmosphere, not hassle.",
+  "group_type": "event",
+  "adult_count": 1,
+  "kid_ages": "none",
+  "trip_purpose": "event",
+  "budget_tier": "mid",
+  "trip_length_days": 2,
+  "pace": "relaxed",
+  "primary_interest": "culture",
+  "secondary_interest": "food",
+  "crowd_tolerance": "okay",
+  "energy": "medium",
+  "local_interaction": "mixed",
+  "mobility": "full",
+  "dietary": "none",
+  "language_comfort": "english-only"
+}
+```
+
+Each family should be a **variation** of this archetype, not a clone. Vary:
+- adult_count (1-4 within reason)
+- specific kid_ages bucket (if family has kids)
+- secondary_interest (vary by 1-2 levels from the anchor)
+- pace, energy, crowd_tolerance (±1 from anchor)
+- dietary (occasional veg/gf even for non-dietary anchors)
+
+Keep stable: group_type, primary_interest, budget_tier, mobility, language_comfort.
+
+## Activity bank (use only these IDs)
+  - acquerello: Acquerello [luxury/low/indoor,kids-no] tags=fine dining,michelin 3-star,italian,sf
+  - acquerello_tasting_menu: Acquerello Italian Tasting Menu [luxury/low/indoor,kids-no] tags=food,restaurant,italian,michelin
+  - alcatraz_island_ferry: Alcatraz Island Ferry Tour [mid/medium/mixed,mob-no] tags=historic,island,tour,culture
+  - allied_arts_cafe: Allied Arts Guild Cafe [mid/low/outdoor] tags=cafe,garden,lunch
+  - allied_arts_guild: Allied Arts Guild [mid/low/mixed] tags=art,craft,gallery,culture
+  - almaden_quicksilver_county_park: Almaden Quicksilver County Park [shoestring/high/outdoor] tags=hiking,nature,trails,history
+  - anderson_collection: Anderson Collection at Stanford [shoestring/low/indoor] tags=art,museum,modern,architecture
+  - andytown_coffee: Andytown Coffee Roasters [shoestring/low/indoor] tags=coffee,specialty,roaster,cafe
+  - ano_nuevo_elephant_seals: Año Nuevo Elephant Seals [mid/medium/outdoor,mob-no] tags=wildlife,nature,hiking,marine
+  - aphotic: Aphotic [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,experimental,sf
+  - apple_park_visitor_center: Apple Park Visitor Center [mid/low/mixed] tags=tech,shopping,architecture,design
+  - aquarium_bay_sf: Aquarium of the Bay [mid/low/indoor] tags=aquarium,marine,kids,indoor
+  - atelier_crenn: Atelier Crenn [luxury/low/indoor,kids-no] tags=fine dining,michelin 3-star,french,art,sf
+  - atelier_crenn_tasting: Atelier Crenn Poetic Tasting [luxury/low/indoor,kids-no] tags=food,restaurant,fine_dining,michelin
+  - bar_crenn_cocktails: Bar Crenn Avant-Garde Cocktails [premium/low/indoor,kids-no] tags=drinks,cocktails,bar,michelin
+  - bedwell_bayfront: Bedwell Bayfront Park [shoestring/medium/outdoor] tags=wetlands,trail,nature,bay
+  - benu: Benu [luxury/low/indoor,kids-no] tags=fine dining,michelin 2-star,innovative,sf,fusion
+  - beringer_vineyards: Beringer Vineyards [premium/medium/mixed,kids-no] tags=wine,napa,tasting,history,caverns
+  - bi_rite_creamery: Bi-Rite Creamery [shoestring/low/outdoor] tags=ice_cream,dessert,food,seasonal
+  - big_basin_redwoods_state_park: Big Basin Redwoods State Park [shoestring/high/outdoor,mob-no] tags=hiking,redwoods,waterfall,nature
+  - bing_concert_hall: Bing Concert Hall [mid/low/indoor] tags=music,concert,arts,culture
+  - bird_dog: Bird Dog [mid/medium/indoor,kids-no] tags=bar,gastropub,cocktails,dining
+  - birdsong: Birdsong [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,french,sf
+  - bistro_vida: Bistro Vida [premium/low/indoor,kids-no] tags=french,bistro,dining
+  - blue_bottle_mint: Blue Bottle Coffee Mint Plaza [shoestring/low/mixed] tags=coffee,specialty,pour_over,minimal
+  - bonny_doon_vineyard: Bonny Doon Vineyard [mid/low/mixed,kids-no] tags=wine,tasting,vineyard,scenic
+  - bryant_street: Bryant Street (Palo Alto) [mid/medium/outdoor] tags=shopping,bars,neighborhood
+  - burgess_park: Burgess Park [shoestring/medium/outdoor] tags=park,nature,birdwatching,fishing
+  - burma_superstar_shan: Burma Superstar Shan Noodles [shoestring/low/indoor] tags=food,restaurant,burmese,casual
+  - cakebread_cellars: Cakebread Cellars [premium/low/mixed,kids-no] tags=wine,napa,tasting,cabernet,chardonnay
+  - calafia_cafe: Calafia Cafe [mid/low/mixed] tags=cafe,mediterranean,pastries
+  - california_academy_sciences: California Academy of Sciences [mid/low/indoor] tags=museum,science,aquarium,nature
+  - cantor_arts_center: Cantor Arts Center [shoestring/low/indoor] tags=art,museum,education,culture
+  - castello_di_amorosa: Castello di Amorosa [premium/medium/mixed,kids-no] tags=wine,napa,tasting,castle,architecture
+  - castle_rock_state_park: Castle Rock State Park [shoestring/medium/outdoor,mob-no] tags=hiking,scenic,rock_formations,views
+  - castro_theatre_tour: Castro Theatre Historic Cinema [shoestring/low/indoor] tags=cinema,historic,art_deco,culture
+  - chez_panisse: Chez Panisse [premium/low/indoor,kids-no] tags=fine dining,michelin 1-star,farm-to-table,berkeley
+  - chez_tj: Chez TJ [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,french,california
+  - childrens_discovery_museum: Children's Discovery Museum of San Jose [mid/high/indoor] tags=museum,kids,interactive,learning
+  - chinatown_explore: Chinatown Dim Sum & Exploration [shoestring/medium/mixed] tags=food,culture,historic,neighborhood
+  - coal_creek_preserve: Coal Creek Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,redwoods,creek,quiet
+  - coit_tower_visit: Coit Tower & Summit Views [shoestring/medium/mixed] tags=tower,views,art,historic
+  - computer_history_museum: Computer History Museum [mid/medium/indoor] tags=museum,tech,history,interactive
+  - conservatory_flowers: Conservatory of Flowers [shoestring/low/indoor] tags=botanical,historic,plants,greenhouse
+  - coupa_cafe: Coupa Cafe [shoestring/low/outdoor] tags=cafe,coffee,tech,startup
+  - crissy_field_beach: Crissy Field Beach & Promenade [shoestring/medium/outdoor] tags=beach,views,water,picnic
+  - crystal_springs_trail: Crystal Springs Trail [shoestring/medium/outdoor,mob-no] tags=hiking,reservoir,scenic,forest
+  - cupertino_library_reading: Cupertino Library Reading & Study Space [shoestring/low/indoor] tags=library,reading,study,free
+  - de_young_museum: de Young Museum [mid/low/mixed] tags=museum,art,park,tower
+  - devils_slide_trail: Devil's Slide Trail [shoestring/high/outdoor,kids-no,mob-no] tags=hiking,scenic,challenging,coastal
+  - dolores_park_picnic: Dolores Park Picnic & Views [shoestring/medium/outdoor] tags=park,picnic,social,views
+  - domaine_carneros: Domaine Carneros [premium/low/mixed,kids-no] tags=wine,sparkling,tasting,napa
+  - domaine_chandon: Domaine Chandon [premium/low/mixed,kids-no] tags=wine,sparkling,napa,yountville,tasting
+  - duartes_tavern: Duarte's Tavern [mid/low/indoor] tags=dining,historic,local,soup
+  - edgewood_park: Edgewood Park and Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,wildflowers,preserve,spring
+  - el_corte_madera_creek: El Corte de Madera Creek Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,redwoods,creek,solitude
+  - el_farolito_burritos: El Farolito 24H Burritos [shoestring/low/indoor] tags=food,burrito,mexican,24h
+  - evvia_estiatorio: Evvia Estiatorio [premium/low/indoor,kids-no] tags=mediterranean,fine-dining,restaurant
+  - exploratorium_science: Exploratorium [mid/high/mixed] tags=museum,science,interactive,kids
+  - far_niente: Far Niente [luxury/low/mixed,kids-no] tags=wine,napa,luxury,cabernet,cave tour
+  - ferry_building_marketplace: Ferry Building Marketplace [mid/medium/mixed] tags=food,market,historic,waterfront
+  - filoli_gardens: Filoli Historic House & Gardens [mid/low/mixed] tags=gardens,historic,architecture,tour
+  - fishermans_wharf_tourist: Fisherman's Wharf & Waterfront [mid/medium/mixed] tags=waterfront,food,shopping,sightseeing
+  - foothills_park: Foothills Park [shoestring/medium/outdoor,mob-no] tags=hiking,views,oak_woodland,scenic
+  - frogs_leap: Frog's Leap Winery [mid/low/mixed,kids-no] tags=wine,napa,tasting,organic,sustainable
+  - golden_gate_bridge_walk: Golden Gate Bridge Walk [shoestring/high/outdoor] tags=iconic,bridge,views,walking
+  - golden_gate_park_east: Golden Gate Park (East Section) Exploration [shoestring/medium/mixed] tags=park,gardens,walking,outdoors
+  - googleplex_sculpture_loop: Googleplex Outdoor Sculpture Loop [shoestring/low/outdoor] tags=tech,art,walking,free
+  - haight_ashbury_vintage: Haight-Ashbury Counterculture Shopping [shoestring/medium/mixed] tags=shopping,vintage,culture,neighborhood
+  - half_moon_bay_distillery: Half Moon Bay Distillery [mid/low/indoor,kids-no] tags=distillery,tasting,spirits,craft
+  - half_moon_bay_state_beach: Half Moon Bay State Beach [shoestring/low/outdoor] tags=beach,scenic,tide_pools,sunset
+  - harley_farms_goat_dairy: Harley Farms Goat Dairy [mid/low/mixed] tags=farm,cheese,tasting,agritourism
+  - hayes_valley_stroll: Hayes Valley Shopping & Dining [mid/medium/mixed] tags=shopping,dining,neighborhood,culture
+  - heritage_rose_garden: San Jose Heritage Rose Garden [shoestring/low/outdoor] tags=garden,nature,roses,free
+  - hess_persson_estates: Hess Collection Winery [premium/medium/mixed,kids-no] tags=wine,napa,tasting,art,views
+  - hicklebees_bookstore: Hicklebee's Children's Bookstore [shoestring/low/indoor] tags=bookstore,kids,reading,community
+  - history_park_san_jose: History Park at Kelley Park [shoestring/medium/mixed,mob-no] tags=history,museum,heritage,walking
+  - hoover_tower: Hoover Tower [shoestring/medium/mixed,mob-no] tags=views,history,tower,landmark
+  - inglenook: Inglenook [luxury/medium/mixed,kids-no] tags=wine,napa,history,estate,tasting
+  - intel_museum: Intel Museum [shoestring/medium/indoor] tags=museum,tech,history,semiconductor
+  - iron_horse_vineyards: Iron Horse Vineyards [premium/low/outdoor,kids-no] tags=wine,sparkling,sonoma,tasting,views
+  - japanese_tea_garden: Japanese Tea Garden [shoestring/low/outdoor,mob-no] tags=garden,zen,tea,cultural
+  - japantown_san_jose: Japantown San Jose [mid/high/mixed] tags=cultural,shopping,dining,district
+  - junior_museum_zoo: Junior Museum & Zoo (Palo Alto) [mid/medium/mixed] tags=zoo,museum,family,nature
+  - la_honda_creek: La Honda Creek Open Space Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,redwoods,creek,birdwatching
+  - la_strada: La Strada [premium/low/indoor] tags=italian,restaurant,pasta
+  - la_taqueria_tacos: La Taqueria Classic Tacos [shoestring/low/indoor] tags=food,tacos,mexican,casual
+  - lands_end_trail: Lands End Coastal Trail [shoestring/high/outdoor,mob-no] tags=hiking,coastal,ocean,views
+  - lazy_bear: Lazy Bear [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,american,sf
+  - levis_stadium_tour: Levi's Stadium Tours [mid/medium/mixed] tags=sports,tour,stadium,museum
+  - lick_observatory: Lick Observatory [shoestring/medium/mixed,mob-no] tags=observatory,science,hiking,views
+  - liholiho_yacht_club: Liholiho Yacht Club Hawaiian Fusion [premium/low/indoor] tags=food,restaurant,hawaiian,michelin
+  - linda_mar_beach: Linda Mar Beach [shoestring/low/outdoor] tags=beach,swimming,picnic,whales
+  - lombard_street_zigzag: Lombard Street Crooked Mile [shoestring/medium/outdoor,mob-no] tags=iconic,street,walking,views
+  - long_ridge_preserve: Long Ridge Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,ridgeline,wildflowers,views
+  - macarthur_park: MacArthur Park [premium/low/indoor,kids-no] tags=steakhouse,fine-dining,beef
+  - macla_gallery: MACLA Gallery (Movimiento de Arte y Cultura Latinoamericana) [shoestring/low/indoor] tags=art,gallery,cultural,free
+  - madera: Madera at Rosewood [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,california,menlo park
+  - madera_rosewood: Madera at Rosewood [luxury/low/indoor,kids-no] tags=fine-dining,farm-to-table,wine
+  - manresa: Manresa [luxury/low/indoor,kids-no] tags=fine dining,michelin 2-star,tasting menu,innovative
+  - mavericks_beach_viewpoint: Mavericks Beach Viewpoint [shoestring/low/outdoor] tags=surfing,scenic,waves,viewpoint
+  - memorial_park: Memorial Park [shoestring/medium/outdoor] tags=camping,redwoods,creek,family
+  - mission_burrito_crawl: Mission District Burrito Crawl [shoestring/medium/mixed] tags=food,burrito,mission,mexican
+  - mission_cheese_retail: Mission Cheese Shop [mid/low/indoor] tags=food,cheese,wine,artisan
+  - mission_dolores_basilica: Mission Dolores Basilica [shoestring/low/indoor] tags=historic,mission,religious,cultural
+  - montara_lighthouse: Montara Lighthouse [mid/medium/mixed] tags=lighthouse,historic,hiking,scenic
+  - mori_point_trail: Mori Point Trail [shoestring/medium/outdoor,mob-no] tags=hiking,birdwatching,wildflowers,scenic
+  - mountain_view_castro_street: Downtown Mountain View - Castro Street [mid/medium/outdoor] tags=shopping,dining,downtown,walking
+  - mountain_view_farmers_market: Mountain View Farmers Market [shoestring/low/outdoor] tags=market,food,local,shopping
+  - mourad: Mourad [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,mediterranean,sf
+  - muir_woods_national_monument: Muir Woods National Monument [mid/medium/outdoor] tags=redwoods,hiking,nature,monument
+  - nasa_ames_exploration_center: NASA Ames Exploration Center [shoestring/medium/indoor] tags=museum,space,science,free
+  - north_beach_espresso: North Beach Espresso & Italian Culture [shoestring/medium/mixed] tags=coffee,culture,neighborhood,historic
+  - ocean_beach_walking: Ocean Beach & Great Highway [shoestring/medium/outdoor] tags=beach,ocean,walking,coastal
+  - opus_one: Opus One [luxury/low/mixed,kids-no] tags=wine,napa,luxury,bordeaux blend,architecture
+  - orens_hummus: Oren's Hummus [shoestring/low/indoor] tags=hummus,israeli,fast-casual
+  - pacifica_pier: Pacifica Pier [shoestring/low/outdoor] tags=pier,fishing,sunset,wildlife
+  - painted_ladies_hayes: Painted Ladies Victorian Row [shoestring/low/outdoor] tags=iconic,victorian,photo,architecture
+  - palace_fine_arts: Palace of Fine Arts [shoestring/low/outdoor] tags=architecture,historic,photo,landmark
+  - palo_alto_baylands: Palo Alto Baylands Park [shoestring/high/outdoor] tags=park,nature,hiking,wildlife
+  - pescadero_creek_park: Pescadero Creek Park [shoestring/medium/outdoor,mob-no] tags=hiking,creek,swimming,redwoods
+  - pescadero_marsh: Pescadero Marsh [shoestring/low/outdoor] tags=birdwatching,nature,wetlands,photography
+  - pescadero_town: Pescadero Town [mid/low/mixed] tags=shopping,art,village,local
+  - phils_coffee: Phil's Coffee [mid/low/indoor] tags=coffee,specialty,cafe
+  - phleger_estate: Phleger Estate [shoestring/medium/outdoor,mob-no] tags=hiking,redwoods,estate,old_growth
+  - pier_39_sea_lions: Pier 39 Sea Lions [shoestring/low/outdoor] tags=wildlife,marine,free,iconic
+  - pigeon_point_lighthouse: Pigeon Point Lighthouse [mid/low/outdoor] tags=lighthouse,historic,scenic,tours
+  - pillar_point_bluff: Pillar Point Bluff Trail [shoestring/medium/outdoor,mob-no] tags=hiking,whale_watching,scenic,bluff
+  - pillar_point_harbor: Pillar Point Harbor [shoestring/low/mixed] tags=harbor,fishing,boats,shopping
+  - pizzeria_delfina: Pizzeria Delfina (Palo Alto) [mid/low/indoor] tags=pizza,italian,restaurant
+  - plaza_de_cesar_chavez_fountains: Plaza de César Chávez [shoestring/medium/outdoor] tags=park,plaza,downtown,free
+  - pomponio_state_beach: Pomponio State Beach [shoestring/low/outdoor] tags=beach,scenic,secluded,cliff
+  - powell_hyde_cable_car: Powell-Hyde Cable Car Ride [shoestring/low/outdoor,mob-no] tags=transit,historic,cable_car,iconic
+  - purisima_creek_redwoods: Purisima Creek Redwoods Preserve [shoestring/high/outdoor,mob-no] tags=hiking,redwoods,creek,forest
+  - quince: Quince [luxury/low/indoor,kids-no] tags=fine dining,michelin 2-star,italian,sf,tasting menu
+  - quince_italian_fine: Quince Italian Fine Dining [premium/low/indoor] tags=food,restaurant,italian,fine_dining
+  - rancho_san_antonio_preserve: Rancho San Antonio Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,nature,creek,preserve
+  - reposado: Reposado [premium/low/indoor,kids-no] tags=mexican,fine-dining,tequila
+  - reposado_happy_hour: Reposado Happy Hour [mid/medium/indoor,kids-no] tags=happy-hour,tequila,cocktails,bar
+  - ridge_vineyards_monte_bello: Ridge Vineyards Monte Bello [premium/medium/mixed,kids-no] tags=wine,santa cruz mountains,tasting,views,cabernet
+  - robert_mondavi: Robert Mondavi Winery [premium/low/mixed,kids-no] tags=wine,napa,tasting,cabernet,iconic
+  - rodin_sculpture_garden: Rodin Sculpture Garden at Stanford [shoestring/low/outdoor] tags=sculpture,art,garden,outdoor
+  - rosicrucian_egyptian_museum: Rosicrucian Egyptian Museum [mid/low/indoor] tags=museum,history,artifacts,ancient
+  - russian_ridge_preserve: Russian Ridge Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,ridgeline,views,wildflowers
+  - saison: Saison [luxury/low/indoor,kids-no] tags=fine dining,michelin 3-star,innovative,sf,theatrical
+  - saison_multi_course: Saison Experimental Omakase [luxury/low/indoor,kids-no] tags=food,restaurant,omakase,michelin
+  - sam_mcdonald_park: Sam McDonald Park [shoestring/medium/outdoor,mob-no] tags=hiking,backpacking,redwoods,creek
+  - sams_chowder_house: Sam's Chowder House [mid/low/indoor] tags=dining,seafood,casual,views
+  - san_gregorio_beach: San Gregorio Beach [shoestring/low/outdoor] tags=beach,tide_pools,scenic,creek
+  - san_jose_museum_of_art: San Jose Museum of Art [mid/low/indoor] tags=art,museum,contemporary,cultural
+  - san_pedro_square_market: San Pedro Square Market [mid/high/indoor] tags=food,market,shopping,dining
+  - sand_hill_vc_tour: Sand Hill Road VC Tour [shoestring/medium/outdoor] tags=tech,startup,history,landmark
+  - santana_row_shopping: Santana Row [premium/medium/mixed] tags=shopping,dining,upscale,entertainment
+  - saratoga_hakone_gardens: Saratoga Hakone Estate and Gardens [mid/low/outdoor,mob-no] tags=gardens,japanese,nature,peaceful
+  - schramsberg_vineyards: Schramsberg Vineyards [premium/high/mixed,kids-no] tags=wine,sparkling,napa,cave tour,tasting
+  - sf_moma_museum: San Francisco Museum of Modern Art [mid/low/indoor] tags=museum,art,modern,culture
+  - shoreline_lake_boating: Shoreline Lake Boating [mid/high/outdoor,mob-no] tags=boating,water sports,outdoor,recreation
+  - sightglass_coffee: Sightglass Coffee Roastery [shoestring/low/indoor] tags=coffee,specialty,roastery,industrial
+  - single_thread: Single Thread [luxury/low/indoor,kids-no] tags=fine dining,michelin 2-star,tasting menu,seasonal
+  - skyline_to_sea_trail: Skyline-to-the-Sea Trail [shoestring/high/outdoor,kids-no,mob-no] tags=backpacking,redwoods,creek,challenging
+  - slanted_door_vietnamese: Slanted Door Vietnamese Fine Dining [premium/low/indoor] tags=food,restaurant,vietnamese,fine_dining
+  - smitten_ice_cream: Smitten Ice Cream Liquid Nitrogen [shoestring/low/indoor] tags=ice_cream,dessert,food,theatrical
+  - sons_and_daughters: Sons & Daughters [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,tasting menu,sf
+  - spruce: Spruce [luxury/low/indoor,kids-no] tags=fine dining,michelin 1-star,french-california,sf
+  - stags_leap_winery: Stags' Leap Winery [mid/low/mixed,kids-no] tags=wine,napa,tasting,cabernet,waterfall
+  - stanford_campus_walking_tour: Stanford Campus Walking Tour [shoestring/medium/outdoor] tags=campus,history,architecture,education
+  - stanford_dish_hike: Stanford Dish Loop Hike [shoestring/high/outdoor,mob-no] tags=hiking,nature,views,fitness
+  - stanford_memorial_church: Stanford Memorial Church [shoestring/low/indoor] tags=architecture,history,landmark,spiritual
+  - stanford_shopping_center: Stanford Shopping Center [premium/medium/outdoor] tags=shopping,retail,mall
+  - stanford_stadium: Stanford Stadium Tour [shoestring/low/mixed] tags=sports,stadium,tour,landmark
+  - state_bird_provisions: State Bird Provisions Dim Sum [premium/low/indoor] tags=food,restaurant,dim_sum,innovative
+  - sterling_vineyards: Sterling Vineyards [premium/medium/mixed,kids-no] tags=wine,napa,tasting,views,castle
+  - stevens_creek_county_park: Stevens Creek County Park [shoestring/high/outdoor] tags=hiking,nature,park,trails
+  - stow_lake_boating: Stow Lake Pedal Boating [shoestring/medium/outdoor] tags=lake,boating,park,water
+  - sunnyvale_heritage_park_museum: Sunnyvale Heritage Park Museum [shoestring/low/mixed] tags=history,museum,local,heritage
+  - sutro_baths_ruins: Sutro Baths Historic Ruins [shoestring/medium/outdoor,mob-no] tags=historic,ruins,coastal,photo
+  - tamarine: Tamarine [mid/low/indoor] tags=vietnamese,restaurant,dining
+  - tartine_bakery_queue: Tartine Bakery & Bread Experience [shoestring/low/indoor] tags=bakery,food,iconic,queue
+  - tartine_manufactory: Tartine Manufactory Chocolate & Pastry [mid/low/indoor] tags=bakery,chocolate,food,industrial
+  - tech_interactive_san_jose: The Tech Interactive [mid/high/indoor] tags=museum,tech,interactive,science
+  - tech_museum_store: The Tech Interactive Store [mid/low/indoor] tags=shopping,tech,gifts,education
+  - the_french_laundry: The French Laundry [luxury/low/indoor,kids-no] tags=fine dining,michelin 3-star,french cuisine,tasting menu
+  - thomas_fogarty_winery: Thomas Fogarty Winery [premium/low/mixed,kids-no] tags=wine,santa cruz mountains,tasting,pinot noir,views
+  - town_country_village: Town & Country Village [mid/medium/outdoor] tags=shopping,village,boutique
+  - twin_peaks_hike: Twin Peaks Summit Hike [shoestring/high/outdoor,mob-no] tags=hiking,views,peak,outdoors
+  - university_ave_palo_alto: University Avenue Shopping (Palo Alto) [premium/medium/outdoor] tags=shopping,retail,downtown,culture
+  - v_sattui: V. Sattui Winery [mid/medium/outdoor,kids-no] tags=wine,napa,tasting,picnic
+  - winchester_mystery_house: Winchester Mystery House [mid/medium/indoor,mob-no] tags=history,architecture,tour,landmark
+  - windy_hill_preserve: Windy Hill Preserve [shoestring/medium/outdoor,mob-no] tags=hiking,viewpoint,wildflowers,ridgeline
+  - wunderlich_park: Wunderlich Park [shoestring/medium/outdoor,mob-no] tags=hiking,redwoods,creek,estate
+
+## Itinerary rules
+1. Exactly 30 activity IDs per family, in slot order (Day 1 slot 0..5, Day 2 slot 0..5, ...).
+2. Realistic chain — breakfast slot should be a cafe/restaurant, evening slot a dinner spot, late-morning/lunch-afternoon are flexible.
+3. Don't put a winery + fine-dining + late bar in a slot the family can't reach (luxury budget can; shoestring can't).
+4. Geographic continuity within a day — if morning is in SF, don't put afternoon in Big Basin.
+5. Family with kid_ages != "none": don't use activities with kid_ok=false.
+6. mobility=limited/wheelchair: skip mobility_ok=false activities.
+7. budget_tier=shoestring: avoid premium/luxury activities unless the family is splurging once.
+8. The 50k cohort will tally what families "like this" picked — your job is to produce **diverse but coherent** trips so the population stats are meaningful, not 50 identical schedules.
+
+## Variation knobs (use the batch_label to seed)
+Batch label: `wedding_guest_casual__b0`, seed: 21000. Use this to vary which days lean
+food vs. nature vs. tech. Two families with the same archetype should
+share the broad shape but pick different specific activities.
+
+## Output
+
+Write one JSONL line per family to `families_part_wedding_guest_casual__b0.jsonl`. Use the Write tool with a single call containing all 10 lines.
+
+## Schema
+
+Each family record is:
+```json
+{
+  "id": "fam_<archetype_id>_<batch_index>",          // unique
+  "family": {
+    "group_type": "solo|couple|family|friends|business|event",
+    "adult_count": 1,
+    "kid_ages": "none|0-5|6-12|13-17|mixed",
+    "trip_purpose": "leisure|business|mixed|event|honeymoon",
+    "budget_tier": "shoestring|mid|premium|luxury",
+    "trip_length_days": 5,
+    "pace": "relaxed|balanced|packed",
+    "primary_interest": "food|culture|nature|adventure|tech|wine|shopping",
+    "secondary_interest": "food|culture|nature|adventure|tech|wine|shopping",
+    "crowd_tolerance": "avoid|okay|love",
+    "energy": "low|medium|high",
+    "local_interaction": "touristy|mixed|off-the-beaten-path",
+    "mobility": "full|limited|wheelchair",
+    "dietary": "none|veg|vegan|kosher|halal|gf|nut-free|other",
+    "language_comfort": "english-only|english-plus|non-english"
+  },
+  "itinerary": ["activity_id_day1_slot0", "activity_id_day1_slot1", ...]
+}
+```
+
+The `itinerary` array has EXACTLY 30 elements — 5 days × 6 slots (early-morning,
+breakfast, late-morning, lunch-afternoon, evening, night). Use only activity
+IDs from the provided activity list. Repeats are allowed only when natural
+(e.g. same hotel cafe two breakfasts apart).
+
+
+After writing, report: number of families written, average # of unique activity IDs per family (should be 20-28 — some repeats are fine), any activity ID you intended to use but couldn't find in the bank.

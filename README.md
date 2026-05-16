@@ -1,0 +1,131 @@
+# Benney Prism
+
+Hotel-agent framework for a projection-mapped guest room. Two agents shipping
+today:
+
+1. **Trip planner** — predicts where this family wants to go next, by KNN'ing
+   them against 50 k+ synthetic families and aggregating *which activity each
+   similar family chose at this slot*. Probabilistic itinerary planner with
+   per-slot bands ("45% of similar families chose Stanford"), bootstrap CIs,
+   and Haiku-narrated reasoning.
+2. **Staff assistant** — ambient room-event ingester. Door open/close +
+   itinerary + flight + traffic → action cards for housekeeping, room service,
+   and arrival prep. *"Quick turn now, 24 min before return"*, *"Start
+   sous-vide 12:51 to hit door hot at 1:22"*, *"Welcome ready 2:20 PM, UA742
+   delayed 35 min."*
+
+Both share a single 15-keyword family encoder + a sentence-transformers
+activity bank, so a third agent (restaurant, concierge chat) plugs in by
+swapping the bank.
+
+## Layout
+
+```
+hotel_agents/
+├── shared/             — Family schema, FamilyEncoder, embedding cache
+├── trip_planner/       — FitScorer, scheduler, PopulationAggregator, /next-slot
+├── staff_assistant/    — state machine, predictors, AviationStack + Google Maps, /staff-feed
+├── scripts/            — augment_cohort.py, merge_*.py, train_fit_scorer.py
+├── checkpoints/        — family_encoder.pt, fit_scorer.pt, activity_bank.pt
+└── data/               — activities_bay.json (190), families.jsonl (384 cleaned)
+
+frontend/               — drop-in React components for the prism UI
+├── TripPlannerLive.tsx + .css     (?trip=1)
+└── StaffBoardLive.tsx + .css      (?staff=1)
+```
+
+## Quick start
+
+```bash
+# 1. Python env
+pip install -r hotel_agents/requirements.txt
+
+# 2. Build the activity bank (sentence-transformers embeddings → checkpoints/activity_bank.pt)
+python -m hotel_agents.scripts.build_activity_bank
+
+# 3. Generate the cohort (61k families × 30 slots, ~30 min CPU / ~10 min on a Blackwell)
+python -m hotel_agents.scripts.augment_cohort --keep-seeds
+
+# 4. Run the servers
+uvicorn hotel_agents.trip_planner.server:app  --port 7878   # trip planner
+uvicorn hotel_agents.staff_assistant.server:app --port 7879  # staff assistant
+
+# 5. Seed the staff demo
+python -m hotel_agents.staff_assistant.seed_demo
+```
+
+Drop `frontend/*.tsx` + `.css` into a Vite/React app's `src/sides/`. Route
+`?trip=1` → `TripPlannerLive`, `?staff=1` → `StaffBoardLive`. Both poll the
+servers above; configure `VITE_BENNEY_API` and `VITE_STAFF_API` if not on
+localhost.
+
+## Architecture
+
+```
+Guest 15-kw profile  ─┐
+                      ├─▶  FamilyEncoder ─▶ family_vec (384-D)
+                      │
+Activity description ─┘─▶  Sentence-Transformers ─▶ activity_vec (384-D)
+
+family_vec + activity_vec + slot_idx + history_vec
+        │
+        ▼
+   FitScorer (ResNet MLP, 91% val accuracy on Sonnet-cleaned data)
+        │
+        ▼
+  Schedule(family) ─────────────► 30-slot itinerary  ─┐
+                                                       │
+  Augment(seed × 160) × Schedule ─► 61k cohort npz ◄───┘
+                                                       │
+                                                       ▼
+                                               PopulationAggregator
+                                                       │
+                                                       ▼
+                                          GET /next-slot ─► probabilities
+                                          POST /reasoning ─► Haiku narration
+```
+
+For the staff assistant:
+
+```
+door_open / door_close / food_order / flight_update
+        │
+        ▼
+    RoomState (in_room, slot_idx, pending_order, arrival_flight)
+        │
+        ▼
+   Predictor (heuristic, no ML) ─► Prediction
+                                    (return_time, cleaning_window,
+                                     food_cook_start, arrival_setup)
+        │
+        ▼
+    Narrator (Haiku 4.5, cached) ─► ActionCard
+```
+
+## Why this design
+
+- **Closed-vocabulary 15-kw family profile** so the encoder learns clean
+  decision boundaries — no free-text drift.
+- **KNN + Jaccard trajectory filter** so the per-slot probabilities reflect
+  families *whose first N slots match the current guest's*, not the whole
+  cohort.
+- **Bootstrap CIs + vs-baseline annotation** so the UI can render
+  "popular / standard / niche / buried" bands and stop pretending every
+  recommendation is equally confident.
+- **Hard slot-open mask + tag boost + distance penalty + graduated repetition
+  penalty** at schedule time, so the model doesn't put museums at breakfast
+  or send the guest from SF to Napa for lunch then back to SF for dinner.
+
+## Status (as of submission)
+
+- Trip planner: 91% val accuracy, slot-spread improved 70% → ~40% after
+  Sonnet cleanup pass.
+- Staff assistant: 6-room demo seeded, mock flight + mock traffic working,
+  Haiku rewrite engages when `ANTHROPIC_API_KEY` set.
+- Known gaps: ~2 archetypes lack night-slot bank coverage (kids + night,
+  shoestring + night). See `hotel_agents/trip_planner/JETLAG_INTEGRATION.md`
+  for the next-up jet-lag wiring plan.
+
+## License
+
+MIT.

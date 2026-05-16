@@ -1,0 +1,5707 @@
+[
+  {
+    "id": "acquerello",
+    "name": "Acquerello",
+    "description": "San Francisco Michelin three-star Italian restaurant by Chef Giacomo Artufi, elevating regional Italian cuisine with impeccable technique and premium ingredients. Luxurious tasting menu celebrating Italian culinary heritage.",
+    "lat": 37.7894,
+    "lng": -122.404,
+    "address": "1722 Sacramento Street, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 9:30 PM",
+      "wed": "5:30 PM - 9:30 PM",
+      "thu": "5:30 PM - 9:30 PM",
+      "fri": "5:30 PM - 9:30 PM",
+      "sat": "5:30 PM - 9:30 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 3-star",
+      "italian",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "acquerello_tasting_menu",
+    "name": "Acquerello Italian Tasting Menu",
+    "description": "Michelin 3-star Italian fine dining featuring handmade pasta and Piedmont-inspired creations in intimate chef's counter and private room.",
+    "lat": 37.7878,
+    "lng": -122.4173,
+    "address": "1722 Sacramento Street, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "17:30-21:30",
+      "wed": "17:30-21:30",
+      "thu": "17:30-21:30",
+      "fri": "17:30-22:00",
+      "sat": "17:30-22:00",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "italian",
+      "michelin"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "alcatraz_island_ferry",
+    "name": "Alcatraz Island Ferry Tour",
+    "description": "Historic former federal penitentiary accessible only by official audio tour; cellhouse remains hauntingly preserved with stories of famous inmates and daring escape attempts.",
+    "lat": 37.8267,
+    "lng": -122.423,
+    "address": "Pier 33, San Francisco, CA 94111",
+    "open_hours": {
+      "mon": "09:30-16:00",
+      "tue": "09:30-16:00",
+      "wed": "09:30-16:00",
+      "thu": "09:30-16:00",
+      "fri": "09:30-16:00",
+      "sat": "09:00-16:30",
+      "sun": "09:00-16:30"
+    },
+    "duration_min": 150,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "historic",
+      "island",
+      "tour",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "allied_arts_cafe",
+    "name": "Allied Arts Guild Cafe",
+    "description": "Charming garden cafe in a Spanish Colonial courtyard with sandwiches, salads, and coffee. Shaded seating under umbrellas surrounded by artist studios and galleries.",
+    "lat": 37.3956,
+    "lng": -122.2175,
+    "address": "75 Arbor Road, Menlo Park, CA 94025",
+    "open_hours": {
+      "mon": "10:00-15:30",
+      "tue": "10:00-15:30",
+      "wed": "10:00-15:30",
+      "thu": "10:00-15:30",
+      "fri": "10:00-15:30",
+      "sat": "10:00-16:30",
+      "sun": "12:00-16:30"
+    },
+    "duration_min": 60,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "cafe",
+      "garden",
+      "lunch"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "allied_arts_guild",
+    "name": "Allied Arts Guild",
+    "description": "Spanish Colonial-style compound with artist studios, galleries, craft shops, and charming courtyard. Watch artisans create pottery, jewelry, and textiles in working studios.",
+    "lat": 37.3956,
+    "lng": -122.2175,
+    "address": "75 Arbor Road, Menlo Park, CA 94025",
+    "open_hours": {
+      "mon": "10:00-16:00",
+      "tue": "10:00-16:00",
+      "wed": "10:00-16:00",
+      "thu": "10:00-16:00",
+      "fri": "10:00-16:00",
+      "sat": "10:00-17:00",
+      "sun": "12:00-17:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "art",
+      "craft",
+      "gallery",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "almaden_quicksilver_county_park",
+    "name": "Almaden Quicksilver County Park",
+    "description": "1,366-acre park with 22 miles of hiking trails, mining history, scenic overlooks, and wildlife viewing. Rich in both nature and heritage.",
+    "lat": 37.2547,
+    "lng": -121.8133,
+    "address": "21785 Almaden Rd, San Jose, CA 95120",
+    "open_hours": {
+      "mon": "08:00-sunset",
+      "tue": "08:00-sunset",
+      "wed": "08:00-sunset",
+      "thu": "08:00-sunset",
+      "fri": "08:00-sunset",
+      "sat": "08:00-sunset",
+      "sun": "08:00-sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "hiking",
+      "nature",
+      "trails",
+      "history"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "anderson_collection",
+    "name": "Anderson Collection at Stanford",
+    "description": "Intimate museum featuring American modern and contemporary art with works by Diebenkorn, Elsworth Kelly, and Serra. Elegant modernist building designed by Renzo Piano.",
+    "lat": 37.4298,
+    "lng": -122.1607,
+    "address": "314 Museum Way, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00-17:00",
+      "wed": "10:00-17:00",
+      "thu": "10:00-17:00",
+      "fri": "10:00-17:00",
+      "sat": "10:00-17:00",
+      "sun": "12:00-17:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "art",
+      "museum",
+      "modern",
+      "architecture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "andytown_coffee",
+    "name": "Andytown Coffee Roasters",
+    "description": "Specialty coffee roaster in Mission with espresso-focused culture; single-origin beans and knowledgeable baristas serving exacting standards.",
+    "lat": 37.7602,
+    "lng": -122.4087,
+    "address": "3655 Eighteenth Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "07:00-17:00",
+      "tue": "07:00-17:00",
+      "wed": "07:00-17:00",
+      "thu": "07:00-17:00",
+      "fri": "07:00-18:00",
+      "sat": "08:00-18:00",
+      "sun": "08:00-17:00"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "coffee",
+      "specialty",
+      "roaster",
+      "cafe"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "ano_nuevo_elephant_seals",
+    "name": "Año Nuevo Elephant Seals",
+    "description": "Remote island sanctuary hosting massive northern elephant seals in their natural habitat. Guided walks reveal these magnificent creatures hauling out and breeding on pristine beaches.",
+    "lat": 37.1095,
+    "lng": -122.3767,
+    "address": "Año Nuevo Island, Pescadero, CA 94060",
+    "open_hours": {
+      "mon": "Closed",
+      "tue": "9:30 AM - 3:30 PM",
+      "wed": "9:30 AM - 3:30 PM",
+      "thu": "9:30 AM - 3:30 PM",
+      "fri": "9:30 AM - 3:30 PM",
+      "sat": "9:30 AM - 3:30 PM",
+      "sun": "9:30 AM - 3:30 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "wildlife",
+      "nature",
+      "hiking",
+      "marine"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "aphotic",
+    "name": "Aphotic",
+    "description": "San Francisco experimental Michelin-starred restaurant serving cuisine in complete darkness with multi-sensory focus on taste, smell, sound, and touch. Unique culinary adventure challenging conventional fine dining expectations.",
+    "lat": 37.7849,
+    "lng": -122.4111,
+    "address": "2125 Larkin Street, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "5:30 PM - 8:30 PM",
+      "thu": "5:30 PM - 8:30 PM",
+      "fri": "5:30 PM - 8:30 PM",
+      "sat": "5:30 PM - 8:30 PM",
+      "sun": "closed"
+    },
+    "duration_min": 120,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "experimental",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "apple_park_visitor_center",
+    "name": "Apple Park Visitor Center",
+    "description": "Marvel at Apple's iconic ring-shaped headquarters and browse the curated design-focused Apple Store with exclusive tech products and merchandise.",
+    "lat": 37.3349,
+    "lng": -122.0121,
+    "address": "10600 N Tantau Ave, Cupertino, CA 95014",
+    "open_hours": {
+      "mon": "10:00-19:00",
+      "tue": "10:00-19:00",
+      "wed": "10:00-19:00",
+      "thu": "10:00-19:00",
+      "fri": "10:00-19:00",
+      "sat": "10:00-19:00",
+      "sun": "11:00-18:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "tech",
+      "shopping",
+      "architecture",
+      "design"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "aquarium_bay_sf",
+    "name": "Aquarium of the Bay",
+    "description": "3-story aquarium at Fisherman's Wharf featuring 20,000+ marine animals in 700,000 gallons; sea otters, jellyfish, and interactive touch pools.",
+    "lat": 37.8091,
+    "lng": -122.4087,
+    "address": "Pier 39, Building A, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "09:00-20:00",
+      "tue": "09:00-20:00",
+      "wed": "09:00-20:00",
+      "thu": "09:00-20:00",
+      "fri": "09:00-21:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "aquarium",
+      "marine",
+      "kids",
+      "indoor"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "atelier_crenn",
+    "name": "Atelier Crenn",
+    "description": "San Francisco's Michelin three-star restaurant celebrating Chef Dominique Crenn's artistry with abstract French cuisine, plated as edible paintings with poetic influences. Destination fine dining of incomparable creativity.",
+    "lat": 37.7949,
+    "lng": -122.3931,
+    "address": "3127 Fillmore Street, San Francisco, CA 94123",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "5:30 PM - 9:00 PM",
+      "thu": "5:30 PM - 9:00 PM",
+      "fri": "5:30 PM - 9:00 PM",
+      "sat": "5:30 PM - 9:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 3-star",
+      "french",
+      "art",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "atelier_crenn_tasting",
+    "name": "Atelier Crenn Poetic Tasting",
+    "description": "Michelin 3-star restaurant with abstract plated cuisine; chef Dominique Crenn's 'poetic culinaire' philosophy in intimate setting.",
+    "lat": 37.7813,
+    "lng": -122.4318,
+    "address": "3127 Fillmore Street, San Francisco, CA 94123",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "17:00-22:00",
+      "wed": "17:00-22:00",
+      "thu": "17:00-22:00",
+      "fri": "17:00-23:00",
+      "sat": "17:00-23:00",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "fine_dining",
+      "michelin"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bar_crenn_cocktails",
+    "name": "Bar Crenn Avant-Garde Cocktails",
+    "description": "Michelin-starred cocktail bar by chef Crenn with poetic mixology; artistic beverage presentations and theatrical service in minimalist space.",
+    "lat": 37.7825,
+    "lng": -122.4295,
+    "address": "3121 Fillmore Street, San Francisco, CA 94123",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "18:00-22:00",
+      "wed": "18:00-22:00",
+      "thu": "18:00-22:00",
+      "fri": "18:00-23:00",
+      "sat": "18:00-23:00",
+      "sun": "closed"
+    },
+    "duration_min": 90,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "drinks",
+      "cocktails",
+      "bar",
+      "michelin"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bedwell_bayfront",
+    "name": "Bedwell Bayfront Park",
+    "description": "Restored tidal marsh with 2.5-mile walking trail, scenic bay views, and prime birding. Restored wetlands supporting salt marsh harvest mouse and endangered plants.",
+    "lat": 37.5166,
+    "lng": -122.0789,
+    "address": "1500 Bay Street, Menlo Park, CA 94025",
+    "open_hours": {
+      "mon": "sunrise-sunset",
+      "tue": "sunrise-sunset",
+      "wed": "sunrise-sunset",
+      "thu": "sunrise-sunset",
+      "fri": "sunrise-sunset",
+      "sat": "sunrise-sunset",
+      "sun": "sunrise-sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "wetlands",
+      "trail",
+      "nature",
+      "bay"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "benu",
+    "name": "Benu",
+    "description": "San Francisco Michelin-starred laboratory of Chef Corey Lee's culinary ideas, featuring playful high-concept dishes blending Korean, French, and California influences with meticulous execution. Creative tasting menu experience.",
+    "lat": 37.7808,
+    "lng": -122.4081,
+    "address": "22 Hawthorne Street, San Francisco, CA 94105",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 10:00 PM",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 2-star",
+      "innovative",
+      "sf",
+      "fusion"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "beringer_vineyards",
+    "name": "Beringer Vineyards",
+    "description": "Historic 1875 winery in St. Helena featuring the famous Rhine House, limestone caverns, and extensive wine library spanning multiple centuries. Premier Napa destination combining heritage architecture with world-class Cabernet productions.",
+    "lat": 38.4917,
+    "lng": -122.4764,
+    "address": "2000 Main Street, St. Helena, CA 94574",
+    "open_hours": {
+      "mon": "10:00 AM - 5:00 PM",
+      "tue": "10:00 AM - 5:00 PM",
+      "wed": "10:00 AM - 5:00 PM",
+      "thu": "10:00 AM - 5:00 PM",
+      "fri": "10:00 AM - 5:00 PM",
+      "sat": "10:00 AM - 5:00 PM",
+      "sun": "10:00 AM - 5:00 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "history",
+      "caverns"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bi_rite_creamery",
+    "name": "Bi-Rite Creamery",
+    "description": "Seasonal ice cream made fresh daily from local ingredients; quirky flavors like sage panna cotta and Mission district favorite since 2006.",
+    "lat": 37.7598,
+    "lng": -122.4146,
+    "address": "3692 Eighteenth Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "11:00-23:00",
+      "sat": "10:00-23:00",
+      "sun": "10:00-22:00"
+    },
+    "duration_min": 30,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "ice_cream",
+      "dessert",
+      "food",
+      "seasonal"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "big_basin_redwoods_state_park",
+    "name": "Big Basin Redwoods State Park",
+    "description": "Majestic old-growth redwood forest with waterfalls, ancient groves, and pristine wilderness. California's oldest state park offering diverse trails from easy nature walks to challenging summits.",
+    "lat": 37.1806,
+    "lng": -122.2225,
+    "address": "21600 Big Basin Way, Boulder Creek, CA 95006",
+    "open_hours": {
+      "mon": "8:00 AM - sunset",
+      "tue": "8:00 AM - sunset",
+      "wed": "8:00 AM - sunset",
+      "thu": "8:00 AM - sunset",
+      "fri": "8:00 AM - sunset",
+      "sat": "8:00 AM - sunset",
+      "sun": "8:00 AM - sunset"
+    },
+    "duration_min": 180,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "redwoods",
+      "waterfall",
+      "nature"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bing_concert_hall",
+    "name": "Bing Concert Hall",
+    "description": "World-class 750-seat concert venue hosting Stanford Symphony, classical ensembles, and guest performers. Intimate acoustic design with cutting-edge building materials.",
+    "lat": 37.428,
+    "lng": -122.165,
+    "address": "641 Serra Street, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "varies",
+      "tue": "varies",
+      "wed": "varies",
+      "thu": "varies",
+      "fri": "varies",
+      "sat": "varies",
+      "sun": "varies"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "music",
+      "concert",
+      "arts",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bird_dog",
+    "name": "Bird Dog",
+    "description": "Contemporary American gastropub with craft cocktails, seasonal small plates, and a lively bar scene. Industrial-meets-rustic aesthetic with open kitchen and local artwork.",
+    "lat": 37.4397,
+    "lng": -122.1475,
+    "address": "420 Ramona Street, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "16:00-23:00",
+      "tue": "16:00-23:00",
+      "wed": "16:00-23:00",
+      "thu": "16:00-23:00",
+      "fri": "16:00-00:00",
+      "sat": "11:00-00:00",
+      "sun": "11:00-22:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "bar",
+      "gastropub",
+      "cocktails",
+      "dining"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "birdsong",
+    "name": "Birdsong",
+    "description": "San Francisco Michelin-starred restaurant by Chef/Owner Evan Funke (also Lazy Bear), serving precise French-inflected cuisine at an intimate 12-seat chef's counter with theatrical presentation. Exceptional multi-course tasting menu.",
+    "lat": 37.7944,
+    "lng": -122.3988,
+    "address": "2250 Chestnut Street, San Francisco, CA 94123",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 10:00 PM",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "french",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bistro_vida",
+    "name": "Bistro Vida",
+    "description": "Intimate French bistro with charcuterie boards, braised meats, and French wine list. Exposed brick, candlelit tables, and a warm atmosphere perfect for date nights.",
+    "lat": 37.4423,
+    "lng": -122.1408,
+    "address": "235 Hamilton Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "17:30-21:30",
+      "wed": "17:30-21:30",
+      "thu": "17:30-21:30",
+      "fri": "11:30-14:00, 17:30-22:00",
+      "sat": "17:30-22:00",
+      "sun": "17:30-21:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "french",
+      "bistro",
+      "dining"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "blue_bottle_mint",
+    "name": "Blue Bottle Coffee Mint Plaza",
+    "description": "Flagship cafe in SoMa's quiet plaza with single-origin pour-overs, Japanese-style precision, and minimalist aesthetic.",
+    "lat": 37.7825,
+    "lng": -122.3974,
+    "address": "66 Mint Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "07:00-17:00",
+      "tue": "07:00-17:00",
+      "wed": "07:00-17:00",
+      "thu": "07:00-17:00",
+      "fri": "07:00-18:00",
+      "sat": "08:00-18:00",
+      "sun": "09:00-17:00"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "coffee",
+      "specialty",
+      "pour_over",
+      "minimal"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bonny_doon_vineyard",
+    "name": "Bonny Doon Vineyard",
+    "description": "Eccentric and innovative Santa Cruz Mountains winery known for creative blends and quirky labels. Intimate tasting room with knowledgeable staff and dramatic vineyard views.",
+    "lat": 37.1025,
+    "lng": -122.1642,
+    "address": "2010 Bonny Doon Rd, Santa Cruz, CA 95060",
+    "open_hours": {
+      "mon": "Closed",
+      "tue": "11:00 AM - 5:00 PM",
+      "wed": "11:00 AM - 5:00 PM",
+      "thu": "11:00 AM - 5:00 PM",
+      "fri": "11:00 AM - 5:00 PM",
+      "sat": "11:00 AM - 5:00 PM",
+      "sun": "11:00 AM - 5:00 PM"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "tasting",
+      "vineyard",
+      "scenic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "bryant_street",
+    "name": "Bryant Street (Palo Alto)",
+    "description": "Eclectic mixed-use street with craft cocktail bars, wine shops, indie bookstores, and niche retailers. Tree-lined sidewalks with a bohemian, artistic neighborhood vibe.",
+    "lat": 37.4381,
+    "lng": -122.1413,
+    "address": "Bryant Street, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "11:00-20:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "bars",
+      "neighborhood"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "burgess_park",
+    "name": "Burgess Park",
+    "description": "Scenic 40-acre park with wetland preserve, fishing pond, picnic areas, and nature trails. Birdwatching hotspot with herons, egrets, and seasonal migrant species.",
+    "lat": 37.459,
+    "lng": -122.0895,
+    "address": "1600 Embarcadero Road, Palo Alto, CA 94303",
+    "open_hours": {
+      "mon": "sunrise-sunset",
+      "tue": "sunrise-sunset",
+      "wed": "sunrise-sunset",
+      "thu": "sunrise-sunset",
+      "fri": "sunrise-sunset",
+      "sat": "sunrise-sunset",
+      "sun": "sunrise-sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "park",
+      "nature",
+      "birdwatching",
+      "fishing"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "burma_superstar_shan",
+    "name": "Burma Superstar Shan Noodles",
+    "description": "Popular Burmese restaurant famous for shan noodles with crispy noodles, fish broth, and lime; casual Mission location always packed.",
+    "lat": 37.7585,
+    "lng": -122.4078,
+    "address": "309 Valencia Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "11:00-15:00",
+      "tue": "11:00-15:00",
+      "wed": "11:00-15:00",
+      "thu": "17:00-22:00",
+      "fri": "11:00-15:00, 17:00-22:00",
+      "sat": "17:00-22:00",
+      "sun": "17:00-22:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "burmese",
+      "casual"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "cakebread_cellars",
+    "name": "Cakebread Cellars",
+    "description": "Family-owned Rutherford estate producing benchmark Cabernet Sauvignon and Chardonnay with meticulous attention to terroir, opulence, and balance. Welcoming tastings celebrate California's winemaking excellence.",
+    "lat": 38.4753,
+    "lng": -122.4631,
+    "address": "8300 St. Helena Highway, Rutherford, CA 94573",
+    "open_hours": {
+      "mon": "10:00 AM - 5:00 PM",
+      "tue": "10:00 AM - 5:00 PM",
+      "wed": "10:00 AM - 5:00 PM",
+      "thu": "10:00 AM - 5:00 PM",
+      "fri": "10:00 AM - 5:00 PM",
+      "sat": "10:00 AM - 5:00 PM",
+      "sun": "10:00 AM - 5:00 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "cabernet",
+      "chardonnay"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "calafia_cafe",
+    "name": "Calafia Cafe",
+    "description": "Mediterranean-inspired cafe with creamy lattes, fresh pastries, and light lunch plates. Warm, inviting space with artwork, outdoor seating, and a neighborhood feel.",
+    "lat": 37.4417,
+    "lng": -122.1425,
+    "address": "196 University Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "07:00-19:00",
+      "tue": "07:00-19:00",
+      "wed": "07:00-19:00",
+      "thu": "07:00-19:00",
+      "fri": "07:00-20:00",
+      "sat": "08:00-20:00",
+      "sun": "08:00-19:00"
+    },
+    "duration_min": 50,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "cafe",
+      "mediterranean",
+      "pastries"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "california_academy_sciences",
+    "name": "California Academy of Sciences",
+    "description": "Natural history museum with living roof, aquarium, planetarium, and rainforest dome; hands-on exhibits for all ages in Golden Gate Park.",
+    "lat": 37.7694,
+    "lng": -122.4629,
+    "address": "55 Music Concourse Drive, San Francisco, CA 94118",
+    "open_hours": {
+      "mon": "09:30-17:00",
+      "tue": "09:30-17:00",
+      "wed": "09:30-17:00",
+      "thu": "09:30-17:00",
+      "fri": "09:30-21:00",
+      "sat": "09:30-17:00",
+      "sun": "11:00-17:00"
+    },
+    "duration_min": 180,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "science",
+      "aquarium",
+      "nature"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "cantor_arts_center",
+    "name": "Cantor Arts Center",
+    "description": "World-class art museum with medieval sculptures, Old Masters, contemporary installations, and rotating exhibitions across 24 galleries. Free admission.",
+    "lat": 37.4269,
+    "lng": -122.1608,
+    "address": "328 Lomita Drive, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "11:00-17:00",
+      "wed": "11:00-17:00",
+      "thu": "11:00-17:00",
+      "fri": "11:00-17:00",
+      "sat": "10:00-17:00",
+      "sun": "12:00-17:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "art",
+      "museum",
+      "education",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "castello_di_amorosa",
+    "name": "Castello di Amorosa",
+    "description": "Breathtaking 121,000 sq ft Italian castle reproduction in Napa Valley's premier tasting destination with sweeping vineyard vistas. Underground caves and multiple tasting rooms provide an immersive medieval wine experience.",
+    "lat": 38.5214,
+    "lng": -122.3903,
+    "address": "4045 St. Helena Highway North, Calistoga, CA 94515",
+    "open_hours": {
+      "mon": "10:00 AM - 5:00 PM",
+      "tue": "10:00 AM - 5:00 PM",
+      "wed": "10:00 AM - 5:00 PM",
+      "thu": "10:00 AM - 5:00 PM",
+      "fri": "10:00 AM - 5:00 PM",
+      "sat": "10:00 AM - 5:00 PM",
+      "sun": "10:00 AM - 5:00 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "castle",
+      "architecture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "castle_rock_state_park",
+    "name": "Castle Rock State Park",
+    "description": "Dramatic sandstone formations and scenic ridgeline with sweeping bay views. Castle Rock summit offers stunning vistas and excellent hiking on well-maintained trails.",
+    "lat": 37.2188,
+    "lng": -122.1427,
+    "address": "15000 Page Mill Road, Los Altos Hills, CA 94022",
+    "open_hours": {
+      "mon": "8:00 AM - sunset",
+      "tue": "8:00 AM - sunset",
+      "wed": "8:00 AM - sunset",
+      "thu": "8:00 AM - sunset",
+      "fri": "8:00 AM - sunset",
+      "sat": "8:00 AM - sunset",
+      "sun": "8:00 AM - sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "scenic",
+      "rock_formations",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "castro_theatre_tour",
+    "name": "Castro Theatre Historic Cinema",
+    "description": "1922 Spanish Baroque movie palace with ornate red velvet and gilt interior; catch classic films and silents on the Mighty Wurlitzer organ.",
+    "lat": 37.7624,
+    "lng": -122.435,
+    "address": "429 Castro Street, San Francisco, CA 94114",
+    "open_hours": {
+      "mon": "19:00-22:30",
+      "tue": "19:00-22:30",
+      "wed": "19:00-22:30",
+      "thu": "19:00-22:30",
+      "fri": "19:00-22:30",
+      "sat": "14:00-22:30",
+      "sun": "14:00-22:30"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "cinema",
+      "historic",
+      "art_deco",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "chez_panisse",
+    "name": "Chez Panisse",
+    "description": "Berkeley Michelin-starred legend founded by Chef Alice Waters, pioneering farm-to-table movement with seasonal menus and passionate local sourcing. Cultural institution celebrating California's culinary revolution.",
+    "lat": 37.8718,
+    "lng": -122.2727,
+    "address": "1517 Shattuck Avenue, Berkeley, CA 94709",
+    "open_hours": {
+      "mon": "5:30 PM - 11:00 PM",
+      "tue": "5:30 PM - 11:00 PM",
+      "wed": "5:30 PM - 11:00 PM",
+      "thu": "5:30 PM - 11:00 PM",
+      "fri": "5:30 PM - 11:30 PM",
+      "sat": "5:00 PM - 11:30 PM",
+      "sun": "5:00 PM - 11:00 PM"
+    },
+    "duration_min": 150,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "farm-to-table",
+      "berkeley"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "chez_tj",
+    "name": "Chez TJ",
+    "description": "Mountain View Michelin-starred restaurant delivering progressive California French cuisine with artful presentation and impeccable service. Sophisticated tasting menu in intimate neighborhood setting.",
+    "lat": 37.4048,
+    "lng": -122.0788,
+    "address": "938 Villa Street, Mountain View, CA 94041",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:00 PM - 9:30 PM",
+      "wed": "5:00 PM - 9:30 PM",
+      "thu": "5:00 PM - 9:30 PM",
+      "fri": "5:00 PM - 9:30 PM",
+      "sat": "5:00 PM - 9:30 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "french",
+      "california"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "childrens_discovery_museum",
+    "name": "Children's Discovery Museum of San Jose",
+    "description": "Interactive play-based learning museum with 150+ hands-on exhibits for young explorers. Splash areas, ride-on vehicles, and creative studios.",
+    "lat": 37.3298,
+    "lng": -121.8887,
+    "address": "180 Woz Way, San Jose, CA 95110",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "09:30-13:00",
+      "wed": "09:30-13:00",
+      "thu": "09:30-13:00",
+      "fri": "09:30-13:00",
+      "sat": "09:30-16:30",
+      "sun": "09:30-16:30"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "high",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "kids",
+      "interactive",
+      "learning"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "chinatown_explore",
+    "name": "Chinatown Dim Sum & Exploration",
+    "description": "Historic 150-year-old neighborhood dense with Grant Avenue's dragon lanterns, dim sum parlors, herb shops, and Tin How Temple accessible via narrow alleys.",
+    "lat": 37.7942,
+    "lng": -122.4077,
+    "address": "Chinatown, San Francisco, CA 94108",
+    "open_hours": {
+      "mon": "09:00-18:00",
+      "tue": "09:00-18:00",
+      "wed": "09:00-18:00",
+      "thu": "09:00-18:00",
+      "fri": "09:00-18:00",
+      "sat": "09:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "culture",
+      "historic",
+      "neighborhood"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "coal_creek_preserve",
+    "name": "Coal Creek Preserve",
+    "description": "Quiet redwood preserve in remote canyon with pristine creek and mossy forest. Minimal crowds and excellent for peaceful forest immersion off main trails.",
+    "lat": 37.3678,
+    "lng": -122.3142,
+    "address": "Coal Creek Road, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "redwoods",
+      "creek",
+      "quiet"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "coit_tower_visit",
+    "name": "Coit Tower & Summit Views",
+    "description": "1933 Art Deco tower atop Telegraph Hill with murals, 360-degree city vistas, and elevator to crown level; surrounded by charming Telegraph Hill neighborhood.",
+    "lat": 37.8024,
+    "lng": -122.4057,
+    "address": "1 Telegraph Hill Boulevard, San Francisco, CA 94133",
+    "open_hours": {
+      "mon": "10:00-17:30",
+      "tue": "10:00-17:30",
+      "wed": "10:00-17:30",
+      "thu": "10:00-17:30",
+      "fri": "10:00-17:30",
+      "sat": "10:00-18:00",
+      "sun": "10:00-18:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "tower",
+      "views",
+      "art",
+      "historic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "computer_history_museum",
+    "name": "Computer History Museum",
+    "description": "Explore 75+ years of computing innovation through interactive exhibits and rare artifacts. Journey from mechanical calculators to modern AI.",
+    "lat": 37.4152,
+    "lng": -122.0747,
+    "address": "1401 N Shoreline Blvd, Mountain View, CA 94043",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "10:00-17:00",
+      "thu": "10:00-17:00",
+      "fri": "10:00-17:00",
+      "sat": "10:00-17:00",
+      "sun": "10:00-17:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "tech",
+      "history",
+      "interactive"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "conservatory_flowers",
+    "name": "Conservatory of Flowers",
+    "description": "1879 Victorian glass greenhouse with palm jungle, orchids, carnivorous plants, and tropical exhibits in Golden Gate Park.",
+    "lat": 37.7719,
+    "lng": -122.4637,
+    "address": "100 John F Kennedy Drive, San Francisco, CA 94118",
+    "open_hours": {
+      "mon": "10:00-16:30",
+      "tue": "10:00-16:30",
+      "wed": "10:00-16:30",
+      "thu": "10:00-16:30",
+      "fri": "10:00-16:30",
+      "sat": "10:00-17:30",
+      "sun": "10:00-17:30"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "botanical",
+      "historic",
+      "plants",
+      "greenhouse"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "coupa_cafe",
+    "name": "Coupa Cafe",
+    "description": "Legendary open-air spot on Stanford campus where tech founders brainstorm over artisan coffee and fresh pastries. Intimate tables, free WiFi, and the unofficial startup networking hub.",
+    "lat": 37.4286,
+    "lng": -122.1604,
+    "address": "459 Lausen Mall, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "06:30-19:00",
+      "tue": "06:30-19:00",
+      "wed": "06:30-19:00",
+      "thu": "06:30-19:00",
+      "fri": "06:30-19:00",
+      "sat": "07:00-18:00",
+      "sun": "07:00-18:00"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "cafe",
+      "coffee",
+      "tech",
+      "startup"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "crissy_field_beach",
+    "name": "Crissy Field Beach & Promenade",
+    "description": "Former airfield transformed into sandy beach with unobstructed Golden Gate Bridge views, picnic areas, and direct water access for windsurfing.",
+    "lat": 37.8018,
+    "lng": -122.4506,
+    "address": "1199 East Beach, San Francisco, CA 94129",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "beach",
+      "views",
+      "water",
+      "picnic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "crystal_springs_trail",
+    "name": "Crystal Springs Trail",
+    "description": "Scenic 10-mile reservoir trail with forest and oak woodland alongside pristine water. Rolling terrain perfect for day hiking with peaceful bay views from high points.",
+    "lat": 37.4455,
+    "lng": -122.1885,
+    "address": "Crystal Springs Road, San Mateo County, CA 94401",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 150,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "reservoir",
+      "scenic",
+      "forest"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "cupertino_library_reading",
+    "name": "Cupertino Library Reading & Study Space",
+    "description": "Modern, light-filled library with quiet reading areas, tech resources, and community spaces. Beautiful architecture perfect for studying.",
+    "lat": 37.3234,
+    "lng": -122.0082,
+    "address": "10800 Torre Ave, Cupertino, CA 95014",
+    "open_hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-21:00",
+      "sat": "10:00-18:30",
+      "sun": "10:00-18:30"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "library",
+      "reading",
+      "study",
+      "free"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "de_young_museum",
+    "name": "de Young Museum",
+    "description": "Copper-clad art museum in Golden Gate Park displaying American art, textiles, and international works with a 360-degree observation tower.",
+    "lat": 37.7691,
+    "lng": -122.4686,
+    "address": "50 Hagiwara Tea Garden Drive, San Francisco, CA 94118",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "09:30-17:15",
+      "wed": "09:30-17:15",
+      "thu": "09:30-17:15",
+      "fri": "09:30-17:15",
+      "sat": "09:30-17:15",
+      "sun": "09:30-17:15"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "art",
+      "park",
+      "tower"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "devils_slide_trail",
+    "name": "Devil's Slide Trail",
+    "description": "Spectacular 6-mile coastal bluff trail with 1,000-foot drops and panoramic ocean views. Dramatic landscape carved by legendary landslides with wildflowers blooming spring through summer.",
+    "lat": 37.5614,
+    "lng": -122.5195,
+    "address": "Pacific, CA 94044",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 180,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": false,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "scenic",
+      "challenging",
+      "coastal"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "dolores_park_picnic",
+    "name": "Dolores Park Picnic & Views",
+    "description": "14-acre valley park with wide lawns, Twin Peaks backdrop, and weekend scene; perfect for picnicking, people-watching, and sunbathing.",
+    "lat": 37.7599,
+    "lng": -122.4262,
+    "address": "19 Dolores Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "06:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "06:00-22:00",
+      "sun": "06:00-22:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "park",
+      "picnic",
+      "social",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "domaine_carneros",
+    "name": "Domaine Carneros",
+    "description": "Champagne-style sparkling wines in a stunning château overlooking the Carneros region, with elegant seated tastings on the terrace. Premium production facility where you can watch bottles age in traditional méthode champenoise style.",
+    "lat": 38.2575,
+    "lng": -122.2814,
+    "address": "1240 Duhig Road, Napa, CA 94559",
+    "open_hours": {
+      "mon": "10:00 AM - 6:00 PM",
+      "tue": "10:00 AM - 6:00 PM",
+      "wed": "10:00 AM - 6:00 PM",
+      "thu": "10:00 AM - 6:00 PM",
+      "fri": "10:00 AM - 6:00 PM",
+      "sat": "10:00 AM - 6:00 PM",
+      "sun": "10:00 AM - 6:00 PM"
+    },
+    "duration_min": 150,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "sparkling",
+      "tasting",
+      "napa"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "domaine_chandon",
+    "name": "Domaine Chandon",
+    "description": "Elegant sparkling wine estate in Yountville crafted by the French Moët & Chandon house, with beautiful tasting rooms and manicured gardens. Experience méthode champenoise wines in a refined California setting.",
+    "lat": 38.5556,
+    "lng": -122.3067,
+    "address": "1 California Drive, Yountville, CA 94599",
+    "open_hours": {
+      "mon": "10:00 AM - 6:00 PM",
+      "tue": "10:00 AM - 6:00 PM",
+      "wed": "10:00 AM - 6:00 PM",
+      "thu": "10:00 AM - 6:00 PM",
+      "fri": "10:00 AM - 6:00 PM",
+      "sat": "10:00 AM - 6:00 PM",
+      "sun": "10:00 AM - 6:00 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "sparkling",
+      "napa",
+      "yountville",
+      "tasting"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "duartes_tavern",
+    "name": "Duarte's Tavern",
+    "description": "Legendary 1894 saloon and restaurant famous for artichoke soup and fresh seafood. Historic watering hole with old-world charm and coastal hospitality.",
+    "lat": 37.2541,
+    "lng": -122.3822,
+    "address": "202 Stage Rd, Pescadero, CA 94060",
+    "open_hours": {
+      "mon": "Closed",
+      "tue": "11:00 AM - 9:00 PM",
+      "wed": "11:00 AM - 9:00 PM",
+      "thu": "11:00 AM - 9:00 PM",
+      "fri": "11:00 AM - 10:00 PM",
+      "sat": "10:00 AM - 10:00 PM",
+      "sun": "10:00 AM - 9:00 PM"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "dining",
+      "historic",
+      "local",
+      "soup"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "edgewood_park",
+    "name": "Edgewood Park and Preserve",
+    "description": "Rare serpentine grassland preserve with stunning wildflower displays and native plants. Spring transforms hillsides into colorful quilts of Indian paintbrush and lupine.",
+    "lat": 37.4142,
+    "lng": -122.2058,
+    "address": "Mountain Home Road, Redwood City, CA 94062",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "wildflowers",
+      "preserve",
+      "spring"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "el_corte_madera_creek",
+    "name": "El Corte de Madera Creek Preserve",
+    "description": "Remote redwood preserve with pristine creek and old-growth forest. Excellent destination for solitude and nature immersion with minimal visitor impact.",
+    "lat": 37.405,
+    "lng": -122.2933,
+    "address": "Skyline Boulevard, Portola Valley, CA 94028",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 150,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "redwoods",
+      "creek",
+      "solitude"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "el_farolito_burritos",
+    "name": "El Farolito 24H Burritos",
+    "description": "24-hour Mission fixture with massive flour burritos, late-night crowds, and minimal frills; perfect for post-bar carbs or early morning.",
+    "lat": 37.7598,
+    "lng": -122.41,
+    "address": "2779 Mission Street, San Francisco, CA 94110",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 30,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "burrito",
+      "mexican",
+      "24h"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "evvia_estiatorio",
+    "name": "Evvia Estiatorio",
+    "description": "Upscale Mediterranean restaurant with wood-fired pasta, fresh seafood, and wine cellar showcasing Italian and Greek vintages. Open kitchen with marble countertops.",
+    "lat": 37.4419,
+    "lng": -122.145,
+    "address": "420 Emerson Street, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "11:30-14:00, 17:30-21:30",
+      "tue": "11:30-14:00, 17:30-21:30",
+      "wed": "11:30-14:00, 17:30-21:30",
+      "thu": "11:30-14:00, 17:30-21:30",
+      "fri": "11:30-14:00, 17:30-22:30",
+      "sat": "17:30-22:30",
+      "sun": "17:30-21:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "mediterranean",
+      "fine-dining",
+      "restaurant"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "exploratorium_science",
+    "name": "Exploratorium",
+    "description": "Interactive science museum at Pier 15 with 650+ hands-on exhibits exploring light, sound, motion, and the human experience with a real fog bridge.",
+    "lat": 37.7974,
+    "lng": -122.3973,
+    "address": "Pier 15, San Francisco, CA 94111",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00-17:00",
+      "wed": "10:00-17:00",
+      "thu": "10:00-17:00",
+      "fri": "10:00-18:00",
+      "sat": "10:00-18:00",
+      "sun": "11:00-17:00"
+    },
+    "duration_min": 180,
+    "budget_tier": "mid",
+    "energy": "high",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "science",
+      "interactive",
+      "kids"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "far_niente",
+    "name": "Far Niente",
+    "description": "Oakville estate since 1885 producing Cabernet Sauvignon and Chardonnay of legendary status, featuring magnificent limestone wine cave and manicured grounds. Sophisticated tastings available by appointment only.",
+    "lat": 38.4919,
+    "lng": -122.4656,
+    "address": "13585 Oak Hill Avenue, Oakville, CA 94562",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00 AM - 4:00 PM",
+      "wed": "10:00 AM - 4:00 PM",
+      "thu": "10:00 AM - 4:00 PM",
+      "fri": "10:00 AM - 4:00 PM",
+      "sat": "10:00 AM - 4:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 150,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "luxury",
+      "cabernet",
+      "cave tour"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "ferry_building_marketplace",
+    "name": "Ferry Building Marketplace",
+    "description": "Historic 1898 Beaux-Arts terminal transformed into gourmet food hall with artisan vendors, farmers market (Tues/Thurs/Sat), and bay-view dining.",
+    "lat": 37.7852,
+    "lng": -122.3947,
+    "address": "1 Ferry Building, San Francisco, CA 94111",
+    "open_hours": {
+      "mon": "10:00-18:00",
+      "tue": "10:00-18:00",
+      "wed": "10:00-18:00",
+      "thu": "10:00-18:00",
+      "fri": "10:00-19:00",
+      "sat": "09:00-17:00",
+      "sun": "11:00-17:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "market",
+      "historic",
+      "waterfront"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "filoli_gardens",
+    "name": "Filoli Historic House & Gardens",
+    "description": "16,000-seat Georgian Revival mansion with 16 acres of formal gardens featuring rose gardens, sunken gardens, and manicured hedgerows. Seasonal tours and garden walks.",
+    "lat": 37.48,
+    "lng": -122.1033,
+    "address": "86 Old Canada Road, Woodside, CA 94062",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00-15:00",
+      "wed": "10:00-15:00",
+      "thu": "10:00-15:00",
+      "fri": "10:00-15:00",
+      "sat": "10:00-16:00",
+      "sun": "11:00-16:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "gardens",
+      "historic",
+      "architecture",
+      "tour"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "fishermans_wharf_tourist",
+    "name": "Fisherman's Wharf & Waterfront",
+    "description": "Working waterfront district with seafood restaurants, sea lion colonies, fishing boats, Pier 39 shops, and sourdough bread bowls.",
+    "lat": 37.8087,
+    "lng": -122.4098,
+    "address": "Fisherman's Wharf, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "09:00-21:00",
+      "tue": "09:00-21:00",
+      "wed": "09:00-21:00",
+      "thu": "09:00-21:00",
+      "fri": "09:00-22:00",
+      "sat": "08:00-22:00",
+      "sun": "08:00-21:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "waterfront",
+      "food",
+      "shopping",
+      "sightseeing"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "foothills_park",
+    "name": "Foothills Park",
+    "description": "Premier valley-view preserve with oak woodland and scenic trail system. 1,500-acre park offering peaceful hiking with panoramic Santa Clara Valley vistas.",
+    "lat": 37.3317,
+    "lng": -122.1783,
+    "address": "3000 Page Mill Road, Palo Alto, CA 94306",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "views",
+      "oak_woodland",
+      "scenic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "frogs_leap",
+    "name": "Frog's Leap Winery",
+    "description": "Sustainable Napa Valley icon pioneering organic and biodynamic viticulture since 1981, known for elegant Zinfandel and Cabernet Sauvignon. Charming redwood barn tasting room reflects the winery's quirky, wine-first philosophy.",
+    "lat": 38.4547,
+    "lng": -122.4633,
+    "address": "8815 Conn Creek Road, Rutherford, CA 94573",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00 AM - 4:00 PM",
+      "wed": "10:00 AM - 4:00 PM",
+      "thu": "10:00 AM - 4:00 PM",
+      "fri": "10:00 AM - 4:00 PM",
+      "sat": "10:00 AM - 4:00 PM",
+      "sun": "10:00 AM - 4:00 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "organic",
+      "sustainable"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "golden_gate_bridge_walk",
+    "name": "Golden Gate Bridge Walk",
+    "description": "Iconic 1.7-mile pedestrian crossing of the world-famous International Orange suspension bridge with panoramic Bay views and Marin Headlands access.",
+    "lat": 37.8199,
+    "lng": -122.4783,
+    "address": "Golden Gate Bridge, San Francisco, CA 94129",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "iconic",
+      "bridge",
+      "views",
+      "walking"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "golden_gate_park_east",
+    "name": "Golden Gate Park (East Section) Exploration",
+    "description": "1000-acre urban park's eastern section featuring gardens, museums, and meadows; walk from Panhandle to Conservatory Valley with museums.",
+    "lat": 37.7694,
+    "lng": -122.46,
+    "address": "Golden Gate Park, San Francisco, CA 94118",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 150,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "park",
+      "gardens",
+      "walking",
+      "outdoors"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "googleplex_sculpture_loop",
+    "name": "Googleplex Outdoor Sculpture Loop",
+    "description": "Walk Google's picturesque campus to view the Android statue garden, colorful sculptures, and innovative architecture. Self-guided free access.",
+    "lat": 37.4219,
+    "lng": -122.086,
+    "address": "1600 Amphitheatre Parkway, Mountain View, CA 94043",
+    "open_hours": {
+      "mon": "07:00-19:00",
+      "tue": "07:00-19:00",
+      "wed": "07:00-19:00",
+      "thu": "07:00-19:00",
+      "fri": "07:00-19:00",
+      "sat": "09:00-17:00",
+      "sun": "09:00-17:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "tech",
+      "art",
+      "walking",
+      "free"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "haight_ashbury_vintage",
+    "name": "Haight-Ashbury Counterculture Shopping",
+    "description": "Historic 1960s hippie district dense with vintage clothing, record shops, psychedelic murals, and Ben & Jerry's; vibrant street culture and restaurants.",
+    "lat": 37.7694,
+    "lng": -122.4463,
+    "address": "Haight Street, San Francisco, CA 94117",
+    "open_hours": {
+      "mon": "10:00-19:00",
+      "tue": "10:00-19:00",
+      "wed": "10:00-19:00",
+      "thu": "10:00-19:00",
+      "fri": "10:00-20:00",
+      "sat": "10:00-20:00",
+      "sun": "11:00-19:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "vintage",
+      "culture",
+      "neighborhood"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "half_moon_bay_distillery",
+    "name": "Half Moon Bay Distillery",
+    "description": "Craft distillery producing small-batch spirits with local ingredients and character. Tasting room and tours showcase artisanal techniques and creative spirits.",
+    "lat": 37.4625,
+    "lng": -122.4295,
+    "address": "131 Stone Pine Rd, Half Moon Bay, CA 94019",
+    "open_hours": {
+      "mon": "Closed",
+      "tue": "1:00 PM - 6:00 PM",
+      "wed": "1:00 PM - 6:00 PM",
+      "thu": "1:00 PM - 6:00 PM",
+      "fri": "1:00 PM - 7:00 PM",
+      "sat": "12:00 PM - 7:00 PM",
+      "sun": "12:00 PM - 5:00 PM"
+    },
+    "duration_min": 75,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "distillery",
+      "tasting",
+      "spirits",
+      "craft"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "half_moon_bay_state_beach",
+    "name": "Half Moon Bay State Beach",
+    "description": "Wide sandy beach framed by dramatic sea cliffs, perfect for sunset walks and tide pool exploration. Pristine Pacific shoreline with gentle waves ideal for families.",
+    "lat": 37.4619,
+    "lng": -122.4287,
+    "address": "Half Moon Bay, CA 94019",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "beach",
+      "scenic",
+      "tide_pools",
+      "sunset"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "harley_farms_goat_dairy",
+    "name": "Harley Farms Goat Dairy",
+    "description": "Working goat dairy farm offering artisanal cheese tastings and farm tours. Watch cheesemakers at work and taste award-winning cheeses in rustic farm setting.",
+    "lat": 37.2445,
+    "lng": -122.3622,
+    "address": "205 North St, Pescadero, CA 94060",
+    "open_hours": {
+      "mon": "Closed",
+      "tue": "10:00 AM - 4:00 PM",
+      "wed": "10:00 AM - 4:00 PM",
+      "thu": "10:00 AM - 4:00 PM",
+      "fri": "10:00 AM - 4:00 PM",
+      "sat": "10:00 AM - 4:00 PM",
+      "sun": "10:00 AM - 4:00 PM"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "farm",
+      "cheese",
+      "tasting",
+      "agritourism"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "hayes_valley_stroll",
+    "name": "Hayes Valley Shopping & Dining",
+    "description": "Charming neighborhood west of Civic Center with boutique shops, design studios, independent restaurants, and café culture.",
+    "lat": 37.7749,
+    "lng": -122.4264,
+    "address": "Hayes Valley, San Francisco, CA 94117",
+    "open_hours": {
+      "mon": "10:00-20:00",
+      "tue": "10:00-20:00",
+      "wed": "10:00-20:00",
+      "thu": "10:00-20:00",
+      "fri": "10:00-21:00",
+      "sat": "10:00-21:00",
+      "sun": "11:00-20:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "dining",
+      "neighborhood",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "heritage_rose_garden",
+    "name": "San Jose Heritage Rose Garden",
+    "description": "Beautiful rose garden with 3,500 plants and nearly 3,000 rare varieties. Scenic riverside location perfect for peaceful strolls and photography.",
+    "lat": 37.3367,
+    "lng": -121.8778,
+    "address": "Spring St & Guadalupe River Park, San Jose, CA 95110",
+    "open_hours": {
+      "mon": "05:30-20:30",
+      "tue": "05:30-20:30",
+      "wed": "05:30-20:30",
+      "thu": "05:30-20:30",
+      "fri": "05:30-20:30",
+      "sat": "05:30-20:30",
+      "sun": "05:30-20:30"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "garden",
+      "nature",
+      "roses",
+      "free"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "hess_persson_estates",
+    "name": "Hess Collection Winery",
+    "description": "Mount Veeder estate combining world-class Cabernet Sauvignon with impressive contemporary art collection and dramatic mountain vineyard views. Modern tasting rooms provide refined wine education experiences.",
+    "lat": 38.4456,
+    "lng": -122.5072,
+    "address": "4411 Redwood Road, Napa, CA 94558",
+    "open_hours": {
+      "mon": "10:00 AM - 4:00 PM",
+      "tue": "10:00 AM - 4:00 PM",
+      "wed": "10:00 AM - 4:00 PM",
+      "thu": "10:00 AM - 4:00 PM",
+      "fri": "10:00 AM - 4:00 PM",
+      "sat": "10:00 AM - 4:00 PM",
+      "sun": "10:00 AM - 4:00 PM"
+    },
+    "duration_min": 150,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "art",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "hicklebees_bookstore",
+    "name": "Hicklebee's Children's Bookstore",
+    "description": "Independent children's bookstore with curated selection, story times, and knowledgeable staff. Community hub for young readers and families.",
+    "lat": 37.3363,
+    "lng": -121.8987,
+    "address": "1378 Lincoln Ave, San Jose, CA 95125",
+    "open_hours": {
+      "mon": "10:30-17:30",
+      "tue": "10:30-17:30",
+      "wed": "10:30-17:30",
+      "thu": "10:30-17:30",
+      "fri": "10:30-18:00",
+      "sat": "10:00-18:00",
+      "sun": "11:00-17:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "bookstore",
+      "kids",
+      "reading",
+      "community"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "history_park_san_jose",
+    "name": "History Park at Kelley Park",
+    "description": "Historic village with period buildings, museums, and exhibitions showcasing Santa Clara Valley's rich cultural heritage and pioneer history.",
+    "lat": 37.2876,
+    "lng": -121.8788,
+    "address": "635 Phelan Ave, San Jose, CA 95112",
+    "open_hours": {
+      "mon": "09:00-16:00",
+      "tue": "09:00-16:00",
+      "wed": "09:00-16:00",
+      "thu": "09:00-16:00",
+      "fri": "09:00-16:00",
+      "sat": "12:00-16:00",
+      "sun": "12:00-16:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "history",
+      "museum",
+      "heritage",
+      "walking"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "hoover_tower",
+    "name": "Hoover Tower",
+    "description": "A 285-foot sandstone tower offering panoramic views of Silicon Valley, the bay, and distant mountains from the observation deck. Museum exhibits chronicle early 20th-century American history.",
+    "lat": 37.4263,
+    "lng": -122.1645,
+    "address": "Stanford University, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "10:00-16:30",
+      "tue": "10:00-16:30",
+      "wed": "10:00-16:30",
+      "thu": "10:00-16:30",
+      "fri": "10:00-16:30",
+      "sat": "10:00-16:30",
+      "sun": "12:00-16:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "views",
+      "history",
+      "tower",
+      "landmark"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "inglenook",
+    "name": "Inglenook",
+    "description": "Historic 1887 Napa Valley estate and film museum owned by Francis Ford Coppola, blending wine heritage with cinematic artistry. Exclusive wine tastings in restored Victorian buildings with views of the original vineyard plantings.",
+    "lat": 38.4889,
+    "lng": -122.4633,
+    "address": "1991 St. Helena Highway, Rutherford, CA 94573",
+    "open_hours": {
+      "mon": "11:00 AM - 5:00 PM",
+      "tue": "11:00 AM - 5:00 PM",
+      "wed": "11:00 AM - 5:00 PM",
+      "thu": "11:00 AM - 5:00 PM",
+      "fri": "11:00 AM - 5:00 PM",
+      "sat": "11:00 AM - 5:00 PM",
+      "sun": "11:00 AM - 5:00 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "history",
+      "estate",
+      "tasting"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "intel_museum",
+    "name": "Intel Museum",
+    "description": "Discover computing's evolution through Intel's perspective, featuring rare processors, memory chips, and interactive demonstrations of chip technology.",
+    "lat": 37.3862,
+    "lng": -121.9518,
+    "address": "2200 Mission College Blvd, Santa Clara, CA 95054",
+    "open_hours": {
+      "mon": "09:00-17:00",
+      "tue": "09:00-17:00",
+      "wed": "09:00-17:00",
+      "thu": "09:00-17:00",
+      "fri": "09:00-17:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "tech",
+      "history",
+      "semiconductor"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "iron_horse_vineyards",
+    "name": "Iron Horse Vineyards",
+    "description": "Sonoma's premier sparkling wine estate in the Green Valley with stunning views across 150 acres of vineyards toward San Francisco Bay. Relaxed outdoor tastings celebrate exceptional Chardonnay-based productions.",
+    "lat": 38.4261,
+    "lng": -122.7575,
+    "address": "9786 Ross Station Road, Sebastopol, CA 95472",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "11:00 AM - 4:30 PM",
+      "wed": "11:00 AM - 4:30 PM",
+      "thu": "11:00 AM - 4:30 PM",
+      "fri": "11:00 AM - 4:30 PM",
+      "sat": "11:00 AM - 4:30 PM",
+      "sun": "11:00 AM - 4:30 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "sparkling",
+      "sonoma",
+      "tasting",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "japanese_tea_garden",
+    "name": "Japanese Tea Garden",
+    "description": "19-acre serene garden with arched bridges, stone lanterns, moon gates, and traditional tea house serving matcha in Golden Gate Park.",
+    "lat": 37.7711,
+    "lng": -122.468,
+    "address": "75 Hagiwara Tea Garden Drive, San Francisco, CA 94118",
+    "open_hours": {
+      "mon": "09:00-17:00",
+      "tue": "09:00-17:00",
+      "wed": "09:00-17:00",
+      "thu": "09:00-17:00",
+      "fri": "09:00-17:00",
+      "sat": "08:00-18:00",
+      "sun": "08:00-18:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "garden",
+      "zen",
+      "tea",
+      "cultural"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "japantown_san_jose",
+    "name": "Japantown San Jose",
+    "description": "Historic cultural district with Japanese restaurants, shops, theaters, and community events. Sunday farmers market and traditional festivals.",
+    "lat": 37.342,
+    "lng": -121.8868,
+    "address": "Jackson Street between 3rd & 6th Streets, San Jose, CA 95112",
+    "open_hours": {
+      "mon": "12:00-20:00",
+      "tue": "12:00-20:00",
+      "wed": "12:00-20:00",
+      "thu": "12:00-20:00",
+      "fri": "12:00-21:00",
+      "sat": "12:00-21:00",
+      "sun": "10:00-20:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "high",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "cultural",
+      "shopping",
+      "dining",
+      "district"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "junior_museum_zoo",
+    "name": "Junior Museum & Zoo (Palo Alto)",
+    "description": "Family-friendly museum with interactive nature exhibits, small-animal zoo featuring mountain lions, owls, and snakes, plus nature trails and creek exploration.",
+    "lat": 37.4306,
+    "lng": -122.1223,
+    "address": "1451 Middle Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "09:00-16:00",
+      "wed": "09:00-16:00",
+      "thu": "09:00-16:00",
+      "fri": "09:00-16:00",
+      "sat": "10:00-17:00",
+      "sun": "12:00-17:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "zoo",
+      "museum",
+      "family",
+      "nature"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "la_honda_creek",
+    "name": "La Honda Creek Open Space Preserve",
+    "description": "Secluded redwood canyon with mossy creek flowing through old-growth forest. Peaceful preserve with minimal crowds perfect for nature immersion and bird watching.",
+    "lat": 37.355,
+    "lng": -122.284,
+    "address": "La Honda Road, Woodside, CA 94062",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "redwoods",
+      "creek",
+      "birdwatching"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "la_strada",
+    "name": "La Strada",
+    "description": "Stylish Italian trattoria with handmade pasta, risotto, and tiramisu. Warm lighting, linen tablecloths, and an inviting wine bar with an extensive list of Italian bottles.",
+    "lat": 37.4425,
+    "lng": -122.1428,
+    "address": "369 Lytton Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "11:30-14:00, 17:00-21:30",
+      "tue": "11:30-14:00, 17:00-21:30",
+      "wed": "11:30-14:00, 17:00-21:30",
+      "thu": "11:30-14:00, 17:00-21:30",
+      "fri": "11:30-14:00, 17:00-22:00",
+      "sat": "17:00-22:00",
+      "sun": "17:00-21:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "italian",
+      "restaurant",
+      "pasta"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "la_taqueria_tacos",
+    "name": "La Taqueria Classic Tacos",
+    "description": "Mission institution with grilled meats, hand-pressed tortillas, and straightforward taco excellence; no-frills counter service since 1994.",
+    "lat": 37.76,
+    "lng": -122.4134,
+    "address": "2889 Mission Street, San Francisco, CA 94110",
+    "open_hours": {
+      "mon": "11:00-20:00",
+      "tue": "11:00-20:00",
+      "wed": "11:00-20:00",
+      "thu": "11:00-20:00",
+      "fri": "11:00-21:00",
+      "sat": "11:00-21:00",
+      "sun": "11:00-20:00"
+    },
+    "duration_min": 30,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "tacos",
+      "mexican",
+      "casual"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "lands_end_trail",
+    "name": "Lands End Coastal Trail",
+    "description": "Dramatic 3.3-mile clifftop trail tracing SF's western edge with sea stacks, tide pools, and coastal vistas; accessible via Visitor Center.",
+    "lat": 37.7906,
+    "lng": -122.5105,
+    "address": "680 Point Lobos Avenue, San Francisco, CA 94121",
+    "open_hours": {
+      "mon": "08:00-17:00",
+      "tue": "08:00-17:00",
+      "wed": "08:00-17:00",
+      "thu": "08:00-17:00",
+      "fri": "08:00-17:00",
+      "sat": "08:00-17:00",
+      "sun": "08:00-17:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "coastal",
+      "ocean",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "lazy_bear",
+    "name": "Lazy Bear",
+    "description": "San Francisco neighborhood Michelin-starred restaurant showcasing inventive seasonal American cuisine with energetic open kitchen and convivial atmosphere. Chef Evan Funke's creative tasting menus in intimate wine-forward setting.",
+    "lat": 37.7709,
+    "lng": -122.4109,
+    "address": "3200 Mission Street, San Francisco, CA 94110",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 10:00 PM",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "american",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "levis_stadium_tour",
+    "name": "Levi's Stadium Tours",
+    "description": "Behind-the-scenes tours of the 49ers' home stadium including suites, field access, and 49ers Museum. Seasonal tour availability.",
+    "lat": 37.4051,
+    "lng": -121.9707,
+    "address": "4900 Marie P Debartolo Way, Santa Clara, CA 95054",
+    "open_hours": {
+      "mon": "09:00-17:00",
+      "tue": "09:00-17:00",
+      "wed": "09:00-17:00",
+      "thu": "09:00-17:00",
+      "fri": "09:00-17:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "sports",
+      "tour",
+      "stadium",
+      "museum"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "lick_observatory",
+    "name": "Lick Observatory",
+    "description": "Historic mountaintop observatory with spectacular views and educational programs. Telescopes, visitor center, and hiking trails on Mount Hamilton.",
+    "lat": 37.3416,
+    "lng": -121.6429,
+    "address": "7281 Mt Hamilton Rd, Mount Hamilton, CA 95140",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "closed",
+      "thu": "closed",
+      "fri": "closed",
+      "sat": "12:00-17:00",
+      "sun": "12:00-17:00"
+    },
+    "duration_min": 180,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "observatory",
+      "science",
+      "hiking",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "liholiho_yacht_club",
+    "name": "Liholiho Yacht Club Hawaiian Fusion",
+    "description": "Michelin-starred Hawaiian cuisine blending island traditions with California ingredients; chef Ravi Kapur's playful modern approach.",
+    "lat": 37.7799,
+    "lng": -122.4154,
+    "address": "1 Lombard Street, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "17:00-22:00",
+      "wed": "17:00-22:00",
+      "thu": "17:00-22:00",
+      "fri": "17:00-22:30",
+      "sat": "17:00-22:30",
+      "sun": "closed"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "hawaiian",
+      "michelin"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "linda_mar_beach",
+    "name": "Linda Mar Beach",
+    "description": "Sheltered sandy cove backed by sandy dunes and coastal bluffs in Pacifica. Excellent for swimming, picnicking, and spotting migrating gray whales in winter months.",
+    "lat": 37.562,
+    "lng": -122.486,
+    "address": "Linda Mar Blvd, Pacifica, CA 94044",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "beach",
+      "swimming",
+      "picnic",
+      "whales"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "lombard_street_zigzag",
+    "name": "Lombard Street Crooked Mile",
+    "description": "World's crookiest street with eight hairpin turns; walk down Russian Hill's famous S-curve lined with hydrangea gardens and photo-op ready switchbacks.",
+    "lat": 37.8021,
+    "lng": -122.4179,
+    "address": "Lombard Street, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "iconic",
+      "street",
+      "walking",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "long_ridge_preserve",
+    "name": "Long Ridge Preserve",
+    "description": "Expansive ridge-top preserve with open grasslands and oak woodlands offering panoramic views. Multiple trail loops with wildflower displays and peaceful ridgeline hiking.",
+    "lat": 37.3525,
+    "lng": -122.2958,
+    "address": "Page Mill Road, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "ridgeline",
+      "wildflowers",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "macarthur_park",
+    "name": "MacArthur Park",
+    "description": "Upscale contemporary American steakhouse with dry-aged beef, whiskey selection, and dim lighting. Classic cocktails and attentive service in an intimate setting.",
+    "lat": 37.442,
+    "lng": -122.145,
+    "address": "27 University Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "11:30-14:00, 17:00-21:30",
+      "tue": "11:30-14:00, 17:00-21:30",
+      "wed": "11:30-14:00, 17:00-21:30",
+      "thu": "11:30-14:00, 17:00-21:30",
+      "fri": "11:30-14:00, 17:00-22:30",
+      "sat": "17:00-22:30",
+      "sun": "17:00-21:00"
+    },
+    "duration_min": 105,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "steakhouse",
+      "fine-dining",
+      "beef"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "macla_gallery",
+    "name": "MACLA Gallery (Movimiento de Arte y Cultura Latinoamericana)",
+    "description": "Vibrant Latinx art space with rotating exhibitions, performances, and cultural programs celebrating Latino and immigrant artists.",
+    "lat": 37.3298,
+    "lng": -121.8921,
+    "address": "510 S 1st St, San Jose, CA 95113",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "12:00-19:00",
+      "thu": "12:00-19:00",
+      "fri": "12:00-19:00",
+      "sat": "12:00-17:00",
+      "sun": "12:00-17:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "art",
+      "gallery",
+      "cultural",
+      "free"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "madera",
+    "name": "Madera at Rosewood",
+    "description": "Menlo Park Michelin-starred restaurant by Chef Andrew Soto, featuring refined California cuisine with French techniques and elegant plating in sophisticated contemporary setting. Fine dining in luxury hotel environment.",
+    "lat": 37.4821,
+    "lng": -122.1732,
+    "address": "2241 Sand Hill Road, Menlo Park, CA 94025",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 9:30 PM",
+      "wed": "5:30 PM - 9:30 PM",
+      "thu": "5:30 PM - 9:30 PM",
+      "fri": "5:30 PM - 9:30 PM",
+      "sat": "5:30 PM - 9:30 PM",
+      "sun": "11:00 AM - 2:00 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "california",
+      "menlo park"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "madera_rosewood",
+    "name": "Madera at Rosewood",
+    "description": "Fine-dining farmhouse restaurant inside Rosewood Sand Hill resort with farm-to-table cuisine, wine-focused menus, and rustic-elegant ambiance overlooking gardens.",
+    "lat": 37.4073,
+    "lng": -122.1809,
+    "address": "2241 Junipero Serra Boulevard, Palo Alto, CA 94306",
+    "open_hours": {
+      "mon": "07:00-10:30, 11:30-14:00, 17:30-21:30",
+      "tue": "07:00-10:30, 11:30-14:00, 17:30-21:30",
+      "wed": "07:00-10:30, 11:30-14:00, 17:30-21:30",
+      "thu": "07:00-10:30, 11:30-14:00, 17:30-21:30",
+      "fri": "07:00-10:30, 11:30-14:00, 17:30-22:00",
+      "sat": "08:00-11:00, 17:30-22:00",
+      "sun": "08:00-11:00, 17:30-21:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine-dining",
+      "farm-to-table",
+      "wine"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "manresa",
+    "name": "Manresa",
+    "description": "Los Gatos Michelin-starred temple of haute cuisine by Chef David Kinch, pioneering ingredient-obsessed tasting menu with artistic plating and innovative techniques. Extraordinary multi-sensory culinary experience.",
+    "lat": 37.2308,
+    "lng": -121.9975,
+    "address": "320 Village Lane, Los Gatos, CA 95030",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "5:30 PM - 9:30 PM",
+      "thu": "5:30 PM - 9:30 PM",
+      "fri": "5:30 PM - 9:30 PM",
+      "sat": "5:30 PM - 9:30 PM",
+      "sun": "5:30 PM - 9:30 PM"
+    },
+    "duration_min": 200,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 2-star",
+      "tasting menu",
+      "innovative"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mavericks_beach_viewpoint",
+    "name": "Mavericks Beach Viewpoint",
+    "description": "Legendary big wave surfing spot with dramatic cliff views and churning Pacific swells. Watch world-class surfers tackle massive waves from the safe vantage point above.",
+    "lat": 37.4842,
+    "lng": -122.495,
+    "address": "Pillar Point, Half Moon Bay, CA 94019",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "surfing",
+      "scenic",
+      "waves",
+      "viewpoint"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "memorial_park",
+    "name": "Memorial Park",
+    "description": "Beautiful redwood forest along Pescadero Creek with waterfalls and old-growth groves. Excellent base for family camping with easy creek-side and trail hiking.",
+    "lat": 37.2767,
+    "lng": -122.3013,
+    "address": "9500 Pescadero Road, Loma Mar, CA 94021",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "camping",
+      "redwoods",
+      "creek",
+      "family"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mission_burrito_crawl",
+    "name": "Mission District Burrito Crawl",
+    "description": "Self-guided food tour through the Mission's legendary taquerias including La Taqueria, El Farolito, and Mission favorites, ending at Bi-Rite Creamery.",
+    "lat": 37.7599,
+    "lng": -122.4148,
+    "address": "Mission District, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "10:00-23:00",
+      "tue": "10:00-23:00",
+      "wed": "10:00-23:00",
+      "thu": "10:00-23:00",
+      "fri": "10:00-23:59",
+      "sat": "10:00-23:59",
+      "sun": "10:00-23:00"
+    },
+    "duration_min": 180,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "burrito",
+      "mission",
+      "mexican"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mission_cheese_retail",
+    "name": "Mission Cheese Shop",
+    "description": "Artisan cheese monger curating global selections; knowledgeable staff provide tastings and pairings with adjacent wine bar.",
+    "lat": 37.7592,
+    "lng": -122.4097,
+    "address": "736 Valencia Street, San Francisco, CA 94110",
+    "open_hours": {
+      "mon": "13:00-20:00",
+      "tue": "13:00-20:00",
+      "wed": "13:00-20:00",
+      "thu": "13:00-20:00",
+      "fri": "13:00-21:00",
+      "sat": "12:00-21:00",
+      "sun": "12:00-20:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "cheese",
+      "wine",
+      "artisan"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mission_dolores_basilica",
+    "name": "Mission Dolores Basilica",
+    "description": "1776 Spanish mission church, SF's oldest building, with original wooden beams, cemetery, and museum documenting California's founding.",
+    "lat": 37.7615,
+    "lng": -122.426,
+    "address": "3321 Sixteenth Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "09:00-16:00",
+      "tue": "09:00-16:00",
+      "wed": "09:00-16:00",
+      "thu": "09:00-16:00",
+      "fri": "09:00-16:00",
+      "sat": "09:00-16:00",
+      "sun": "11:00-16:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "historic",
+      "mission",
+      "religious",
+      "cultural"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "montara_lighthouse",
+    "name": "Montara Lighthouse",
+    "description": "Historic 1875 lighthouse situated on dramatic coastal bluff accessible via scenic coastal trail. Youth hostel today with restored keeper's quarters and stunning sunset vistas.",
+    "lat": 37.552,
+    "lng": -122.5165,
+    "address": "16th Street, Montara, CA 94037",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "lighthouse",
+      "historic",
+      "hiking",
+      "scenic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mori_point_trail",
+    "name": "Mori Point Trail",
+    "description": "Scenic 3-mile loop through coastal scrub and grasslands with panoramic ocean views and native wildflowers. Excellent for birdwatching and spotting butterflies and sea lions.",
+    "lat": 37.5767,
+    "lng": -122.504,
+    "address": "Pacifica, CA 94044",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "birdwatching",
+      "wildflowers",
+      "scenic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mountain_view_castro_street",
+    "name": "Downtown Mountain View - Castro Street",
+    "description": "Charming seven-block pedestrian district with shops, restaurants, and cafes. Vibrant small-town main street energy in Silicon Valley's heart.",
+    "lat": 37.388,
+    "lng": -122.0815,
+    "address": "Castro Street between El Camino & Central Expressway, Mountain View, CA 94041",
+    "open_hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-22:00",
+      "sat": "10:00-22:00",
+      "sun": "11:00-20:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "dining",
+      "downtown",
+      "walking"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mountain_view_farmers_market",
+    "name": "Mountain View Farmers Market",
+    "description": "Year-round Sunday market featuring fresh local produce, artisanal goods, and prepared foods. Thursday evening market May-September.",
+    "lat": 37.3903,
+    "lng": -122.081,
+    "address": "600 W Evelyn Ave, Mountain View, CA 94041",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "closed",
+      "thu": "17:00-20:00",
+      "fri": "closed",
+      "sat": "closed",
+      "sun": "09:00-13:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "market",
+      "food",
+      "local",
+      "shopping"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "mourad",
+    "name": "Mourad",
+    "description": "San Francisco Michelin-starred restaurant celebrating North African and Mediterranean cuisine by Chef Mourad Lahlou, featuring vibrant spices, rustic elegance, and theatrical presentation. Aromatic culinary journey.",
+    "lat": 37.7977,
+    "lng": -122.3999,
+    "address": "140 New Montgomery Street, San Francisco, CA 94105",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 10:00 PM",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "mediterranean",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "muir_woods_national_monument",
+    "name": "Muir Woods National Monument",
+    "description": "Cathedral-like old-growth redwood forest with towering ancient trees and misty groves. Magical destination just north of Golden Gate Bridge with accessible trails for all abilities.",
+    "lat": 37.8722,
+    "lng": -122.5891,
+    "address": "1 Muir Woods Rd, Mill Valley, CA 94941",
+    "open_hours": {
+      "mon": "8:00 AM - sunset",
+      "tue": "8:00 AM - sunset",
+      "wed": "8:00 AM - sunset",
+      "thu": "8:00 AM - sunset",
+      "fri": "8:00 AM - sunset",
+      "sat": "8:00 AM - sunset",
+      "sun": "8:00 AM - sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "redwoods",
+      "hiking",
+      "nature",
+      "monument"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "nasa_ames_exploration_center",
+    "name": "NASA Ames Exploration Center",
+    "description": "Explore space science through NASA exhibits, simulators, and educational displays at Moffett Field's free public visitor center.",
+    "lat": 37.4144,
+    "lng": -122.0656,
+    "address": "Building 19, Moffett Field, Mountain View, CA 94035",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00-16:00",
+      "wed": "10:00-16:00",
+      "thu": "10:00-16:00",
+      "fri": "10:00-16:00",
+      "sat": "12:00-16:00",
+      "sun": "12:00-16:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "space",
+      "science",
+      "free"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "north_beach_espresso",
+    "name": "North Beach Espresso & Italian Culture",
+    "description": "Historic Italian neighborhood (City Lights Books, Caffè Trieste) dense with 1950s Beat poetry spirit, narrow alleys, and traditional Italian bakeries.",
+    "lat": 37.8006,
+    "lng": -122.4084,
+    "address": "North Beach, San Francisco, CA 94133",
+    "open_hours": {
+      "mon": "08:00-22:00",
+      "tue": "08:00-22:00",
+      "wed": "08:00-22:00",
+      "thu": "08:00-22:00",
+      "fri": "08:00-23:00",
+      "sat": "09:00-23:00",
+      "sun": "09:00-22:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "coffee",
+      "culture",
+      "neighborhood",
+      "historic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "ocean_beach_walking",
+    "name": "Ocean Beach & Great Highway",
+    "description": "1.3-mile sandy Pacific shore with waves, occasional seals, windswept dunes, and the Great Highway promenade perfect for sunset walks.",
+    "lat": 37.7598,
+    "lng": -122.5107,
+    "address": "Great Highway, San Francisco, CA 94121",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "beach",
+      "ocean",
+      "walking",
+      "coastal"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "opus_one",
+    "name": "Opus One",
+    "description": "Ultra-premium Napa Valley Bordeaux blend producer housed in stunning semicircular architecture, with world-class art collection and barrel room views. Exclusive appointment-only tastings celebrate architectural mastery and exceptional wines.",
+    "lat": 38.4928,
+    "lng": -122.4744,
+    "address": "7900 St. Helena Highway, Oakville, CA 94562",
+    "open_hours": {
+      "mon": "10:00 AM - 4:00 PM",
+      "tue": "10:00 AM - 4:00 PM",
+      "wed": "10:00 AM - 4:00 PM",
+      "thu": "10:00 AM - 4:00 PM",
+      "fri": "10:00 AM - 4:00 PM",
+      "sat": "10:00 AM - 4:00 PM",
+      "sun": "10:00 AM - 4:00 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "luxury",
+      "bordeaux blend",
+      "architecture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "orens_hummus",
+    "name": "Oren's Hummus",
+    "description": "Israeli fast-casual with creamy hummus plates, falafel, and fresh pita. Bright, minimalist interior with orders served in clay bowls on rustic wooden tables.",
+    "lat": 37.4423,
+    "lng": -122.1393,
+    "address": "309 California Avenue, Palo Alto, CA 94306",
+    "open_hours": {
+      "mon": "11:00-21:00",
+      "tue": "11:00-21:00",
+      "wed": "11:00-21:00",
+      "thu": "11:00-21:00",
+      "fri": "11:00-21:00",
+      "sat": "11:00-21:00",
+      "sun": "11:00-20:00"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "hummus",
+      "israeli",
+      "fast-casual"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pacifica_pier",
+    "name": "Pacifica Pier",
+    "description": "Iconic wooden pier extending into the Pacific with fishing opportunities and sweeping ocean vistas. Perfect for sunset strolls and spotting sea lions and seabirds.",
+    "lat": 37.5498,
+    "lng": -122.489,
+    "address": "Pacifica Pier, Pacifica, CA 94044",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "pier",
+      "fishing",
+      "sunset",
+      "wildlife"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "painted_ladies_hayes",
+    "name": "Painted Ladies Victorian Row",
+    "description": "Seven iconic pastel Victorians on Hayes Street facing Alamo Square park; perfectly restored 1892 mansions backed by downtown SF skyline.",
+    "lat": 37.776,
+    "lng": -122.4344,
+    "address": "Alamo Square, San Francisco, CA 94117",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 30,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "iconic",
+      "victorian",
+      "photo",
+      "architecture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "palace_fine_arts",
+    "name": "Palace of Fine Arts",
+    "description": "Neoclassical Beaux-Arts palace from 1915 Panama-Pacific Expo with grand dome reflected in lagoon; walkable grounds perfect for photos and relaxation.",
+    "lat": 37.8015,
+    "lng": -122.4479,
+    "address": "3601 Lyon Street, San Francisco, CA 94123",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "architecture",
+      "historic",
+      "photo",
+      "landmark"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "palo_alto_baylands",
+    "name": "Palo Alto Baylands Park",
+    "description": "1,000+ acre preserve with hiking/biking trails, boardwalks through tidal marshes, and visitor center with educational exhibits. Excellent for birding and wildlife viewing.",
+    "lat": 37.4548,
+    "lng": -122.0981,
+    "address": "2500 East Bayshore Road, Palo Alto, CA 94303",
+    "open_hours": {
+      "mon": "sunrise-sunset",
+      "tue": "sunrise-sunset",
+      "wed": "sunrise-sunset",
+      "thu": "sunrise-sunset",
+      "fri": "sunrise-sunset",
+      "sat": "sunrise-sunset",
+      "sun": "sunrise-sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "park",
+      "nature",
+      "hiking",
+      "wildlife"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pescadero_creek_park",
+    "name": "Pescadero Creek Park",
+    "description": "Scenic redwood park with creek swimming holes and moss-covered forest trails. Serene destination for wading, picnicking, and enjoying pristine watershed.",
+    "lat": 37.265,
+    "lng": -122.3087,
+    "address": "Pescadero Creek Road, Loma Mar, CA 94021",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "creek",
+      "swimming",
+      "redwoods"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pescadero_marsh",
+    "name": "Pescadero Marsh",
+    "description": "Pristine estuary and natural preserve teeming with waterfowl, egrets, and herons. Boardwalk and trail system perfect for bird enthusiasts and nature photographers.",
+    "lat": 37.2631,
+    "lng": -122.388,
+    "address": "Pescadero Marsh Nature Preserve, Pescadero, CA 94060",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "birdwatching",
+      "nature",
+      "wetlands",
+      "photography"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pescadero_town",
+    "name": "Pescadero Town",
+    "description": "Charming coastal village with vintage shops, art galleries, and local character. Historic buildings and community spots perfect for leisurely browsing and discovering local crafts.",
+    "lat": 37.258,
+    "lng": -122.3835,
+    "address": "Pescadero, CA 94060",
+    "open_hours": {
+      "mon": "9:00 AM - 6:00 PM",
+      "tue": "9:00 AM - 6:00 PM",
+      "wed": "9:00 AM - 6:00 PM",
+      "thu": "9:00 AM - 6:00 PM",
+      "fri": "9:00 AM - 6:00 PM",
+      "sat": "9:00 AM - 6:00 PM",
+      "sun": "10:00 AM - 5:00 PM"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "art",
+      "village",
+      "local"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "phils_coffee",
+    "name": "Phil's Coffee",
+    "description": "Third-wave specialty coffee roaster in a minimalist space with single-origin espresso, pour-overs, and homemade pastries. Local artists rotate wall installations.",
+    "lat": 37.4425,
+    "lng": -122.138,
+    "address": "308 California Avenue, Palo Alto, CA 94306",
+    "open_hours": {
+      "mon": "07:00-17:00",
+      "tue": "07:00-17:00",
+      "wed": "07:00-17:00",
+      "thu": "07:00-17:00",
+      "fri": "07:00-18:00",
+      "sat": "08:00-18:00",
+      "sun": "08:00-17:00"
+    },
+    "duration_min": 45,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "coffee",
+      "specialty",
+      "cafe"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "phleger_estate",
+    "name": "Phleger Estate",
+    "description": "Pristine old-growth redwood forest and oak woodland on 1,000-acre estate. Quiet preserve with excellent trails through ancient groves and creek canyons.",
+    "lat": 37.3742,
+    "lng": -122.3192,
+    "address": "Sulfer Spring Road, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "redwoods",
+      "estate",
+      "old_growth"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pier_39_sea_lions",
+    "name": "Pier 39 Sea Lions",
+    "description": "Hundreds of California sea lions lounging on wooden docks at Pier 39's west side; free viewing platform with marine interpretation.",
+    "lat": 37.8088,
+    "lng": -122.4096,
+    "address": "Pier 39, San Francisco, CA 94109",
+    "open_hours": {
+      "mon": "10:00-20:00",
+      "tue": "10:00-20:00",
+      "wed": "10:00-20:00",
+      "thu": "10:00-20:00",
+      "fri": "10:00-21:00",
+      "sat": "09:00-21:00",
+      "sun": "09:00-21:00"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "wildlife",
+      "marine",
+      "free",
+      "iconic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pigeon_point_lighthouse",
+    "name": "Pigeon Point Lighthouse",
+    "description": "Stunning 115-foot white lighthouse dramatically perched on coastal bluffs with waves crashing below. Historic 1872 sentinel offering guided tours and breathtaking ocean panoramas.",
+    "lat": 37.191,
+    "lng": -122.3955,
+    "address": "210 Pigeon Point Rd, Pescadero, CA 94060",
+    "open_hours": {
+      "mon": "Closed",
+      "tue": "10:00 AM - 4:30 PM",
+      "wed": "10:00 AM - 4:30 PM",
+      "thu": "10:00 AM - 4:30 PM",
+      "fri": "10:00 AM - 4:30 PM",
+      "sat": "10:00 AM - 4:30 PM",
+      "sun": "10:00 AM - 4:30 PM"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "lighthouse",
+      "historic",
+      "scenic",
+      "tours"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pillar_point_bluff",
+    "name": "Pillar Point Bluff Trail",
+    "description": "Dramatic clifftop trail with views of Mavericks break and offshore rocks. Excellent for whale watching in winter and stunning sunset photography any season.",
+    "lat": 37.4865,
+    "lng": -122.4985,
+    "address": "Pillar Point, Half Moon Bay, CA 94019",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "whale_watching",
+      "scenic",
+      "bluff"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pillar_point_harbor",
+    "name": "Pillar Point Harbor",
+    "description": "Working fishing harbor with charter boats, fish markets, and coastal charm. Watch fishing vessels return at dusk with the day's catch and explore seaside shops.",
+    "lat": 37.485,
+    "lng": -122.495,
+    "address": "Princeton, Half Moon Bay, CA 94019",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "harbor",
+      "fishing",
+      "boats",
+      "shopping"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pizzeria_delfina",
+    "name": "Pizzeria Delfina (Palo Alto)",
+    "description": "Neapolitan-style pizzeria with wood-fired oven, San Marzano tomatoes, and imported mozzarella. Simple menu, natural wines, and communal seating create a casual Italian vibe.",
+    "lat": 37.4407,
+    "lng": -122.1437,
+    "address": "181 University Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "11:30-14:00, 17:00-21:30",
+      "tue": "11:30-14:00, 17:00-21:30",
+      "wed": "11:30-14:00, 17:00-21:30",
+      "thu": "11:30-14:00, 17:00-21:30",
+      "fri": "11:30-14:00, 17:00-22:00",
+      "sat": "11:30-14:00, 17:00-22:00",
+      "sun": "17:00-21:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "pizza",
+      "italian",
+      "restaurant"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "plaza_de_cesar_chavez_fountains",
+    "name": "Plaza de César Chávez",
+    "description": "Downtown civic plaza with iconic fountains, splash pad, shaded seating, and community gathering space. Site of cultural events and celebrations.",
+    "lat": 37.3372,
+    "lng": -121.8899,
+    "address": "170 S Market St, San Jose, CA 95113",
+    "open_hours": {
+      "mon": "06:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "06:00-22:00",
+      "sun": "06:00-22:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "park",
+      "plaza",
+      "downtown",
+      "free"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "pomponio_state_beach",
+    "name": "Pomponio State Beach",
+    "description": "Secluded sandy beach with dramatic sandstone cliffs and pristine shoreline. One of the Coast's least-crowded gems perfect for solitude and coastal beauty.",
+    "lat": 37.2988,
+    "lng": -122.3862,
+    "address": "Pescadero Road, Pescadero, CA 94060",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "beach",
+      "scenic",
+      "secluded",
+      "cliff"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "powell_hyde_cable_car",
+    "name": "Powell-Hyde Cable Car Ride",
+    "description": "Historic cable car line climbing Nob Hill's steepest grades with views of the Bay; board downtown and enjoy vintage wooden car experience.",
+    "lat": 37.7843,
+    "lng": -122.4076,
+    "address": "Powell & Market Street, San Francisco, CA 94102",
+    "open_hours": {
+      "mon": "06:00-23:30",
+      "tue": "06:00-23:30",
+      "wed": "06:00-23:30",
+      "thu": "06:00-23:30",
+      "fri": "06:00-23:30",
+      "sat": "06:00-23:30",
+      "sun": "06:00-23:30"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "transit",
+      "historic",
+      "cable_car",
+      "iconic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "purisima_creek_redwoods",
+    "name": "Purisima Creek Redwoods Preserve",
+    "description": "Hidden gem featuring lush redwood groves and mossy creek corridors with ferns and wildflowers. Quiet 8-mile loop through pristine forest rarely crowded.",
+    "lat": 37.4202,
+    "lng": -122.2542,
+    "address": "Higgins Purisima Road, Half Moon Bay, CA 94019",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 180,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "redwoods",
+      "creek",
+      "forest"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "quince",
+    "name": "Quince",
+    "description": "San Francisco Michelin-starred restaurant by Chef Michael Tusk showcasing Italy-inspired cuisine with pristine seasonal ingredients and elegant technique. Refined tasting menu celebrating California's terroir and Mediterranean traditions.",
+    "lat": 37.7876,
+    "lng": -122.4012,
+    "address": "470 Pacific Avenue, San Francisco, CA 94133",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 10:00 PM",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 2-star",
+      "italian",
+      "sf",
+      "tasting menu"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "quince_italian_fine",
+    "name": "Quince Italian Fine Dining",
+    "description": "Michelin-starred Italian cuisine near Ferry Plaza; chef Evan Funke's handmade pasta and ingredient-focused preparations in refined setting.",
+    "lat": 37.7841,
+    "lng": -122.3974,
+    "address": "470 Pacific Avenue, San Francisco, CA 94133",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "17:00-21:30",
+      "wed": "17:00-21:30",
+      "thu": "17:00-21:30",
+      "fri": "17:00-22:00",
+      "sat": "17:00-22:00",
+      "sun": "closed"
+    },
+    "duration_min": 150,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "italian",
+      "fine_dining"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "rancho_san_antonio_preserve",
+    "name": "Rancho San Antonio Preserve",
+    "description": "Expansive oak and chaparral preserve with creek canyons and mountain vistas. Extensive trail network ranging from easy creek walks to challenging ridge climbs.",
+    "lat": 37.3595,
+    "lng": -122.168,
+    "address": "23525 Foothill Road, Los Altos Hills, CA 94022",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "nature",
+      "creek",
+      "preserve"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "reposado",
+    "name": "Reposado",
+    "description": "Upscale Mexican restaurant featuring fresh ceviches, wood-fired dishes, and premium tequila/mezcal selection. Modern interiors with cactus gardens and warm lighting.",
+    "lat": 37.4413,
+    "lng": -122.1453,
+    "address": "560 Emerson Street, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "11:30-14:00, 17:00-21:30",
+      "tue": "11:30-14:00, 17:00-21:30",
+      "wed": "11:30-14:00, 17:00-21:30",
+      "thu": "11:30-14:00, 17:00-21:30",
+      "fri": "11:30-14:00, 17:00-22:30",
+      "sat": "11:30-14:00, 17:00-22:30",
+      "sun": "17:00-21:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "mexican",
+      "fine-dining",
+      "tequila"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "reposado_happy_hour",
+    "name": "Reposado Happy Hour",
+    "description": "Afternoon/evening drink specials with discounted tequila cocktails, beer, and wine plus appetizers at Reposado. Social scene with views of downtown Palo Alto.",
+    "lat": 37.4413,
+    "lng": -122.1453,
+    "address": "560 Emerson Street, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "17:00-19:00",
+      "tue": "17:00-19:00",
+      "wed": "17:00-19:00",
+      "thu": "17:00-19:00",
+      "fri": "17:00-19:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "duration_min": 60,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "happy-hour",
+      "tequila",
+      "cocktails",
+      "bar"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "ridge_vineyards_monte_bello",
+    "name": "Ridge Vineyards Monte Bello",
+    "description": "Legendary Santa Cruz Mountains estate at 2,600ft elevation producing iconic Monte Bello Cabernet Blend with panoramic Bay Area vistas. Rustic winery building offers intimate tastings with breathtaking scenic backdrop.",
+    "lat": 37.2453,
+    "lng": -122.1633,
+    "address": "22000 Monte Bello Road, Cupertino, CA 95014",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "11:00 AM - 4:00 PM",
+      "wed": "11:00 AM - 4:00 PM",
+      "thu": "11:00 AM - 4:00 PM",
+      "fri": "11:00 AM - 4:00 PM",
+      "sat": "11:00 AM - 4:00 PM",
+      "sun": "11:00 AM - 4:00 PM"
+    },
+    "duration_min": 150,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "santa cruz mountains",
+      "tasting",
+      "views",
+      "cabernet"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "robert_mondavi",
+    "name": "Robert Mondavi Winery",
+    "description": "Iconic Napa Valley vineyard pioneering American fine wine, featuring architectural masterpiece designed by A.E. Morris with oak-lined corridors and terrace vistas. Signature Cabernet Sauvignon tastes in refined settings.",
+    "lat": 38.4906,
+    "lng": -122.4658,
+    "address": "7801 St. Helena Highway, Oakville, CA 94562",
+    "open_hours": {
+      "mon": "10:00 AM - 5:00 PM",
+      "tue": "10:00 AM - 5:00 PM",
+      "wed": "10:00 AM - 5:00 PM",
+      "thu": "10:00 AM - 5:00 PM",
+      "fri": "10:00 AM - 5:00 PM",
+      "sat": "10:00 AM - 5:00 PM",
+      "sun": "10:00 AM - 5:00 PM"
+    },
+    "duration_min": 150,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "cabernet",
+      "iconic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "rodin_sculpture_garden",
+    "name": "Rodin Sculpture Garden at Stanford",
+    "description": "Serene garden featuring 20+ original Rodin bronzes including The Thinker and The Gates of Hell, set among native oaks and stone sculptures. Free and open year-round.",
+    "lat": 37.4245,
+    "lng": -122.1681,
+    "address": "Rodin Sculpture Garden, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "08:00-17:00",
+      "tue": "08:00-17:00",
+      "wed": "08:00-17:00",
+      "thu": "08:00-17:00",
+      "fri": "08:00-17:00",
+      "sat": "08:00-17:00",
+      "sun": "08:00-17:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "sculpture",
+      "art",
+      "garden",
+      "outdoor"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "rosicrucian_egyptian_museum",
+    "name": "Rosicrucian Egyptian Museum",
+    "description": "Largest Egyptian artifact collection west of the Rockies featuring mummies, sarcophagi, and ancient treasures in an atmospheric neo-Egyptian setting.",
+    "lat": 37.3314,
+    "lng": -121.8962,
+    "address": "1660 Park Ave, San Jose, CA 95191",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "closed",
+      "thu": "closed",
+      "fri": "10:00-17:00",
+      "sat": "11:00-18:00",
+      "sun": "11:00-18:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "history",
+      "artifacts",
+      "ancient"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "russian_ridge_preserve",
+    "name": "Russian Ridge Preserve",
+    "description": "Iconic ridgeline preserve with rolling grasslands and sweeping valley-to-bay views. Wind farm area with excellent wildflower displays and peaceful scenic trails.",
+    "lat": 37.385,
+    "lng": -122.2675,
+    "address": "Page Mill Road, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "ridgeline",
+      "views",
+      "wildflowers"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "saison",
+    "name": "Saison",
+    "description": "San Francisco Michelin three-star culinary innovation epicenter by Chef Joshua Skenes, delivering avant-garde tasting menus with theatrical presentation and boundary-pushing techniques. Immersive gastronomic theatre.",
+    "lat": 37.7821,
+    "lng": -122.3919,
+    "address": "178 Townsend Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 210,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 3-star",
+      "innovative",
+      "sf",
+      "theatrical"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "saison_multi_course",
+    "name": "Saison Experimental Omakase",
+    "description": "Michelin 3-star Japanese-California fusion; chef Joshua Skenes' 20+ course tasting with open kitchen fire and avant-garde techniques.",
+    "lat": 37.7842,
+    "lng": -122.3956,
+    "address": "178 Townsend Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "17:30-23:30",
+      "wed": "17:30-23:30",
+      "thu": "17:30-23:30",
+      "fri": "17:30-23:30",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "duration_min": 240,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "omakase",
+      "michelin"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sam_mcdonald_park",
+    "name": "Sam McDonald Park",
+    "description": "Hidden redwood forest gem featuring ancient groves, Pescadero Creek, and 12 miles of quiet trails. Excellent for backpacking with rustic campsites beneath towering trees.",
+    "lat": 37.293,
+    "lng": -122.2748,
+    "address": "3650 Pescadero Road, La Honda, CA 94020",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 150,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "backpacking",
+      "redwoods",
+      "creek"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sams_chowder_house",
+    "name": "Sam's Chowder House",
+    "description": "Casual coastal restaurant serving fresh seafood and creamy New England chowder with bay views. Quintessential Half Moon Bay dining experience with friendly atmosphere.",
+    "lat": 37.4633,
+    "lng": -122.4288,
+    "address": "4210 N Cabrillo Hwy, Half Moon Bay, CA 94019",
+    "open_hours": {
+      "mon": "11:30 AM - 9:00 PM",
+      "tue": "11:30 AM - 9:00 PM",
+      "wed": "11:30 AM - 9:00 PM",
+      "thu": "11:30 AM - 9:00 PM",
+      "fri": "11:30 AM - 10:00 PM",
+      "sat": "11:30 AM - 10:00 PM",
+      "sun": "11:30 AM - 9:00 PM"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "dining",
+      "seafood",
+      "casual",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "san_gregorio_beach",
+    "name": "San Gregorio Beach",
+    "description": "Wide sandy beach tucked into secluded cove with sandstone cliffs and fresh water creek. Pristine and less crowded than neighboring beaches with excellent tide pool exploration.",
+    "lat": 37.3185,
+    "lng": -122.387,
+    "address": "San Gregorio, CA 94074",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "beach",
+      "tide_pools",
+      "scenic",
+      "creek"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "san_jose_museum_of_art",
+    "name": "San Jose Museum of Art",
+    "description": "Contemporary art museum featuring California artists and rotating international exhibitions. Beautiful downtown location with free Thursday nights.",
+    "lat": 37.3326,
+    "lng": -121.8863,
+    "address": "110 S Market St, San Jose, CA 95113",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "closed",
+      "thu": "16:00-21:00",
+      "fri": "11:00-21:00",
+      "sat": "11:00-18:00",
+      "sun": "11:00-18:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "art",
+      "museum",
+      "contemporary",
+      "cultural"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "san_pedro_square_market",
+    "name": "San Pedro Square Market",
+    "description": "Vibrant downtown food and beverage hall with 20+ vendors, craft cocktails, and local cuisine. Dynamic gathering space with live events.",
+    "lat": 37.3365,
+    "lng": -121.8943,
+    "address": "87 N San Pedro St, San Jose, CA 95110",
+    "open_hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "11:00-00:00",
+      "sat": "11:00-00:00",
+      "sun": "11:00-22:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "high",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "market",
+      "shopping",
+      "dining"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sand_hill_vc_tour",
+    "name": "Sand Hill Road VC Tour",
+    "description": "Historic venture capital corridor with glass-walled headquarters of Sequoia Capital, Kleiner Perkins, and Index Ventures. Self-guided walking tour through the heart of Silicon Valley's investment power.",
+    "lat": 37.4154,
+    "lng": -122.1841,
+    "address": "Sand Hill Road, Menlo Park, CA 94025",
+    "open_hours": {
+      "mon": "08:00-18:00",
+      "tue": "08:00-18:00",
+      "wed": "08:00-18:00",
+      "thu": "08:00-18:00",
+      "fri": "08:00-18:00",
+      "sat": "closed",
+      "sun": "closed"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "tech",
+      "startup",
+      "history",
+      "landmark"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "santana_row_shopping",
+    "name": "Santana Row",
+    "description": "Upscale mixed-use complex with 50+ shops, 30 restaurants, spas, boutique hotel, and cinema. Urban plaza with year-round events.",
+    "lat": 37.334,
+    "lng": -121.8937,
+    "address": "377 Santana Row, San Jose, CA 95128",
+    "open_hours": {
+      "mon": "10:00-21:00",
+      "tue": "10:00-21:00",
+      "wed": "10:00-21:00",
+      "thu": "10:00-21:00",
+      "fri": "10:00-21:00",
+      "sat": "10:00-21:00",
+      "sun": "11:00-19:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "dining",
+      "upscale",
+      "entertainment"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "saratoga_hakone_gardens",
+    "name": "Saratoga Hakone Estate and Gardens",
+    "description": "Serene Japanese gardens with traditional architecture, bamboo groves, and scenic views. Peaceful retreat with tea house and koi ponds.",
+    "lat": 37.2523,
+    "lng": -122.0418,
+    "address": "21000 Big Basin Way, Saratoga, CA 95070",
+    "open_hours": {
+      "mon": "10:00-17:00",
+      "tue": "10:00-17:00",
+      "wed": "10:00-17:00",
+      "thu": "10:00-17:00",
+      "fri": "10:00-17:00",
+      "sat": "11:00-17:00",
+      "sun": "11:00-17:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "gardens",
+      "japanese",
+      "nature",
+      "peaceful"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "schramsberg_vineyards",
+    "name": "Schramsberg Vineyards",
+    "description": "Premier Napa sparkling wine producer with 200 acres of vineyards and fascinating 19-acre underground cavern cellars carved from volcanic rock. Expert-led cave tours pair with premium méthode champenoise tastings.",
+    "lat": 38.5017,
+    "lng": -122.4928,
+    "address": "1400 Schramsberg Road, Calistoga, CA 94515",
+    "open_hours": {
+      "mon": "10:00 AM - 4:00 PM",
+      "tue": "10:00 AM - 4:00 PM",
+      "wed": "10:00 AM - 4:00 PM",
+      "thu": "10:00 AM - 4:00 PM",
+      "fri": "10:00 AM - 4:00 PM",
+      "sat": "10:00 AM - 4:00 PM",
+      "sun": "10:00 AM - 4:00 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "premium",
+    "energy": "high",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "sparkling",
+      "napa",
+      "cave tour",
+      "tasting"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sf_moma_museum",
+    "name": "San Francisco Museum of Modern Art",
+    "description": "7-story striking design museum featuring Rothkos, Basquiats, photography, and cutting-edge contemporary installations in a prime SoMa location.",
+    "lat": 37.7853,
+    "lng": -122.4012,
+    "address": "151 Third Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00-17:00",
+      "wed": "10:00-17:00",
+      "thu": "10:00-17:00",
+      "fri": "10:00-21:00",
+      "sat": "10:00-18:00",
+      "sun": "11:00-18:00"
+    },
+    "duration_min": 150,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "art",
+      "modern",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "shoreline_lake_boating",
+    "name": "Shoreline Lake Boating",
+    "description": "Rent kayaks, paddleboats, or sailboats on serene Shoreline Lake surrounded by parkland. Perfect for peaceful water recreation and scenic views.",
+    "lat": 37.4261,
+    "lng": -122.0792,
+    "address": "3160 N Shoreline Blvd, Mountain View, CA 94043",
+    "open_hours": {
+      "mon": "10:00-18:00",
+      "tue": "10:00-18:00",
+      "wed": "10:00-18:00",
+      "thu": "10:00-18:00",
+      "fri": "10:00-18:00",
+      "sat": "10:00-19:00",
+      "sun": "10:00-19:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "mid",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "boating",
+      "water sports",
+      "outdoor",
+      "recreation"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sightglass_coffee",
+    "name": "Sightglass Coffee Roastery",
+    "description": "Industrial SoMa coffee roastery with high ceilings, roasting visible through glass, and premium espresso; design-forward counter space.",
+    "lat": 37.7834,
+    "lng": -122.3965,
+    "address": "270 Seventh Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "07:00-17:00",
+      "tue": "07:00-17:00",
+      "wed": "07:00-17:00",
+      "thu": "07:00-17:00",
+      "fri": "07:00-18:00",
+      "sat": "08:00-18:00",
+      "sun": "09:00-17:00"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "coffee",
+      "specialty",
+      "roastery",
+      "industrial"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "single_thread",
+    "name": "Single Thread",
+    "description": "Healdsburg Michelin-starred restaurant with hyper-seasonal Japanese-influenced California cuisine, featuring only 12 seats in an intimate chef's counter setting. Exceptionally precise multi-course tasting menu showcasing local terroir.",
+    "lat": 38.6123,
+    "lng": -122.8743,
+    "address": "131 North Street, Healdsburg, CA 95448",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "closed",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "5:30 PM - 10:00 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 2-star",
+      "tasting menu",
+      "seasonal"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "skyline_to_sea_trail",
+    "name": "Skyline-to-the-Sea Trail",
+    "description": "Epic 10-mile one-way journey from mountain ridge to pristine Beach Camp along creek and redwood groves. Legendary Bay Area backpacking route through old-growth forest.",
+    "lat": 37.175,
+    "lng": -122.2186,
+    "address": "Big Basin State Park, Boulder Creek, CA 95006",
+    "open_hours": {
+      "mon": "8:00 AM - sunset",
+      "tue": "8:00 AM - sunset",
+      "wed": "8:00 AM - sunset",
+      "thu": "8:00 AM - sunset",
+      "fri": "8:00 AM - sunset",
+      "sat": "8:00 AM - sunset",
+      "sun": "8:00 AM - sunset"
+    },
+    "duration_min": 300,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": false,
+    "mobility_ok": false,
+    "tags": [
+      "backpacking",
+      "redwoods",
+      "creek",
+      "challenging"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "slanted_door_vietnamese",
+    "name": "Slanted Door Vietnamese Fine Dining",
+    "description": "Michelin-starred Vietnamese restaurant at Ferry Building with floor-to-ceiling bay windows; modern takes on pho, banh mi, and fresh preparations.",
+    "lat": 37.7852,
+    "lng": -122.3947,
+    "address": "Ferry Building, San Francisco, CA 94111",
+    "open_hours": {
+      "mon": "11:00-22:00",
+      "tue": "11:00-22:00",
+      "wed": "11:00-22:00",
+      "thu": "11:00-22:00",
+      "fri": "11:00-22:30",
+      "sat": "11:00-22:30",
+      "sun": "11:00-22:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "vietnamese",
+      "fine_dining"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "smitten_ice_cream",
+    "name": "Smitten Ice Cream Liquid Nitrogen",
+    "description": "Theatrical liquid-nitrogen ice cream made to order in front of you; scientific approach with premium local dairy and daily flavor rotations.",
+    "lat": 37.7789,
+    "lng": -122.3972,
+    "address": "Ferry Building Marketplace, San Francisco, CA 94111",
+    "open_hours": {
+      "mon": "10:00-18:00",
+      "tue": "10:00-18:00",
+      "wed": "10:00-18:00",
+      "thu": "10:00-18:00",
+      "fri": "10:00-19:00",
+      "sat": "09:00-17:00",
+      "sun": "11:00-17:00"
+    },
+    "duration_min": 30,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "ice_cream",
+      "dessert",
+      "food",
+      "theatrical"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sons_and_daughters",
+    "name": "Sons & Daughters",
+    "description": "San Francisco Michelin-starred intimate dining featuring daily-changing menus by Chefs Rich Shih and Stephanie Izard, emphasizing impeccable ingredient quality and precise technique. Counter seating for immersive tasting experience.",
+    "lat": 37.7964,
+    "lng": -122.3977,
+    "address": "1535 Folsom Street, San Francisco, CA 94103",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 10:00 PM",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "closed"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "tasting menu",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "spruce",
+    "name": "Spruce",
+    "description": "San Francisco Michelin-starred restaurant in Pacific Heights featuring refined French-California cuisine with impeccable service and elegant wood-accented interior. Classic fine dining with seasonal tasting options.",
+    "lat": 37.793,
+    "lng": -122.4333,
+    "address": "3640 Sacramento Street, San Francisco, CA 94118",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "5:30 PM - 10:00 PM",
+      "wed": "5:30 PM - 10:00 PM",
+      "thu": "5:30 PM - 10:00 PM",
+      "fri": "5:30 PM - 10:00 PM",
+      "sat": "5:30 PM - 10:00 PM",
+      "sun": "5:30 PM - 9:30 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 1-star",
+      "french-california",
+      "sf"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stags_leap_winery",
+    "name": "Stags' Leap Winery",
+    "description": "Storied Napa Valley winery with 60+ years of Cabernet Sauvignon heritage, featuring dramatic waterfall and natural amphitheater setting. Estate hospitality centers on legendary wines and stunning grounds.",
+    "lat": 38.4819,
+    "lng": -122.2764,
+    "address": "6150 Silverado Trail, Napa, CA 94558",
+    "open_hours": {
+      "mon": "11:00 AM - 5:00 PM",
+      "tue": "11:00 AM - 5:00 PM",
+      "wed": "11:00 AM - 5:00 PM",
+      "thu": "11:00 AM - 5:00 PM",
+      "fri": "11:00 AM - 5:00 PM",
+      "sat": "11:00 AM - 5:00 PM",
+      "sun": "11:00 AM - 5:00 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "cabernet",
+      "waterfall"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stanford_campus_walking_tour",
+    "name": "Stanford Campus Walking Tour",
+    "description": "Explore the vast 8,180-acre campus with Spanish Romanesque architecture, Palm Drive, and the iconic Main Quad. Self-guided or join a docent-led tour to discover tech history and academic landmarks.",
+    "lat": 37.4275,
+    "lng": -122.1697,
+    "address": "Stanford University, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "08:00-17:00",
+      "tue": "08:00-17:00",
+      "wed": "08:00-17:00",
+      "thu": "08:00-17:00",
+      "fri": "08:00-17:00",
+      "sat": "08:00-17:00",
+      "sun": "08:00-17:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "campus",
+      "history",
+      "architecture",
+      "education"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stanford_dish_hike",
+    "name": "Stanford Dish Loop Hike",
+    "description": "Iconic 3.3-mile loop trail with wildflower meadows, oak groves, and panoramic views of the Bay. Popular sunrise/sunset spot featuring a large radio telescope and rolling grasslands.",
+    "lat": 37.4152,
+    "lng": -122.1719,
+    "address": "Stanford Foothills, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "sunrise-sunset",
+      "tue": "sunrise-sunset",
+      "wed": "sunrise-sunset",
+      "thu": "sunrise-sunset",
+      "fri": "sunrise-sunset",
+      "sat": "sunrise-sunset",
+      "sun": "sunrise-sunset"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "nature",
+      "views",
+      "fitness"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stanford_memorial_church",
+    "name": "Stanford Memorial Church",
+    "description": "Stunning Romanesque church with intricate mosaics, stained glass windows, and soaring arches. Built in 1903 as a memorial to Jane Stanford; offers architectural tours and Sunday services.",
+    "lat": 37.4264,
+    "lng": -122.1668,
+    "address": "Stanford University, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "09:00-16:30",
+      "tue": "09:00-16:30",
+      "wed": "09:00-16:30",
+      "thu": "09:00-16:30",
+      "fri": "09:00-16:30",
+      "sat": "09:00-16:30",
+      "sun": "09:00-12:30"
+    },
+    "duration_min": 45,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "architecture",
+      "history",
+      "landmark",
+      "spiritual"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stanford_shopping_center",
+    "name": "Stanford Shopping Center",
+    "description": "Outdoor mall with upscale retailers like Nordstrom, Macy's, and designer boutiques. Tree-lined walkways, open-air courtyards, and seasonal events.",
+    "lat": 37.4437,
+    "lng": -122.1644,
+    "address": "660 Stanford Shopping Center, Palo Alto, CA 94304",
+    "open_hours": {
+      "mon": "10:00-19:00",
+      "tue": "10:00-19:00",
+      "wed": "10:00-19:00",
+      "thu": "10:00-19:00",
+      "fri": "10:00-20:00",
+      "sat": "10:00-20:00",
+      "sun": "11:00-18:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "retail",
+      "mall"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stanford_stadium",
+    "name": "Stanford Stadium Tour",
+    "description": "Historic 50,000-capacity stadium where the Stanford Cardinal play football, offering tours of locker rooms, field views, and sports memorabilia showcasing 125+ years of tradition.",
+    "lat": 37.435,
+    "lng": -122.1613,
+    "address": "Stanford University, Stanford, CA 94305",
+    "open_hours": {
+      "mon": "10:00-14:00",
+      "tue": "10:00-14:00",
+      "wed": "10:00-14:00",
+      "thu": "10:00-14:00",
+      "fri": "10:00-14:00",
+      "sat": "varies",
+      "sun": "varies"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "sports",
+      "stadium",
+      "tour",
+      "landmark"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "state_bird_provisions",
+    "name": "State Bird Provisions Dim Sum",
+    "description": "Innovative dim sum restaurant serving small plates via Japanese-style cart; creative fusion approach to traditional Cantonese tea service.",
+    "lat": 37.7716,
+    "lng": -122.4225,
+    "address": "1529 Fillmore Street, San Francisco, CA 94115",
+    "open_hours": {
+      "mon": "17:00-22:00",
+      "tue": "17:00-22:00",
+      "wed": "17:00-22:00",
+      "thu": "17:00-22:00",
+      "fri": "17:00-22:30",
+      "sat": "11:00-22:30",
+      "sun": "11:00-22:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "food",
+      "restaurant",
+      "dim_sum",
+      "innovative"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sterling_vineyards",
+    "name": "Sterling Vineyards",
+    "description": "Stunning hillside castle overlooking Napa Valley at 1,100ft elevation with cable car access and panoramic vineyard vistas, producing elegant Cabernet Sauvignon and Chardonnay. Self-guided tasting experience with unforgettable views.",
+    "lat": 38.5089,
+    "lng": -122.4097,
+    "address": "1111 Dunaweal Lane, Calistoga, CA 94515",
+    "open_hours": {
+      "mon": "10:00 AM - 5:00 PM",
+      "tue": "10:00 AM - 5:00 PM",
+      "wed": "10:00 AM - 5:00 PM",
+      "thu": "10:00 AM - 5:00 PM",
+      "fri": "10:00 AM - 5:00 PM",
+      "sat": "10:00 AM - 5:00 PM",
+      "sun": "10:00 AM - 5:00 PM"
+    },
+    "duration_min": 180,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "views",
+      "castle"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stevens_creek_county_park",
+    "name": "Stevens Creek County Park",
+    "description": "1,042-acre park with scenic reservoir, hiking trails, and oak woodland. Popular for outdoor recreation, wildlife viewing, and picnicking.",
+    "lat": 37.3142,
+    "lng": -122.0418,
+    "address": "11401 Stevens Canyon Rd, Cupertino, CA 95014",
+    "open_hours": {
+      "mon": "08:00-sunset",
+      "tue": "08:00-sunset",
+      "wed": "08:00-sunset",
+      "thu": "08:00-sunset",
+      "fri": "08:00-sunset",
+      "sat": "08:00-sunset",
+      "sun": "08:00-sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "hiking",
+      "nature",
+      "park",
+      "trails"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "stow_lake_boating",
+    "name": "Stow Lake Pedal Boating",
+    "description": "Scenic 45-acre lake in Golden Gate Park's central valley with rental pedal boats, Dragon's Gate bridge, and island hikes.",
+    "lat": 37.7689,
+    "lng": -122.4686,
+    "address": "Stow Lake Drive East, San Francisco, CA 94118",
+    "open_hours": {
+      "mon": "10:00-16:00",
+      "tue": "10:00-16:00",
+      "wed": "10:00-16:00",
+      "thu": "10:00-16:00",
+      "fri": "10:00-16:00",
+      "sat": "09:00-17:00",
+      "sun": "09:00-17:00"
+    },
+    "duration_min": 90,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "lake",
+      "boating",
+      "park",
+      "water"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sunnyvale_heritage_park_museum",
+    "name": "Sunnyvale Heritage Park Museum",
+    "description": "Local history museum housed in period buildings showcasing Sunnyvale's transformation from orchard land to tech hub with artifacts and exhibits.",
+    "lat": 37.3701,
+    "lng": -122.0368,
+    "address": "570 E Remington Dr, Sunnyvale, CA 94087",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "12:00-16:00",
+      "wed": "closed",
+      "thu": "12:00-16:00",
+      "fri": "closed",
+      "sat": "closed",
+      "sun": "12:00-16:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "history",
+      "museum",
+      "local",
+      "heritage"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "sutro_baths_ruins",
+    "name": "Sutro Baths Historic Ruins",
+    "description": "Haunting remains of 1896 six-pool saltwater bath complex overlooking Ocean Beach and Marin Headlands; atmospheric clifftop exploration.",
+    "lat": 37.7802,
+    "lng": -122.5118,
+    "address": "1004 Point Lobos Avenue, San Francisco, CA 94121",
+    "open_hours": {
+      "mon": "24h",
+      "tue": "24h",
+      "wed": "24h",
+      "thu": "24h",
+      "fri": "24h",
+      "sat": "24h",
+      "sun": "24h"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "historic",
+      "ruins",
+      "coastal",
+      "photo"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "tamarine",
+    "name": "Tamarine",
+    "description": "Modern Vietnamese restaurant with silky pho, crispy banh mi, and craft cocktails. Sleek industrial interiors with an open kitchen showcasing traditional techniques and seasonal ingredients.",
+    "lat": 37.4421,
+    "lng": -122.1443,
+    "address": "231 Lytton Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "11:30-14:00, 17:00-21:30",
+      "tue": "11:30-14:00, 17:00-21:30",
+      "wed": "11:30-14:00, 17:00-21:30",
+      "thu": "11:30-14:00, 17:00-21:30",
+      "fri": "11:30-14:00, 17:00-22:30",
+      "sat": "11:30-14:00, 17:00-22:30",
+      "sun": "17:00-21:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "vietnamese",
+      "restaurant",
+      "dining"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "tartine_bakery_queue",
+    "name": "Tartine Bakery & Bread Experience",
+    "description": "Iconic 20-year-old Mission Institution known for sourdough, morning pastries, and legendary wait lines; cult following for quality baked goods.",
+    "lat": 37.7669,
+    "lng": -122.4245,
+    "address": "600 Guerrero Street, San Francisco, CA 94110",
+    "open_hours": {
+      "mon": "08:00-19:00",
+      "tue": "08:00-19:00",
+      "wed": "08:00-19:00",
+      "thu": "08:00-19:00",
+      "fri": "08:00-20:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-19:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "shoestring",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "bakery",
+      "food",
+      "iconic",
+      "queue"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "tartine_manufactory",
+    "name": "Tartine Manufactory Chocolate & Pastry",
+    "description": "Industrial loft expansion featuring chocolate bar, espresso lab, and open-kitchen pastries; 2-story soaring ceilings in the central manufacturing facility.",
+    "lat": 37.7653,
+    "lng": -122.4157,
+    "address": "595 Alabama Street, San Francisco, CA 94110",
+    "open_hours": {
+      "mon": "08:00-19:00",
+      "tue": "08:00-19:00",
+      "wed": "08:00-19:00",
+      "thu": "08:00-19:00",
+      "fri": "08:00-20:00",
+      "sat": "09:00-20:00",
+      "sun": "09:00-19:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "bakery",
+      "chocolate",
+      "food",
+      "industrial"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "tech_interactive_san_jose",
+    "name": "The Tech Interactive",
+    "description": "Hands-on science and technology museum with immersive exhibits on AI, robotics, and innovation. Perfect for curious minds of all ages.",
+    "lat": 37.3326,
+    "lng": -121.8863,
+    "address": "201 S Market St, San Jose, CA 95113",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00-15:00",
+      "wed": "10:00-15:00",
+      "thu": "10:00-15:00",
+      "fri": "10:00-15:00",
+      "sat": "10:00-17:00",
+      "sun": "11:00-16:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "high",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "museum",
+      "tech",
+      "interactive",
+      "science"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "tech_museum_store",
+    "name": "The Tech Interactive Store",
+    "description": "Curated gift shop within The Tech museum featuring STEM-focused books, science kits, tech gadgets, and educational toys for all ages.",
+    "lat": 37.3326,
+    "lng": -121.8863,
+    "address": "201 S Market St, San Jose, CA 95113",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00-15:00",
+      "wed": "10:00-15:00",
+      "thu": "10:00-15:00",
+      "fri": "10:00-15:00",
+      "sat": "10:00-17:00",
+      "sun": "11:00-16:00"
+    },
+    "duration_min": 60,
+    "budget_tier": "mid",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "tech",
+      "gifts",
+      "education"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "the_french_laundry",
+    "name": "The French Laundry",
+    "description": "Michelin-starred culinary temple in Yountville helmed by Chef Thomas Keller, delivering France-inspired tasting menus of extraordinary technical precision and refined flavors. Iconic institution and destination dining experience.",
+    "lat": 38.5597,
+    "lng": -122.3078,
+    "address": "6640 Washing Machine Lane, Yountville, CA 94599",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "11:30 AM - 1:00 PM; 5:30 PM - 8:30 PM",
+      "wed": "11:30 AM - 1:00 PM; 5:30 PM - 8:30 PM",
+      "thu": "11:30 AM - 1:00 PM; 5:30 PM - 8:30 PM",
+      "fri": "11:30 AM - 1:00 PM; 5:30 PM - 8:30 PM",
+      "sat": "11:30 AM - 1:00 PM; 5:30 PM - 8:30 PM",
+      "sun": "closed"
+    },
+    "duration_min": 210,
+    "budget_tier": "luxury",
+    "energy": "low",
+    "indoor_outdoor": "indoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "fine dining",
+      "michelin 3-star",
+      "french cuisine",
+      "tasting menu"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "thomas_fogarty_winery",
+    "name": "Thomas Fogarty Winery",
+    "description": "Santa Cruz Mountains treasure perched at 1,500ft with stunning Bay Area vistas and acclaimed Pinot Noir productions. Modern tasting room offers sophisticated wine experiences surrounded by redwoods and wildflowers.",
+    "lat": 37.3556,
+    "lng": -122.1667,
+    "address": "19501 Skyline Boulevard, Woodside, CA 94062",
+    "open_hours": {
+      "mon": "closed",
+      "tue": "10:00 AM - 5:00 PM",
+      "wed": "10:00 AM - 5:00 PM",
+      "thu": "10:00 AM - 5:00 PM",
+      "fri": "10:00 AM - 5:00 PM",
+      "sat": "10:00 AM - 5:00 PM",
+      "sun": "10:00 AM - 5:00 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "low",
+    "indoor_outdoor": "mixed",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "santa cruz mountains",
+      "tasting",
+      "pinot noir",
+      "views"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "town_country_village",
+    "name": "Town & Country Village",
+    "description": "Charming 1960s-era open-air shopping village with independent boutiques, gourmet markets, and local restaurants. Pedestrian paths, abundant parking, and community events.",
+    "lat": 37.4477,
+    "lng": -122.1603,
+    "address": "855 El Camino Real, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "10:00-19:00",
+      "tue": "10:00-19:00",
+      "wed": "10:00-19:00",
+      "thu": "10:00-19:00",
+      "fri": "10:00-20:00",
+      "sat": "10:00-20:00",
+      "sun": "11:00-18:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "village",
+      "boutique"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "twin_peaks_hike",
+    "name": "Twin Peaks Summit Hike",
+    "description": "Short, steep climb to SF's second-highest point offering 360-degree city and bay views; marked trails with benches and clear weather vistas.",
+    "lat": 37.7519,
+    "lng": -122.458,
+    "address": "Twin Peaks Boulevard, San Francisco, CA 94114",
+    "open_hours": {
+      "mon": "06:00-22:00",
+      "tue": "06:00-22:00",
+      "wed": "06:00-22:00",
+      "thu": "06:00-22:00",
+      "fri": "06:00-22:00",
+      "sat": "06:00-22:00",
+      "sun": "06:00-22:00"
+    },
+    "duration_min": 75,
+    "budget_tier": "shoestring",
+    "energy": "high",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "views",
+      "peak",
+      "outdoors"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "university_ave_palo_alto",
+    "name": "University Avenue Shopping (Palo Alto)",
+    "description": "Tree-lined pedestrian street with flagship boutiques, galleries, bookstores, and craft retailers. Historic architecture from the 1920s-40s mixed with contemporary storefronts.",
+    "lat": 37.4419,
+    "lng": -122.143,
+    "address": "University Avenue, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "10:00-18:00",
+      "tue": "10:00-18:00",
+      "wed": "10:00-18:00",
+      "thu": "10:00-18:00",
+      "fri": "10:00-19:00",
+      "sat": "10:00-19:00",
+      "sun": "11:00-18:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "premium",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": true,
+    "tags": [
+      "shopping",
+      "retail",
+      "downtown",
+      "culture"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "v_sattui",
+    "name": "V. Sattui Winery",
+    "description": "Family-owned Napa winery featuring Italian-inspired wines and an exceptional gourmet deli perfect for picnicking among vineyard views. Historic stone buildings create an enchanting Old World atmosphere without tasting fees.",
+    "lat": 38.4822,
+    "lng": -122.4581,
+    "address": "1111 White Lane, St. Helena, CA 94574",
+    "open_hours": {
+      "mon": "11:00 AM - 5:00 PM",
+      "tue": "11:00 AM - 5:00 PM",
+      "wed": "11:00 AM - 5:00 PM",
+      "thu": "11:00 AM - 5:00 PM",
+      "fri": "11:00 AM - 5:00 PM",
+      "sat": "11:00 AM - 5:00 PM",
+      "sun": "11:00 AM - 5:00 PM"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": false,
+    "mobility_ok": true,
+    "tags": [
+      "wine",
+      "napa",
+      "tasting",
+      "picnic"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "winchester_mystery_house",
+    "name": "Winchester Mystery House",
+    "description": "Bizarre Victorian mansion with 160 rooms, secret passages, and staircases to nowhere. A bizarre architectural wonder and historic landmark.",
+    "lat": 37.3183,
+    "lng": -121.9511,
+    "address": "525 S Winchester Blvd, San Jose, CA 95128",
+    "open_hours": {
+      "mon": "10:00-16:00",
+      "tue": "10:00-16:00",
+      "wed": "10:00-16:00",
+      "thu": "10:00-16:00",
+      "fri": "10:00-16:00",
+      "sat": "10:00-17:00",
+      "sun": "10:00-17:00"
+    },
+    "duration_min": 120,
+    "budget_tier": "mid",
+    "energy": "medium",
+    "indoor_outdoor": "indoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "history",
+      "architecture",
+      "tour",
+      "landmark"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "windy_hill_preserve",
+    "name": "Windy Hill Preserve",
+    "description": "Open grassland ridgeline with 360-degree valley and bay views from 1,900 feet elevation. Sweeping trails offering stunning panoramas and wildflowers in spring.",
+    "lat": 37.3742,
+    "lng": -122.2133,
+    "address": "Portola State Road, Palo Alto, CA 94301",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 120,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "viewpoint",
+      "wildflowers",
+      "ridgeline"
+    ],
+    "photo_url": null
+  },
+  {
+    "id": "wunderlich_park",
+    "name": "Wunderlich Park",
+    "description": "Historic estate with giant redwoods, creek canyons, and 10 miles of quiet trails. Old-growth forests and meadows perfect for escaping crowds while immersed in nature.",
+    "lat": 37.3903,
+    "lng": -122.2467,
+    "address": "4040 Woodside Road, Woodside, CA 94062",
+    "open_hours": {
+      "mon": "Sunrise to sunset",
+      "tue": "Sunrise to sunset",
+      "wed": "Sunrise to sunset",
+      "thu": "Sunrise to sunset",
+      "fri": "Sunrise to sunset",
+      "sat": "Sunrise to sunset",
+      "sun": "Sunrise to sunset"
+    },
+    "duration_min": 150,
+    "budget_tier": "shoestring",
+    "energy": "medium",
+    "indoor_outdoor": "outdoor",
+    "kid_ok": true,
+    "mobility_ok": false,
+    "tags": [
+      "hiking",
+      "redwoods",
+      "creek",
+      "estate"
+    ],
+    "photo_url": null
+  }
+]

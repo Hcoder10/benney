@@ -1,0 +1,11 @@
+torch>=2.4
+numpy>=1.26
+sentence-transformers>=3.0
+fastapi>=0.115
+uvicorn>=0.30
+pydantic>=2.8
+anthropic>=0.40
+
+# Jet-lag (Phase 9, post-demo) — Forger-Jewett-Kronauer 1999 oscillator
+circadian>=0.4
+airportsdata>=20240806

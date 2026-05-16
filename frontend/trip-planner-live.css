@@ -1,0 +1,273 @@
+/* Benney Trip Planner — live probability-bar UI. */
+
+.tpl-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  padding: 32px 36px;
+  color: #f5f3ec;
+  background: radial-gradient(circle at 20% 0%, #2b1f3a 0%, #0d0c14 60%);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.tpl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+  gap: 24px;
+}
+
+.tpl-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9b5ff;
+  margin-bottom: 6px;
+}
+
+.tpl-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.tpl-profile {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(245, 243, 236, 0.66);
+  max-width: 540px;
+  line-height: 1.5;
+}
+
+.tpl-reset {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5f3ec;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.tpl-reset:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.tpl-reset:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.tpl-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 32px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ──────────────────────────────────────────────────────────── current slot */
+.tpl-current {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tpl-loading, .tpl-complete {
+  padding: 60px 0;
+  text-align: center;
+  color: rgba(245, 243, 236, 0.55);
+}
+
+.tpl-slot-head {
+  margin-bottom: 16px;
+}
+.tpl-slot-step {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffc659;
+  margin-bottom: 6px;
+}
+.tpl-slot-head h2 {
+  margin: 0 0 4px 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+.tpl-slot-head small {
+  font-size: 12px;
+  color: rgba(245, 243, 236, 0.5);
+}
+
+.tpl-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tpl-bar {
+  position: relative;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.025);
+  color: #f5f3ec;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+.tpl-bar:hover {
+  transform: translateX(2px);
+  border-color: rgba(255, 198, 89, 0.6);
+}
+
+.tpl-bar-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 198, 89, 0.18), rgba(255, 198, 89, 0.02));
+  border-radius: inherit;
+  transition: width 0.35s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.tpl-band-popular .tpl-bar-fill { background: linear-gradient(90deg, rgba(101, 213, 122, 0.28), rgba(101, 213, 122, 0.04)); }
+.tpl-band-standard .tpl-bar-fill { background: linear-gradient(90deg, rgba(255, 198, 89, 0.22), rgba(255, 198, 89, 0.02)); }
+.tpl-band-niche .tpl-bar-fill { background: linear-gradient(90deg, rgba(174, 156, 255, 0.18), rgba(174, 156, 255, 0.02)); }
+.tpl-band-buried .tpl-bar-fill { background: linear-gradient(90deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01)); }
+
+.tpl-bar-content {
+  position: relative;
+}
+
+.tpl-bar-top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.tpl-bar-pct {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  min-width: 56px;
+  color: #ffc659;
+}
+.tpl-band-popular .tpl-bar-pct { color: #7ee094; }
+.tpl-band-buried .tpl-bar-pct { color: rgba(255, 255, 255, 0.45); }
+
+.tpl-bar-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+}
+.tpl-bar-ci {
+  font-size: 11px;
+  color: rgba(245, 243, 236, 0.4);
+  font-variant-numeric: tabular-nums;
+}
+.tpl-bar-baseline {
+  font-size: 11px;
+  color: rgba(245, 243, 236, 0.32);
+  font-variant-numeric: tabular-nums;
+}
+
+.tpl-bar-desc {
+  font-size: 13px;
+  color: rgba(245, 243, 236, 0.78);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.tpl-bar-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 11px;
+}
+.tpl-bar-tags span {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(245, 243, 236, 0.55);
+}
+.tpl-bar-count {
+  margin-left: auto;
+  background: transparent !important;
+  color: rgba(245, 243, 236, 0.4) !important;
+  font-style: italic;
+}
+
+/* ────────────────────────────────────────────────────────────── timeline */
+.tpl-timeline {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  padding-left: 24px;
+  overflow-y: auto;
+}
+.tpl-timeline h3 {
+  margin: 0 0 14px 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 236, 0.5);
+}
+
+.tpl-day {
+  margin-bottom: 16px;
+}
+.tpl-day-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 198, 89, 0.75);
+  margin-bottom: 6px;
+}
+.tpl-day-empty {
+  font-size: 12px;
+  color: rgba(245, 243, 236, 0.18);
+}
+.tpl-day-pick {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  border-left: 2px solid rgba(255, 198, 89, 0.6);
+  padding: 4px 10px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 0 8px 8px 0;
+  animation: tpl-pop 0.36s ease both;
+}
+@keyframes tpl-pop {
+  0%   { opacity: 0; transform: translateX(-6px); }
+  60%  { opacity: 1; transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+.tpl-day-time {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 198, 89, 0.7);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tpl-day-name {
+  font-weight: 600;
+  color: #f5f3ec;
+}
+.tpl-day-pct {
+  font-size: 11px;
+  color: rgba(245, 243, 236, 0.45);
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# Build / cache
+node_modules/
+dist/
+.cache/
+.pytest_cache/
+
+# Logs
+*.log
+nohup.out
+augment.log
+
+# Large generated artifacts (regenerate via scripts/)
+itineraries_cohort.npz
+archetype_embeddings.pt
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
