@@ -158,16 +158,6 @@ door_open / door_close / food_order / flight_update
   penalty** at schedule time, so the model doesn't put museums at breakfast
   or send the guest from SF to Napa for lunch then back to SF for dinner.
 
-## Status (as of submission)
-
-- Trip planner: 91% val accuracy, slot-spread improved 70% → ~40% after
-  Sonnet cleanup pass.
-- Staff assistant: 6-room demo seeded, mock flight + mock traffic working,
-  Haiku rewrite engages when `ANTHROPIC_API_KEY` set.
-- Known gaps: ~2 archetypes lack night-slot bank coverage (kids + night,
-  shoestring + night). See `hotel_agents/trip_planner/JETLAG_INTEGRATION.md`
-  for the next-up jet-lag wiring plan.
-
 ## License
 
 MIT.
