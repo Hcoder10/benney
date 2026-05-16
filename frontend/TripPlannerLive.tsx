@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { BenneyCatRigManual, type BenneyManualState } from "../face/BenneyCatRigManual";
 import "./trip-planner-live.css";
 
 const API_BASE = import.meta.env.VITE_BENNEY_API ?? "http://127.0.0.1:7878";
@@ -93,9 +94,32 @@ export default function TripPlannerLive() {
   const [error, setError] = useState<string | null>(null);
   const [reasoningMap, setReasoningMap] = useState<Record<string, string>>({});
   const [jetlag, setJetlag] = useState<JetlagResp | null>(null);
+  const [flashHappy, setFlashHappy] = useState(false);
+
+  // Voice state
+  const [voiceListening, setVoiceListening] = useState(false);
+  const [voicePending, setVoicePending] = useState(false);  // STT done, /voice in flight
+  const [voiceSpeaking, setVoiceSpeaking] = useState(false);
+  const [voiceReply, setVoiceReply] = useState<string>("");
+  const [voiceError, setVoiceError] = useState<string | null>(null);
 
   const historyIds = useMemo(() => history.map((h) => h.activity_id), [history]);
   const isComplete = history.length >= SLOT_LABELS.length;
+
+  // Drive Benney's emotion from app state. Voice states take priority so the
+  // cat actually reacts when the guest is talking to it.
+  const benneyState: BenneyManualState = useMemo(() => {
+    if (voiceSpeaking) return "speaking";
+    if (voicePending) return "thinking";
+    if (voiceListening) return "listening";
+    if (error || voiceError) return "concerned";
+    if (isComplete) return "celebrating";
+    if (loading) return "thinking";
+    if (flashHappy) return "happy";
+    if (history.length === 0) return "greeting";
+    return "curious";
+  }, [voiceSpeaking, voicePending, voiceListening, error, voiceError,
+       isComplete, loading, flashHappy, history.length]);
 
   // Trip day = how many filled "days" we're into (slots 0-5 = day 0, 6-11 = day 1, ...)
   const tripDay = Math.floor(history.length / 6);
@@ -177,6 +201,8 @@ export default function TripPlannerLive() {
           reasoning: reasoningMap[opt.activity_id],
         },
       ]);
+      setFlashHappy(true);
+      window.setTimeout(() => setFlashHappy(false), 1500);
     },
     [current, reasoningMap],
   );
@@ -185,6 +211,81 @@ export default function TripPlannerLive() {
     setHistory([]);
     setCurrent(null);
   };
+
+  // ── Voice agent: push-to-talk → /voice → audio playback ──────────────────
+  const speakReply = useCallback(async (audioB64: string) => {
+    setVoiceSpeaking(true);
+    const audio = new Audio(`data:audio/mpeg;base64,${audioB64}`);
+    audio.onended = () => setVoiceSpeaking(false);
+    audio.onerror = () => setVoiceSpeaking(false);
+    try {
+      await audio.play();
+    } catch {
+      setVoiceSpeaking(false);
+    }
+  }, []);
+
+  const handleTranscript = useCallback(async (transcript: string) => {
+    if (voicePending || voiceSpeaking) return;
+    setVoiceReply("");
+    setVoiceError(null);
+    setVoicePending(true);
+    const offset_h = jetlag ? jetlag.offset_h[Math.min(tripDay, jetlag.offset_h.length - 1)] : null;
+    try {
+      const r = await fetch(`${API_BASE}/voice`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          transcript,
+          family,
+          history: historyIds,
+          context: {
+            jetlag_offset_h: offset_h,
+            current_slot: current?.slot_idx ?? null,
+            top_options: current?.options.slice(0, 3).map((o) => ({
+              activity_id: o.activity_id, name: o.name, pct: o.pct,
+            })) ?? [],
+          },
+        }),
+      });
+      if (!r.ok) throw new Error(`/voice ${r.status}`);
+      const data = await r.json();
+      setVoiceReply(data.reply_text || "");
+      if (data.audio_b64) await speakReply(data.audio_b64);
+    } catch (e) {
+      setVoiceError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setVoicePending(false);
+    }
+  }, [family, historyIds, jetlag, tripDay, current, speakReply,
+       voicePending, voiceSpeaking]);
+
+  const startListening = useCallback(() => {
+    type SRWindow = typeof window & {
+      SpeechRecognition?: typeof window.SpeechRecognition;
+      webkitSpeechRecognition?: typeof window.SpeechRecognition;
+    };
+    const w = window as SRWindow;
+    const SR = w.SpeechRecognition || w.webkitSpeechRecognition;
+    if (!SR) {
+      setVoiceError("Browser speech recognition not supported — use Chrome/Edge.");
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const rec: any = new SR();
+    rec.lang = "en-US";
+    rec.interimResults = false;
+    rec.continuous = false;
+    rec.maxAlternatives = 1;
+    rec.onstart = () => { setVoiceListening(true); setVoiceError(null); };
+    rec.onresult = (ev: any) => {  // eslint-disable-line @typescript-eslint/no-explicit-any
+      const t = ev.results?.[0]?.[0]?.transcript;
+      if (t) handleTranscript(t);
+    };
+    rec.onerror = (ev: any) => { setVoiceError(`mic: ${ev.error}`); setVoiceListening(false); };
+    rec.onend = () => setVoiceListening(false);
+    rec.start();
+  }, [handleTranscript]);
 
   const slotLabel = current ? SLOT_LABELS[current.slot_idx] : null;
   // Group locked picks by day for the timeline column
@@ -197,19 +298,42 @@ export default function TripPlannerLive() {
   return (
     <div className="tpl-shell">
       <header className="tpl-header">
-        <div>
-          <span className="tpl-eyebrow">Benney · Trip Planner</span>
-          <h1>5-day Bay Area itinerary</h1>
-          <p className="tpl-profile">
-            {family.group_type}, {family.budget_tier} budget, loves {family.primary_interest} + {family.secondary_interest}
-            {" — "}
-            {family.pace} pace · {family.crowd_tolerance} crowds
-          </p>
+        <div className="tpl-header-cat">
+          <div className="tpl-cat-wrap">
+            <BenneyCatRigManual state={benneyState} className="tpl-cat" />
+          </div>
+          <div>
+            <span className="tpl-eyebrow">Benney · Rosewood Sand Hill</span>
+            <h1>5-day Bay Area itinerary</h1>
+            <p className="tpl-profile">
+              {family.group_type}, {family.budget_tier} budget, loves {family.primary_interest} + {family.secondary_interest}
+              {" — "}
+              {family.pace} pace · {family.crowd_tolerance} crowds
+            </p>
+          </div>
         </div>
-        <button className="tpl-reset" type="button" onClick={reset} disabled={history.length === 0}>
-          Start over
-        </button>
+        <div className="tpl-header-actions">
+          <button
+            className={`tpl-mic ${voiceListening ? "tpl-mic-on" : ""} ${voiceSpeaking ? "tpl-mic-speaking" : ""} ${voicePending ? "tpl-mic-pending" : ""}`}
+            type="button"
+            onClick={startListening}
+            disabled={voiceListening || voiceSpeaking || voicePending}
+            title="Ask Benney anything"
+          >
+            {voiceListening ? "● listening…" :
+             voicePending ? "⋯ thinking" :
+             voiceSpeaking ? "♪ speaking" : "🎙 ask Benney"}
+          </button>
+          <button className="tpl-reset" type="button" onClick={reset} disabled={history.length === 0}>
+            Start over
+          </button>
+        </div>
       </header>
+      {(voiceReply || voiceError) && (
+        <div className={`tpl-voice-bubble ${voiceError ? "tpl-voice-bubble-error" : ""}`}>
+          {voiceError ? <em>{voiceError}</em> : voiceReply}
+        </div>
+      )}
 
       {jetlag && (
         <section className="tpl-jetlag">

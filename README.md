@@ -24,6 +24,24 @@ Both share a single 15-keyword family encoder + a sentence-transformers
 activity bank, so a third agent (restaurant picker, concierge chat) plugs in
 by swapping the bank.
 
+## Voice agent
+
+Benney also has a voice. The mic button on the prism wires browser STT →
+`/voice` endpoint → Claude Haiku 4.5 (with Rosewood Sand Hill property
+context + the guest's persona + current itinerary state) → ElevenLabs TTS.
+The cat rig has 35+ animation states; emotion tags returned by Claude
+(`<emotion>excited</emotion>`) drive the visual reaction live as Benney
+speaks. Without API keys the endpoint falls back to a silent stub so the
+demo still works.
+
+Voice flow:
+```
+mic press → SpeechRecognition (browser, free) → POST /voice
+  → Claude reply with <emotion>tag</emotion>
+  → ElevenLabs TTS (base64 mp3)
+  → cat shifts to listening/thinking/speaking/happy as states unfold
+```
+
 ## Why a population-of-personas model (not a chatbot)
 
 Recommendations come from the *behaviour of similar guests*, not from an LLM

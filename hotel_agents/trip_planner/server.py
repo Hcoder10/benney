@@ -53,6 +53,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Voice agent (ElevenLabs + Anthropic). Stubbed without keys.
+from .voice import router as voice_router  # noqa: E402
+app.include_router(voice_router)
+
 # Lazy globals so the import doesn't block test runs
 _state: dict[str, Any] = {}
 
@@ -314,13 +318,15 @@ async def reasoning(req: ReasoningRequest) -> ReasoningResponse:
     if req.pct is not None and req.of is not None:
         pop_stat = f" {req.pct:.0f}% of comparable families ({req.n} of {req.of}) chose this for this time slot."
 
-    prompt = f"""You're a hotel concierge explaining a trip suggestion to a guest. Be warm, specific, concrete. Two sentences max. No emojis.
+    prompt = f"""You are Benney, the AI concierge at Rosewood Sand Hill (Menlo Park, Silicon Valley). You explain trip picks to in-room guests. Be warm, specific, concrete. Two sentences max. No emojis.
 
 Guest profile: {fam_summary}.
 Activity: {act['name']} — {act['description']}
 Tags: {", ".join(act['tags'])}.{pop_stat}
 
-Explain why this fits THIS guest in particular. Mention one concrete detail about the activity and tie it to one specific trait from their profile."""
+Drive time from Rosewood Sand Hill: typically 5-15 min to Palo Alto/Stanford, 35-45 min to SF, 45-60 min to Napa.
+
+Explain why this fits THIS guest in particular. Mention one concrete detail about the activity and tie it to one specific trait from their profile. Where relevant, anchor the suggestion in distance from the hotel (e.g. "ten minutes from the property") to make it feel concierge-like."""
 
     text = await _call_haiku(prompt)
     cache[cache_key] = text

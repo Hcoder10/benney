@@ -1,0 +1,3667 @@
+.benney-manual-rig {
+  --manual-accent: #85e7d3;
+  --manual-accent-2: #ff7468;
+  --manual-head-x: 0px;
+  --manual-head-y: 0px;
+  --manual-head-rotate: 0deg;
+  --manual-torso-x: 0px;
+  --manual-torso-y: 0px;
+  --manual-torso-rotate: 0deg;
+  --manual-torso-scale-x: 1;
+  --manual-torso-scale-y: 1;
+  --manual-tail-rotate: 3deg;
+  --manual-tail-x: 0px;
+  --manual-tail-y: 0px;
+  --manual-left-ear-x: 0px;
+  --manual-left-ear-y: 0px;
+  --manual-right-ear-x: 0px;
+  --manual-right-ear-y: 0px;
+  --manual-left-ear-rotate: 0deg;
+  --manual-right-ear-rotate: 0deg;
+  --manual-left-arm-rotate: 0deg;
+  --manual-right-arm-rotate: 0deg;
+  --manual-left-arm-x: 0px;
+  --manual-left-arm-y: 0px;
+  --manual-right-arm-x: 0px;
+  --manual-right-arm-y: 0px;
+  --manual-left-leg-rotate: 0deg;
+  --manual-right-leg-rotate: 0deg;
+  --manual-left-leg-x: 0px;
+  --manual-left-leg-y: 0px;
+  --manual-right-leg-x: 0px;
+  --manual-right-leg-y: 0px;
+  --manual-face-x: 0px;
+  --manual-face-y: 0px;
+  --manual-face-rotate: 0deg;
+  --manual-eye-scale-x: 1;
+  --manual-eye-scale-y: 1;
+  --manual-mouth-scale: 1;
+  --manual-mouth-y: 0px;
+  --manual-wave-opacity: 0;
+  --manual-orbit-opacity: 0;
+  --manual-sparkle-opacity: 0;
+  --manual-z-opacity: 0;
+  --manual-thought-opacity: 0;
+  --manual-idea-opacity: 0;
+  --manual-question-opacity: 0;
+  --manual-heart-opacity: 0;
+  --manual-stage-scale: 1;
+  --manual-panel-accent: #85e7d3;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  pointer-events: none;
+  user-select: none;
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(255, 219, 165, 0.12), transparent 25%),
+    radial-gradient(ellipse at 50% 70%, rgba(133, 231, 211, 0.07), transparent 39%),
+    linear-gradient(180deg, #07090a 0%, #030506 100%);
+}
+
+.manual-stage-aura {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: min(116%, 1120px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(255, 222, 173, 0.17), transparent 45%),
+    radial-gradient(circle, color-mix(in srgb, var(--manual-accent) 34%, transparent), transparent 66%);
+  filter: blur(34px);
+  opacity: 0.78;
+  transform: translate(-50%, -50%);
+  animation: manual-aura 4.8s ease-in-out infinite;
+}
+
+.manual-screen-props {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  perspective: 1100px;
+}
+
+.manual-screen-props span {
+  box-sizing: border-box;
+}
+
+.manual-pull-screen {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+  border: 1px solid color-mix(in srgb, var(--manual-panel-accent) 46%, transparent);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 34%),
+    radial-gradient(circle at 18% 16%, rgba(255, 211, 156, 0.26), transparent 33%),
+    radial-gradient(circle at 80% 78%, color-mix(in srgb, var(--manual-panel-accent) 24%, transparent), transparent 34%),
+    rgba(8, 15, 17, 0.58);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px color-mix(in srgb, var(--manual-panel-accent) 18%, transparent),
+    0 0 44px color-mix(in srgb, var(--manual-panel-accent) 32%, transparent),
+    0 22px 70px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px) saturate(1.14);
+  will-change: transform, opacity, filter;
+}
+
+.manual-top-screen {
+  left: 4%;
+  top: 0;
+  width: 92%;
+  height: 32%;
+  border-radius: 0 0 34px 34px;
+  transform-origin: 50% 0;
+  transform: translateY(-118%) scaleY(0.66);
+}
+
+.manual-side-screen {
+  top: 31%;
+  width: 34%;
+  height: 32%;
+  border-radius: 30px;
+}
+
+.manual-side-screen-left {
+  left: 4%;
+  border-radius: 0 30px 30px 0;
+  transform-origin: 0 50%;
+  transform: translateX(-118%) rotateY(-13deg) scaleX(0.9);
+}
+
+.manual-side-screen-right {
+  right: 4%;
+  border-radius: 30px 0 0 30px;
+  transform-origin: 100% 50%;
+  transform: translateX(118%) rotateY(13deg) scaleX(0.9);
+}
+
+.manual-screen-chip,
+.manual-screen-line,
+.manual-screen-dots,
+.manual-side-map,
+.manual-side-calendar {
+  position: absolute;
+  display: block;
+}
+
+.manual-screen-chip {
+  left: 9%;
+  top: 11%;
+  padding: 0.32em 0.68em;
+  border-radius: 999px;
+  color: rgba(246, 255, 251, 0.86);
+  background: rgba(255, 255, 255, 0.1);
+  font: 700 clamp(8px, 1.15vw, 13px) / 1 "Segoe UI", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.manual-screen-line {
+  left: 9%;
+  bottom: 25%;
+  width: 54%;
+  height: 5px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--manual-panel-accent) 55%, white 10%);
+  opacity: 0.65;
+}
+
+.manual-screen-line.wide {
+  bottom: 37%;
+  width: 72%;
+  opacity: 0.82;
+}
+
+.manual-screen-line.short {
+  width: 38%;
+  bottom: 15%;
+  opacity: 0.48;
+}
+
+.manual-screen-dots {
+  right: 10%;
+  top: 15%;
+  width: 42px;
+  height: 12px;
+  background:
+    radial-gradient(circle, var(--manual-panel-accent) 0 3px, transparent 3.4px) 0 50% / 14px 12px repeat-x;
+  opacity: 0.82;
+}
+
+.manual-side-map {
+  left: 13%;
+  top: 28%;
+  width: 58%;
+  height: 34%;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 24% 66%, #ffcc79 0 6px, transparent 7px),
+    radial-gradient(circle at 72% 28%, var(--manual-panel-accent) 0 6px, transparent 7px),
+    linear-gradient(138deg, transparent 43%, rgba(255, 255, 255, 0.5) 44% 47%, transparent 48%),
+    rgba(255, 255, 255, 0.09);
+}
+
+.manual-side-calendar {
+  left: 13%;
+  top: 27%;
+  width: 62%;
+  height: 36%;
+  border-radius: 16px;
+  background:
+    linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.16) 30% 33%, transparent 33% 63%, rgba(255, 255, 255, 0.16) 63% 66%, transparent 66%),
+    linear-gradient(0deg, transparent 30%, rgba(255, 255, 255, 0.16) 30% 33%, transparent 33% 63%, rgba(255, 255, 255, 0.16) 63% 66%, transparent 66%),
+    radial-gradient(circle at 82% 78%, #ffcc79 0 6px, transparent 7px),
+    rgba(255, 255, 255, 0.09);
+}
+
+.manual-screen-grip {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.62), transparent),
+    color-mix(in srgb, var(--manual-panel-accent) 68%, #fff4cf);
+  box-shadow:
+    0 0 16px color-mix(in srgb, var(--manual-panel-accent) 54%, transparent),
+    0 8px 28px rgba(0, 0, 0, 0.34);
+  will-change: transform, opacity;
+}
+
+.manual-top-grip {
+  left: 13%;
+  top: 31.6%;
+  width: 74%;
+  height: 11px;
+  transform: translateY(-36vh);
+}
+
+.manual-left-grip,
+.manual-right-grip {
+  top: 45.5%;
+  width: 10px;
+  height: 18%;
+}
+
+.manual-left-grip {
+  left: 37%;
+  transform: translateX(-42vw);
+}
+
+.manual-right-grip {
+  right: 37%;
+  transform: translateX(42vw);
+}
+
+.manual-screen-paw {
+  position: absolute;
+  display: block;
+  width: 34px;
+  height: 27px;
+  opacity: 0;
+  border-radius: 54% 46% 58% 42%;
+  background:
+    radial-gradient(circle at 34% 34%, rgba(255, 226, 175, 0.22), transparent 30%),
+    linear-gradient(135deg, #c59655, #986a35);
+  box-shadow:
+    inset 0 -4px 8px rgba(84, 53, 24, 0.24),
+    0 0 16px rgba(255, 211, 148, 0.38),
+    0 8px 22px rgba(0, 0, 0, 0.32);
+  will-change: transform, opacity;
+}
+
+.manual-screen-paw::before,
+.manual-screen-paw::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  width: 8px;
+  height: 11px;
+  border-radius: 999px;
+  background: #b77f40;
+  box-shadow: inset 0 -2px 4px rgba(84, 53, 24, 0.18);
+}
+
+.manual-screen-paw::before {
+  left: 7px;
+  transform: rotate(-13deg);
+}
+
+.manual-screen-paw::after {
+  right: 7px;
+  transform: rotate(13deg);
+}
+
+.manual-top-paw-left {
+  left: 31.5%;
+  top: 30.2%;
+  transform: translateY(-36vh) rotate(-8deg);
+}
+
+.manual-top-paw-right {
+  right: 31.5%;
+  top: 30.2%;
+  transform: translateY(-36vh) rotate(8deg);
+}
+
+.manual-left-paw-grab {
+  left: 33.2%;
+  top: 47.2%;
+  transform: translateX(-42vw) rotate(-10deg);
+}
+
+.manual-right-paw-grab {
+  right: 33.2%;
+  top: 47.2%;
+  transform: translateX(42vw) rotate(10deg);
+}
+
+.manual-scratch-trails {
+  position: absolute;
+  left: 49%;
+  top: 57%;
+  width: 20%;
+  height: 15%;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  filter: drop-shadow(0 0 10px rgba(255, 210, 143, 0.65));
+}
+
+.manual-scratch-trails span {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, #ffd28f 20% 78%, transparent);
+}
+
+.manual-scratch-trails span:nth-child(1) { left: 22%; }
+.manual-scratch-trails span:nth-child(2) { left: 48%; }
+.manual-scratch-trails span:nth-child(3) { left: 74%; }
+
+.manual-rig-svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: min(150%, 1400px);
+  height: auto;
+  overflow: visible;
+  filter:
+    drop-shadow(0 0 12px rgba(255, 221, 180, 0.24))
+    drop-shadow(0 28px 58px rgba(0, 0, 0, 0.62));
+  transform: translate(-50%, -50%) scale(var(--manual-stage-scale));
+  transform-origin: center;
+}
+
+.manual-rig-root {
+  transform-box: view-box;
+  transform-origin: 50px 54px;
+  animation: manual-float 4s ease-in-out infinite;
+}
+
+.manual-section,
+.manual-fx,
+.manual-left-eye,
+.manual-right-eye,
+.manual-mouth,
+.manual-cheek-marks {
+  transform-box: fill-box;
+  transition:
+    transform 680ms cubic-bezier(0.18, 0.92, 0.22, 1),
+    opacity 320ms ease,
+    fill 420ms ease,
+    stroke 420ms ease,
+    filter 420ms ease;
+}
+
+.manual-fill-main {
+  fill: #a67a45;
+}
+
+.manual-fill-tail {
+  fill: #98713a;
+}
+
+.manual-inner-left-ear {
+  fill: #8e6534;
+}
+
+.manual-inner-right-ear {
+  fill: #8a6333;
+}
+
+.manual-left-arm-shadow {
+  fill: #8f6638;
+}
+
+.manual-right-arm-shadow {
+  fill: #835d30;
+}
+
+.manual-belly-line {
+  fill: #896437;
+}
+
+.manual-left-eye,
+.manual-right-eye,
+.manual-mouth {
+  fill: #2b2928;
+}
+
+.manual-cheek-marks {
+  fill: #a47842;
+  opacity: 1;
+}
+
+.manual-head {
+  transform-box: view-box;
+  transform-origin: 50px 36px;
+  transform: translate(var(--manual-head-x), var(--manual-head-y)) rotate(var(--manual-head-rotate));
+}
+
+.manual-face {
+  transform-box: view-box;
+  transform-origin: 50px 20px;
+  transform:
+    translate(
+      calc(var(--manual-head-x) + var(--manual-face-x)),
+      calc(var(--manual-head-y) + var(--manual-face-y))
+    )
+    rotate(calc(var(--manual-head-rotate) + var(--manual-face-rotate)));
+}
+
+.manual-left-eye,
+.manual-right-eye {
+  transform-origin: center;
+  transform: scale(var(--manual-eye-scale-x), var(--manual-eye-scale-y));
+}
+
+.manual-mouth {
+  transform-origin: center;
+  transform: translateY(var(--manual-mouth-y)) scale(var(--manual-mouth-scale));
+}
+
+.manual-torso {
+  transform-origin: 50% 65%;
+  transform:
+    translate(var(--manual-torso-x), var(--manual-torso-y))
+    rotate(var(--manual-torso-rotate))
+    scale(var(--manual-torso-scale-x), var(--manual-torso-scale-y));
+}
+
+.manual-tail {
+  transform-origin: 86% 18%;
+  transform: translate(var(--manual-tail-x), var(--manual-tail-y)) rotate(var(--manual-tail-rotate));
+  animation: manual-tail-idle 3.2s ease-in-out infinite;
+}
+
+.manual-left-ear {
+  transform-box: view-box;
+  transform-origin: 40.8px 8.7px;
+  transform:
+    translate(
+      calc(var(--manual-head-x) + var(--manual-left-ear-x)),
+      calc(var(--manual-head-y) + var(--manual-left-ear-y))
+    )
+    rotate(calc(var(--manual-head-rotate) + var(--manual-left-ear-rotate)));
+}
+
+.manual-right-ear {
+  transform-box: view-box;
+  transform-origin: 59.2px 8.7px;
+  transform:
+    translate(
+      calc(var(--manual-head-x) + var(--manual-right-ear-x)),
+      calc(var(--manual-head-y) + var(--manual-right-ear-y))
+    )
+    rotate(calc(var(--manual-head-rotate) + var(--manual-right-ear-rotate)));
+}
+
+.manual-left-arm {
+  transform-box: view-box;
+  transform-origin: 33px 43px;
+  transform:
+    translate(
+      calc(var(--manual-torso-x) + var(--manual-left-arm-x)),
+      calc(var(--manual-torso-y) + var(--manual-left-arm-y))
+    )
+    rotate(calc(var(--manual-torso-rotate) + var(--manual-left-arm-rotate)));
+}
+
+.manual-right-arm {
+  transform-box: view-box;
+  transform-origin: 67px 43px;
+  transform:
+    translate(
+      calc(var(--manual-torso-x) + var(--manual-right-arm-x)),
+      calc(var(--manual-torso-y) + var(--manual-right-arm-y))
+    )
+    rotate(calc(var(--manual-torso-rotate) + var(--manual-right-arm-rotate)));
+}
+
+.manual-left-leg {
+  transform-box: view-box;
+  transform-origin: 44px 78px;
+  transform:
+    translate(
+      calc(var(--manual-torso-x) + var(--manual-left-leg-x)),
+      calc(var(--manual-torso-y) + var(--manual-left-leg-y))
+    )
+    rotate(calc(var(--manual-torso-rotate) + var(--manual-left-leg-rotate)));
+}
+
+.manual-right-leg {
+  transform-box: view-box;
+  transform-origin: 56px 78px;
+  transform:
+    translate(
+      calc(var(--manual-torso-x) + var(--manual-right-leg-x)),
+      calc(var(--manual-torso-y) + var(--manual-right-leg-y))
+    )
+    rotate(calc(var(--manual-torso-rotate) + var(--manual-right-leg-rotate)));
+}
+
+.manual-floor {
+  fill: color-mix(in srgb, var(--manual-accent) 20%, transparent);
+  filter: blur(1.6px);
+  transform-origin: center;
+  animation: manual-floor-pulse 4s ease-in-out infinite;
+}
+
+.manual-voice-waves {
+  fill: none;
+  stroke: var(--manual-accent);
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  opacity: var(--manual-wave-opacity);
+  filter: drop-shadow(0 0 4px var(--manual-accent));
+  animation: manual-wave-pulse 900ms ease-in-out infinite;
+}
+
+.manual-orbit {
+  fill: none;
+  stroke: var(--manual-accent);
+  stroke-width: 0.42;
+  stroke-dasharray: 2.5 4.8;
+  opacity: var(--manual-orbit-opacity);
+  transform-origin: 50px 50px;
+  animation: manual-orbit-spin 2.4s linear infinite;
+}
+
+.manual-orbit-dot {
+  fill: var(--manual-accent);
+  stroke: none;
+  filter: drop-shadow(0 0 3px var(--manual-accent));
+}
+
+.manual-sparkles {
+  fill: #ffd875;
+  opacity: var(--manual-sparkle-opacity);
+  transform-origin: 50px 50px;
+}
+
+.manual-sparkles path {
+  animation: manual-sparkle 1.4s ease-in-out infinite;
+}
+
+.manual-sparkles path:nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.manual-sparkles path:nth-child(3) {
+  animation-delay: 360ms;
+}
+
+.manual-sleep-z {
+  fill: color-mix(in srgb, var(--manual-accent) 80%, white);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 4.8px;
+  opacity: var(--manual-z-opacity);
+}
+
+.manual-sleep-z text {
+  animation: manual-z-drift 2.8s ease-out infinite;
+}
+
+.manual-sleep-z text:nth-child(2) {
+  animation-delay: 550ms;
+}
+
+.manual-sleep-z text:nth-child(3) {
+  animation-delay: 1100ms;
+}
+
+.manual-thought-bubbles {
+  fill: color-mix(in srgb, var(--manual-accent) 70%, white);
+  opacity: var(--manual-thought-opacity);
+  filter: drop-shadow(0 0 5px var(--manual-accent));
+}
+
+.manual-thought-bubbles circle {
+  transform-origin: center;
+  animation: manual-thought-bubble 1.7s ease-in-out infinite;
+}
+
+.manual-thought-bubbles circle:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.manual-thought-bubbles circle:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+.manual-idea-pop {
+  fill: color-mix(in srgb, #ffd875 76%, white);
+  stroke: #ffe9a8;
+  stroke-width: 0.58;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: var(--manual-idea-opacity);
+  transform-origin: 50px 12px;
+  filter: drop-shadow(0 0 7px rgba(255, 216, 117, 0.76));
+}
+
+.manual-question-mark {
+  fill: color-mix(in srgb, var(--manual-accent) 70%, white);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-weight: 850;
+  font-size: 8px;
+  opacity: var(--manual-question-opacity);
+  transform-origin: 67px 15px;
+  filter: drop-shadow(0 0 5px var(--manual-accent));
+}
+
+.manual-heart-pop {
+  fill: color-mix(in srgb, #ff8c9e 78%, white);
+  opacity: var(--manual-heart-opacity);
+  transform-origin: 70px 12px;
+  filter: drop-shadow(0 0 6px rgba(255, 140, 158, 0.7));
+}
+
+.benney-manual-rig[data-face-state="wake"] {
+  --manual-head-y: -1.8px;
+  --manual-eye-scale-y: 1.35;
+  --manual-left-arm-y: -0.35px;
+  --manual-right-arm-y: -0.35px;
+  --manual-left-leg-y: 0.25px;
+  --manual-right-leg-y: 0.25px;
+  --manual-left-ear-x: 0.22px;
+  --manual-right-ear-x: -0.22px;
+  --manual-left-ear-y: 0.18px;
+  --manual-right-ear-y: 0.18px;
+  --manual-left-ear-rotate: -10deg;
+  --manual-right-ear-rotate: 10deg;
+}
+
+.benney-manual-rig[data-face-state="greeting"] {
+  --manual-head-y: -0.8px;
+  --manual-head-rotate: 0deg;
+  --manual-face-rotate: 0deg;
+  --manual-left-arm-x: 0.08px;
+  --manual-left-arm-y: -0.45px;
+  --manual-right-arm-x: -0.08px;
+  --manual-right-arm-y: -0.45px;
+  --manual-left-arm-rotate: -2deg;
+  --manual-right-arm-rotate: 2deg;
+  --manual-left-leg-y: -0.15px;
+  --manual-right-leg-y: -0.15px;
+  --manual-tail-rotate: 18deg;
+  --manual-wave-opacity: 0.28;
+}
+
+.benney-manual-rig[data-face-state="listening"] {
+  --manual-head-y: -1.2px;
+  --manual-head-rotate: 0deg;
+  --manual-face-rotate: 0deg;
+  --manual-left-arm-y: -0.2px;
+  --manual-right-arm-y: -0.2px;
+  --manual-left-leg-y: 0.12px;
+  --manual-right-leg-y: 0.12px;
+  --manual-left-ear-x: 0.18px;
+  --manual-right-ear-x: -0.18px;
+  --manual-left-ear-y: 0.14px;
+  --manual-right-ear-y: 0.14px;
+  --manual-left-ear-rotate: -9deg;
+  --manual-right-ear-rotate: 9deg;
+  --manual-eye-scale-y: 1.18;
+  --manual-wave-opacity: 1;
+  --manual-tail-rotate: 21deg;
+}
+
+.benney-manual-rig[data-face-state="speaking"] {
+  --manual-head-y: -1.2px;
+  --manual-left-arm-y: -0.2px;
+  --manual-right-arm-y: -0.2px;
+  --manual-left-leg-y: 0.1px;
+  --manual-right-leg-y: 0.1px;
+  --manual-mouth-scale: 1.15;
+  --manual-wave-opacity: 0.7;
+}
+
+.benney-manual-rig[data-face-state="thinking"],
+.benney-manual-rig[data-face-state="planning"] {
+  --manual-head-x: -0.06px;
+  --manual-head-y: 0.72px;
+  --manual-head-rotate: -1.4deg;
+  --manual-face-x: -0.08px;
+  --manual-face-y: 0.06px;
+  --manual-face-rotate: 0.5deg;
+  --manual-eye-scale-y: 0.72;
+  --manual-left-arm-x: 0.2px;
+  --manual-left-arm-y: 0.35px;
+  --manual-right-arm-x: -0.15px;
+  --manual-right-arm-y: 0.15px;
+  --manual-left-arm-rotate: -3deg;
+  --manual-right-arm-rotate: 1.5deg;
+  --manual-left-leg-x: 0.06px;
+  --manual-right-leg-x: -0.06px;
+  --manual-left-ear-x: 0.1px;
+  --manual-left-ear-y: 0.25px;
+  --manual-right-ear-x: -0.08px;
+  --manual-right-ear-y: 0.18px;
+  --manual-left-ear-rotate: 2deg;
+  --manual-right-ear-rotate: -2deg;
+  --manual-tail-rotate: -14deg;
+  --manual-orbit-opacity: 0;
+  --manual-thought-opacity: 0.78;
+}
+
+.benney-manual-rig[data-face-state="pondering"] {
+  --manual-accent: #a8ffe8;
+  --manual-head-x: -0.12px;
+  --manual-head-y: 0.9px;
+  --manual-head-rotate: -2.8deg;
+  --manual-face-x: -0.22px;
+  --manual-face-y: 0.12px;
+  --manual-face-rotate: 1.1deg;
+  --manual-eye-scale-x: 1.04;
+  --manual-eye-scale-y: 0.58;
+  --manual-mouth-y: 0.18px;
+  --manual-left-arm-x: 0.44px;
+  --manual-left-arm-y: 0.42px;
+  --manual-left-arm-rotate: -8deg;
+  --manual-right-arm-x: -0.2px;
+  --manual-right-arm-y: 0.2px;
+  --manual-right-arm-rotate: 3deg;
+  --manual-left-leg-x: 0.05px;
+  --manual-right-leg-x: -0.05px;
+  --manual-left-ear-x: 0.18px;
+  --manual-left-ear-y: 0.42px;
+  --manual-right-ear-x: -0.12px;
+  --manual-right-ear-y: 0.3px;
+  --manual-left-ear-rotate: 4deg;
+  --manual-right-ear-rotate: -4deg;
+  --manual-tail-rotate: -28deg;
+  --manual-orbit-opacity: 0;
+  --manual-thought-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="idea"] {
+  --manual-accent: #ffd875;
+  --manual-head-y: -2.8px;
+  --manual-torso-y: -1.8px;
+  --manual-torso-scale-x: 1.018;
+  --manual-torso-scale-y: 0.988;
+  --manual-eye-scale-x: 1.24;
+  --manual-eye-scale-y: 1.36;
+  --manual-left-arm-y: -0.7px;
+  --manual-right-arm-y: -0.7px;
+  --manual-left-arm-rotate: -6deg;
+  --manual-right-arm-rotate: 6deg;
+  --manual-left-leg-y: -0.28px;
+  --manual-right-leg-y: -0.28px;
+  --manual-left-ear-x: 0.2px;
+  --manual-right-ear-x: -0.2px;
+  --manual-left-ear-y: 0.18px;
+  --manual-right-ear-y: 0.18px;
+  --manual-left-ear-rotate: -12deg;
+  --manual-right-ear-rotate: 12deg;
+  --manual-tail-rotate: 36deg;
+  --manual-idea-opacity: 1;
+  --manual-sparkle-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="confused"] {
+  --manual-accent: #b7c4ff;
+  --manual-head-x: 0.14px;
+  --manual-head-y: 0.75px;
+  --manual-head-rotate: 2.9deg;
+  --manual-face-x: 0.28px;
+  --manual-face-y: 0.08px;
+  --manual-face-rotate: -1.6deg;
+  --manual-eye-scale-x: 1.08;
+  --manual-eye-scale-y: 0.72;
+  --manual-mouth-y: 0.25px;
+  --manual-left-arm-x: 0px;
+  --manual-right-arm-x: 0px;
+  --manual-left-arm-y: 0px;
+  --manual-right-arm-y: 0px;
+  --manual-left-arm-rotate: 0deg;
+  --manual-right-arm-rotate: 0deg;
+  --manual-left-ear-x: 0.24px;
+  --manual-left-ear-y: 0.48px;
+  --manual-right-ear-x: -0.16px;
+  --manual-right-ear-y: 0.36px;
+  --manual-left-ear-rotate: -5deg;
+  --manual-right-ear-rotate: -9deg;
+  --manual-tail-rotate: -36deg;
+  --manual-question-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="reassuring"] {
+  --manual-accent: #ffd0b0;
+  --manual-head-y: 0.3px;
+  --manual-eye-scale-x: 1.12;
+  --manual-eye-scale-y: 0.42;
+  --manual-mouth-scale: 1.08;
+  --manual-left-arm-x: 0.16px;
+  --manual-left-arm-y: -0.25px;
+  --manual-right-arm-x: -0.16px;
+  --manual-right-arm-y: -0.25px;
+  --manual-left-arm-rotate: -3deg;
+  --manual-right-arm-rotate: 3deg;
+  --manual-left-leg-y: 0.1px;
+  --manual-right-leg-y: 0.1px;
+  --manual-tail-rotate: 18deg;
+  --manual-heart-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="amazed"] {
+  --manual-accent: #9ef9ff;
+  --manual-head-y: -2.2px;
+  --manual-torso-y: -1.2px;
+  --manual-eye-scale-x: 1.36;
+  --manual-eye-scale-y: 1.55;
+  --manual-mouth-y: 0.38px;
+  --manual-mouth-scale: 1.18;
+  --manual-left-arm-y: -0.95px;
+  --manual-right-arm-y: -0.95px;
+  --manual-left-arm-rotate: -10deg;
+  --manual-right-arm-rotate: 10deg;
+  --manual-left-ear-x: 0.28px;
+  --manual-right-ear-x: -0.28px;
+  --manual-left-ear-y: 0.22px;
+  --manual-right-ear-y: 0.22px;
+  --manual-left-ear-rotate: -14deg;
+  --manual-right-ear-rotate: 14deg;
+  --manual-tail-rotate: 44deg;
+  --manual-sparkle-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="determined"] {
+  --manual-accent: #ffbe70;
+  --manual-head-y: -0.8px;
+  --manual-torso-y: 0.5px;
+  --manual-torso-scale-x: 1.03;
+  --manual-torso-scale-y: 0.985;
+  --manual-eye-scale-x: 1.22;
+  --manual-eye-scale-y: 0.4;
+  --manual-left-arm-y: -0.4px;
+  --manual-right-arm-y: -0.4px;
+  --manual-left-arm-rotate: -8deg;
+  --manual-right-arm-rotate: 8deg;
+  --manual-left-leg-x: -0.12px;
+  --manual-right-leg-x: 0.12px;
+  --manual-left-leg-y: 0.28px;
+  --manual-right-leg-y: 0.28px;
+  --manual-left-leg-rotate: -2.8deg;
+  --manual-right-leg-rotate: 2.8deg;
+  --manual-tail-rotate: 26deg;
+  --manual-orbit-opacity: 0;
+}
+
+.benney-manual-rig[data-face-state="searching"],
+.benney-manual-rig[data-face-state="processing"] {
+  --manual-eye-scale-x: 1.18;
+  --manual-left-arm-y: -0.15px;
+  --manual-right-arm-y: -0.15px;
+  --manual-left-leg-x: 0.05px;
+  --manual-right-leg-x: -0.05px;
+  --manual-orbit-opacity: 0.82;
+  --manual-tail-rotate: 17deg;
+}
+
+.benney-manual-rig[data-face-state="booking"],
+.benney-manual-rig[data-face-state="confirming"] {
+  --manual-head-y: 1.2px;
+  --manual-left-arm-y: 0.25px;
+  --manual-right-arm-y: 0.25px;
+  --manual-left-leg-y: 0.18px;
+  --manual-right-leg-y: 0.18px;
+  --manual-eye-scale-y: 0.92;
+  --manual-orbit-opacity: 0.36;
+}
+
+.benney-manual-rig[data-face-state="success"],
+.benney-manual-rig[data-face-state="happy"],
+.benney-manual-rig[data-face-state="delighted"] {
+  --manual-head-y: -2.3px;
+  --manual-torso-y: -2.3px;
+  --manual-torso-scale-x: 1.02;
+  --manual-torso-scale-y: 0.99;
+  --manual-eye-scale-y: 0.42;
+  --manual-tail-rotate: 25deg;
+  --manual-left-arm-y: -0.55px;
+  --manual-right-arm-y: -0.55px;
+  --manual-left-arm-rotate: -4deg;
+  --manual-right-arm-rotate: 4deg;
+  --manual-left-leg-y: -0.35px;
+  --manual-right-leg-y: -0.35px;
+  --manual-sparkle-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="celebrating"],
+.benney-manual-rig[data-face-state="excited"] {
+  --manual-head-y: -2.6px;
+  --manual-torso-y: -2.8px;
+  --manual-torso-scale-x: 1.03;
+  --manual-torso-scale-y: 0.98;
+  --manual-left-arm-x: 0.12px;
+  --manual-left-arm-y: -0.85px;
+  --manual-right-arm-x: -0.12px;
+  --manual-right-arm-y: -0.85px;
+  --manual-left-arm-rotate: -7deg;
+  --manual-right-arm-rotate: 7deg;
+  --manual-left-leg-y: -0.55px;
+  --manual-right-leg-y: -0.55px;
+  --manual-tail-rotate: 31deg;
+  --manual-sparkle-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="curious"] {
+  --manual-head-rotate: 0deg;
+  --manual-face-rotate: 0deg;
+  --manual-head-y: -1.3px;
+  --manual-face-x: 0.35px;
+  --manual-eye-scale-y: 1.24;
+  --manual-left-arm-y: -0.2px;
+  --manual-right-arm-y: 0.15px;
+  --manual-left-leg-x: 0.04px;
+  --manual-right-leg-x: -0.04px;
+  --manual-left-ear-x: 0.16px;
+  --manual-left-ear-y: 0.12px;
+  --manual-left-ear-rotate: -10deg;
+}
+
+.benney-manual-rig[data-face-state="surprised"] {
+  --manual-head-y: -1.8px;
+  --manual-eye-scale-x: 1.25;
+  --manual-eye-scale-y: 1.42;
+  --manual-left-arm-x: 0.1px;
+  --manual-left-arm-y: -0.65px;
+  --manual-right-arm-x: -0.1px;
+  --manual-right-arm-y: -0.65px;
+  --manual-left-arm-rotate: -4deg;
+  --manual-right-arm-rotate: 4deg;
+  --manual-left-leg-y: 0.3px;
+  --manual-right-leg-y: 0.3px;
+  --manual-left-ear-x: 0.2px;
+  --manual-right-ear-x: -0.2px;
+  --manual-left-ear-y: 0.16px;
+  --manual-right-ear-y: 0.16px;
+  --manual-left-ear-rotate: -10deg;
+  --manual-right-ear-rotate: 10deg;
+  --manual-tail-rotate: 24deg;
+}
+
+.benney-manual-rig[data-face-state="playful"],
+.benney-manual-rig[data-face-state="proud"] {
+  --manual-head-rotate: 0deg;
+  --manual-face-rotate: 0deg;
+  --manual-torso-scale-x: 1.01;
+  --manual-torso-y: -0.8px;
+  --manual-left-arm-y: -0.25px;
+  --manual-right-arm-y: -0.25px;
+  --manual-left-arm-rotate: -2deg;
+  --manual-right-arm-rotate: 2deg;
+  --manual-left-leg-x: 0.07px;
+  --manual-right-leg-x: -0.07px;
+  --manual-tail-rotate: -18deg;
+}
+
+.benney-manual-rig[data-face-state="focused"] {
+  --manual-eye-scale-y: 0.54;
+  --manual-left-arm-y: 0.1px;
+  --manual-right-arm-y: 0.1px;
+  --manual-left-leg-y: 0.1px;
+  --manual-right-leg-y: 0.1px;
+  --manual-orbit-opacity: 0.25;
+}
+
+.benney-manual-rig[data-face-state="shy"],
+.benney-manual-rig[data-face-state="apologizing"] {
+  --manual-head-y: 1.2px;
+  --manual-head-rotate: 0deg;
+  --manual-face-rotate: 0deg;
+  --manual-eye-scale-y: 0.58;
+  --manual-left-arm-y: 0.55px;
+  --manual-right-arm-y: 0.55px;
+  --manual-left-arm-rotate: 3deg;
+  --manual-right-arm-rotate: -3deg;
+  --manual-left-leg-x: 0.12px;
+  --manual-right-leg-x: -0.12px;
+  --manual-left-ear-rotate: 8deg;
+  --manual-right-ear-rotate: -8deg;
+  --manual-tail-rotate: -15deg;
+}
+
+.benney-manual-rig[data-face-state="concerned"] {
+  --manual-accent: #ff8c7d;
+  --manual-head-y: 1.2px;
+  --manual-eye-scale-y: 0.7;
+  --manual-left-arm-y: 0.45px;
+  --manual-right-arm-y: 0.45px;
+  --manual-left-leg-y: 0.2px;
+  --manual-right-leg-y: 0.2px;
+  --manual-left-ear-rotate: 8deg;
+  --manual-right-ear-rotate: -8deg;
+  --manual-tail-rotate: -32deg;
+}
+
+.benney-manual-rig[data-face-state="error"] {
+  --manual-accent: #ff7468;
+  --manual-eye-scale-y: 0.75;
+  --manual-left-arm-x: 0.08px;
+  --manual-right-arm-x: -0.08px;
+  --manual-left-leg-x: 0.06px;
+  --manual-right-leg-x: -0.06px;
+  --manual-tail-rotate: -38deg;
+}
+
+.benney-manual-rig[data-face-state="lowEnergy"] {
+  --manual-head-y: 7.4px;
+  --manual-torso-y: 6.5px;
+  --manual-left-arm-y: 1.1px;
+  --manual-right-arm-y: 1.1px;
+  --manual-left-leg-y: 0.7px;
+  --manual-right-leg-y: 0.7px;
+  --manual-eye-scale-y: 0.32;
+  --manual-tail-rotate: -9deg;
+}
+
+.benney-manual-rig[data-face-state="sleeping"],
+.benney-manual-rig[data-face-state="dreaming"] {
+  --manual-head-y: 8.5px;
+  --manual-torso-y: 8.5px;
+  --manual-left-arm-y: 0.8px;
+  --manual-right-arm-y: 0.8px;
+  --manual-left-leg-y: 0.55px;
+  --manual-right-leg-y: 0.55px;
+  --manual-eye-scale-y: 0.08;
+  --manual-tail-rotate: -12deg;
+  --manual-z-opacity: 1;
+  --manual-stage-scale: 0.98;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] {
+  --manual-accent: #8cf5db;
+  --manual-panel-accent: #8cf5db;
+  --manual-head-y: -2.8px;
+  --manual-head-rotate: -1deg;
+  --manual-torso-y: -0.8px;
+  --manual-torso-scale-x: 0.992;
+  --manual-torso-scale-y: 1.012;
+  --manual-eye-scale-y: 1.24;
+  --manual-left-arm-y: -1.15px;
+  --manual-right-arm-y: -1.15px;
+  --manual-left-arm-rotate: -10deg;
+  --manual-right-arm-rotate: 10deg;
+  --manual-left-leg-y: 0.38px;
+  --manual-right-leg-y: 0.38px;
+  --manual-left-leg-rotate: -1.4deg;
+  --manual-right-leg-rotate: 1.4deg;
+  --manual-left-ear-rotate: -12deg;
+  --manual-right-ear-rotate: 12deg;
+  --manual-tail-rotate: 34deg;
+  --manual-wave-opacity: 0.72;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-fill-main,
+.benney-manual-rig[data-face-state="pullTop"] .manual-fill-tail {
+  stroke: #a67a45;
+  stroke-width: 0.48px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  paint-order: stroke fill;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-torso,
+.benney-manual-rig[data-face-state="pullTop"] .manual-left-arm,
+.benney-manual-rig[data-face-state="pullTop"] .manual-right-arm,
+.benney-manual-rig[data-face-state="pullTop"] .manual-left-leg,
+.benney-manual-rig[data-face-state="pullTop"] .manual-right-leg {
+  filter: drop-shadow(0 0 0.36px rgba(166, 122, 69, 0.72));
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] {
+  --manual-accent: #ffbe70;
+  --manual-panel-accent: #ffbe70;
+  --manual-head-x: -0.65px;
+  --manual-head-y: -1.4px;
+  --manual-head-rotate: -2.2deg;
+  --manual-torso-x: -0.55px;
+  --manual-torso-rotate: -1.4deg;
+  --manual-eye-scale-y: 1.12;
+  --manual-left-arm-x: -0.7px;
+  --manual-left-arm-y: -0.95px;
+  --manual-left-arm-rotate: -22deg;
+  --manual-right-arm-x: -0.18px;
+  --manual-right-arm-y: 0.25px;
+  --manual-right-arm-rotate: -5deg;
+  --manual-left-leg-x: 0.16px;
+  --manual-right-leg-x: -0.22px;
+  --manual-right-leg-y: 0.38px;
+  --manual-tail-rotate: -33deg;
+  --manual-orbit-opacity: 0.26;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] {
+  --manual-accent: #ff8c7d;
+  --manual-panel-accent: #ff8c7d;
+  --manual-head-x: 0.65px;
+  --manual-head-y: -1.4px;
+  --manual-head-rotate: 2.2deg;
+  --manual-torso-x: 0.55px;
+  --manual-torso-rotate: 1.4deg;
+  --manual-eye-scale-y: 1.12;
+  --manual-left-arm-x: 0.18px;
+  --manual-left-arm-y: 0.25px;
+  --manual-left-arm-rotate: 5deg;
+  --manual-right-arm-x: 0.7px;
+  --manual-right-arm-y: -0.95px;
+  --manual-right-arm-rotate: 22deg;
+  --manual-left-leg-x: 0.22px;
+  --manual-left-leg-y: 0.38px;
+  --manual-right-leg-x: -0.16px;
+  --manual-tail-rotate: 36deg;
+  --manual-orbit-opacity: 0.26;
+}
+
+.benney-manual-rig[data-face-state="stretch"] {
+  --manual-head-y: 3.2px;
+  --manual-head-rotate: 0deg;
+  --manual-torso-y: 2.1px;
+  --manual-torso-scale-x: 1.045;
+  --manual-torso-scale-y: 0.96;
+  --manual-eye-scale-y: 0.58;
+  --manual-left-arm-y: 1.1px;
+  --manual-right-arm-y: 1.1px;
+  --manual-left-arm-rotate: 6deg;
+  --manual-right-arm-rotate: -6deg;
+  --manual-left-leg-y: -0.75px;
+  --manual-right-leg-y: -0.75px;
+  --manual-left-leg-rotate: -5deg;
+  --manual-right-leg-rotate: 5deg;
+  --manual-tail-rotate: 42deg;
+}
+
+.benney-manual-rig[data-face-state="pounce"] {
+  --manual-accent: #ffd875;
+  --manual-panel-accent: #ffd875;
+  --manual-head-y: -2px;
+  --manual-torso-y: -1.4px;
+  --manual-torso-scale-x: 1.03;
+  --manual-torso-scale-y: 0.98;
+  --manual-eye-scale-y: 1.3;
+  --manual-left-arm-y: -0.85px;
+  --manual-right-arm-y: -0.85px;
+  --manual-left-arm-rotate: -8deg;
+  --manual-right-arm-rotate: 8deg;
+  --manual-left-leg-y: -0.7px;
+  --manual-right-leg-y: -0.7px;
+  --manual-left-leg-rotate: -5deg;
+  --manual-right-leg-rotate: 5deg;
+  --manual-tail-rotate: 38deg;
+  --manual-sparkle-opacity: 1;
+}
+
+.benney-manual-rig[data-face-state="tailSwish"] {
+  --manual-head-y: -0.7px;
+  --manual-face-x: 0.32px;
+  --manual-eye-scale-y: 0.82;
+  --manual-left-arm-y: -0.1px;
+  --manual-right-arm-y: -0.1px;
+  --manual-left-leg-rotate: -1.8deg;
+  --manual-right-leg-rotate: 1.8deg;
+  --manual-tail-rotate: 42deg;
+}
+
+.benney-manual-rig[data-face-state="idle"] .manual-left-eye,
+.benney-manual-rig[data-face-state="idle"] .manual-right-eye {
+  animation: manual-soft-blink 4.8s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="idle"] .manual-left-arm,
+.benney-manual-rig[data-face-state="listening"] .manual-left-arm,
+.benney-manual-rig[data-face-state="curious"] .manual-left-arm,
+.benney-manual-rig[data-face-state="focused"] .manual-left-arm {
+  animation: manual-paw-soft-left 3.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="idle"] .manual-right-arm,
+.benney-manual-rig[data-face-state="listening"] .manual-right-arm,
+.benney-manual-rig[data-face-state="curious"] .manual-right-arm,
+.benney-manual-rig[data-face-state="focused"] .manual-right-arm {
+  animation: manual-paw-soft-right 3.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="idle"] .manual-left-leg,
+.benney-manual-rig[data-face-state="listening"] .manual-left-leg,
+.benney-manual-rig[data-face-state="focused"] .manual-left-leg {
+  animation: manual-foot-soft-left 3.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="idle"] .manual-right-leg,
+.benney-manual-rig[data-face-state="listening"] .manual-right-leg,
+.benney-manual-rig[data-face-state="focused"] .manual-right-leg {
+  animation: manual-foot-soft-right 3.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="wake"] .manual-rig-root {
+  animation: manual-wake-pop 900ms cubic-bezier(0.18, 0.9, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="wake"] .manual-left-arm {
+  animation: manual-paw-startle-left 900ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="wake"] .manual-right-arm {
+  animation: manual-paw-startle-right 900ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="wake"] .manual-left-leg {
+  animation: manual-foot-alert-left 900ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="wake"] .manual-right-leg {
+  animation: manual-foot-alert-right 900ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="wake"] .manual-left-ear {
+  animation: manual-ear-outside-left 920ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="wake"] .manual-right-ear {
+  animation: manual-ear-outside-right 920ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="greeting"] .manual-rig-root {
+  animation: manual-greeting-bob 1.35s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="greeting"] .manual-left-arm {
+  animation: manual-paw-wave-left 1.35s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="greeting"] .manual-right-arm {
+  animation: manual-paw-wave-right 1.35s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="greeting"] .manual-left-leg {
+  animation: manual-foot-bounce-left 1.35s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="greeting"] .manual-right-leg {
+  animation: manual-foot-bounce-right 1.35s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="greeting"] .manual-voice-waves {
+  animation: manual-wave-pulse 900ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="listening"] .manual-left-ear,
+.benney-manual-rig[data-face-state="curious"] .manual-left-ear {
+  animation: manual-ear-outside-left 1.15s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="listening"] .manual-right-ear {
+  animation: manual-ear-outside-right 1.15s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="speaking"] .manual-mouth {
+  animation: manual-mouth-talk 320ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="speaking"] .manual-rig-root {
+  animation: manual-speaking-breathe 760ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="speaking"] .manual-left-arm,
+.benney-manual-rig[data-face-state="searching"] .manual-left-arm,
+.benney-manual-rig[data-face-state="processing"] .manual-left-arm {
+  animation: manual-paw-talk-left 760ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="speaking"] .manual-right-arm,
+.benney-manual-rig[data-face-state="searching"] .manual-right-arm,
+.benney-manual-rig[data-face-state="processing"] .manual-right-arm {
+  animation: manual-paw-talk-right 760ms ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="speaking"] .manual-left-leg,
+.benney-manual-rig[data-face-state="searching"] .manual-left-leg,
+.benney-manual-rig[data-face-state="processing"] .manual-left-leg {
+  animation: manual-foot-soft-left 1.3s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="speaking"] .manual-right-leg,
+.benney-manual-rig[data-face-state="searching"] .manual-right-leg,
+.benney-manual-rig[data-face-state="processing"] .manual-right-leg {
+  animation: manual-foot-soft-right 1.3s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="thinking"] .manual-rig-root,
+.benney-manual-rig[data-face-state="planning"] .manual-rig-root {
+  animation: manual-thinking-breathe 1.8s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="thinking"] .manual-left-arm,
+.benney-manual-rig[data-face-state="planning"] .manual-left-arm,
+.benney-manual-rig[data-face-state="booking"] .manual-left-arm,
+.benney-manual-rig[data-face-state="confirming"] .manual-left-arm {
+  animation: manual-paw-think-left 1.8s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="thinking"] .manual-right-arm,
+.benney-manual-rig[data-face-state="planning"] .manual-right-arm,
+.benney-manual-rig[data-face-state="booking"] .manual-right-arm,
+.benney-manual-rig[data-face-state="confirming"] .manual-right-arm {
+  animation: manual-paw-think-right 1.8s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="thinking"] .manual-left-leg,
+.benney-manual-rig[data-face-state="planning"] .manual-left-leg,
+.benney-manual-rig[data-face-state="booking"] .manual-left-leg,
+.benney-manual-rig[data-face-state="confirming"] .manual-left-leg {
+  animation: manual-foot-rock-left 1.8s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="thinking"] .manual-right-leg,
+.benney-manual-rig[data-face-state="planning"] .manual-right-leg,
+.benney-manual-rig[data-face-state="booking"] .manual-right-leg,
+.benney-manual-rig[data-face-state="confirming"] .manual-right-leg {
+  animation: manual-foot-rock-right 1.8s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="booking"] .manual-rig-root,
+.benney-manual-rig[data-face-state="confirming"] .manual-rig-root {
+  animation: manual-confirm-nod 1.05s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="success"] .manual-rig-root,
+.benney-manual-rig[data-face-state="happy"] .manual-rig-root,
+.benney-manual-rig[data-face-state="delighted"] .manual-rig-root {
+  animation: manual-happy-bounce 1.05s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="success"] .manual-left-arm,
+.benney-manual-rig[data-face-state="happy"] .manual-left-arm,
+.benney-manual-rig[data-face-state="delighted"] .manual-left-arm,
+.benney-manual-rig[data-face-state="celebrating"] .manual-left-arm,
+.benney-manual-rig[data-face-state="excited"] .manual-left-arm {
+  animation: manual-paw-cheer-left 1.05s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="success"] .manual-right-arm,
+.benney-manual-rig[data-face-state="happy"] .manual-right-arm,
+.benney-manual-rig[data-face-state="delighted"] .manual-right-arm,
+.benney-manual-rig[data-face-state="celebrating"] .manual-right-arm,
+.benney-manual-rig[data-face-state="excited"] .manual-right-arm {
+  animation: manual-paw-cheer-right 1.05s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="success"] .manual-left-leg,
+.benney-manual-rig[data-face-state="happy"] .manual-left-leg,
+.benney-manual-rig[data-face-state="delighted"] .manual-left-leg,
+.benney-manual-rig[data-face-state="celebrating"] .manual-left-leg,
+.benney-manual-rig[data-face-state="excited"] .manual-left-leg {
+  animation: manual-foot-bounce-left 1.05s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="success"] .manual-right-leg,
+.benney-manual-rig[data-face-state="happy"] .manual-right-leg,
+.benney-manual-rig[data-face-state="delighted"] .manual-right-leg,
+.benney-manual-rig[data-face-state="celebrating"] .manual-right-leg,
+.benney-manual-rig[data-face-state="excited"] .manual-right-leg {
+  animation: manual-foot-bounce-right 1.05s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="surprised"] .manual-rig-root {
+  animation: manual-surprised-pop 1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="surprised"] .manual-left-arm {
+  animation: manual-paw-startle-left 1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="surprised"] .manual-right-arm {
+  animation: manual-paw-startle-right 1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="curious"] .manual-left-leg,
+.benney-manual-rig[data-face-state="surprised"] .manual-left-leg {
+  animation: manual-foot-alert-left 1.2s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="curious"] .manual-right-leg,
+.benney-manual-rig[data-face-state="surprised"] .manual-right-leg {
+  animation: manual-foot-alert-right 1.2s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="surprised"] .manual-left-ear {
+  animation: manual-ear-outside-left 1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="surprised"] .manual-right-ear {
+  animation: manual-ear-outside-right 1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="playful"] .manual-rig-root,
+.benney-manual-rig[data-face-state="proud"] .manual-rig-root {
+  animation: manual-proud-sway 1.45s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="playful"] .manual-left-arm,
+.benney-manual-rig[data-face-state="proud"] .manual-left-arm {
+  animation: manual-paw-wave-left 1.45s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="playful"] .manual-right-arm,
+.benney-manual-rig[data-face-state="proud"] .manual-right-arm {
+  animation: manual-paw-wave-right 1.45s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="playful"] .manual-left-leg,
+.benney-manual-rig[data-face-state="proud"] .manual-left-leg {
+  animation: manual-foot-rock-left 1.45s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="playful"] .manual-right-leg,
+.benney-manual-rig[data-face-state="proud"] .manual-right-leg {
+  animation: manual-foot-rock-right 1.45s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="focused"] .manual-left-eye,
+.benney-manual-rig[data-face-state="focused"] .manual-right-eye {
+  animation: manual-focus-squint 1.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="shy"] .manual-rig-root,
+.benney-manual-rig[data-face-state="apologizing"] .manual-rig-root,
+.benney-manual-rig[data-face-state="concerned"] .manual-rig-root {
+  animation: manual-shy-sway 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="shy"] .manual-left-arm,
+.benney-manual-rig[data-face-state="apologizing"] .manual-left-arm,
+.benney-manual-rig[data-face-state="concerned"] .manual-left-arm {
+  animation: manual-paw-fold-left 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="shy"] .manual-right-arm,
+.benney-manual-rig[data-face-state="apologizing"] .manual-right-arm,
+.benney-manual-rig[data-face-state="concerned"] .manual-right-arm {
+  animation: manual-paw-fold-right 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="shy"] .manual-left-leg,
+.benney-manual-rig[data-face-state="apologizing"] .manual-left-leg,
+.benney-manual-rig[data-face-state="concerned"] .manual-left-leg {
+  animation: manual-foot-shy-left 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="shy"] .manual-right-leg,
+.benney-manual-rig[data-face-state="apologizing"] .manual-right-leg,
+.benney-manual-rig[data-face-state="concerned"] .manual-right-leg {
+  animation: manual-foot-shy-right 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="error"] .manual-rig-root {
+  animation: manual-error-shake 130ms linear infinite;
+}
+
+.benney-manual-rig[data-face-state="error"] .manual-left-arm {
+  animation: manual-paw-error-left 260ms linear infinite;
+}
+
+.benney-manual-rig[data-face-state="error"] .manual-right-arm {
+  animation: manual-paw-error-right 260ms linear infinite;
+}
+
+.benney-manual-rig[data-face-state="error"] .manual-left-leg {
+  animation: manual-foot-error-left 260ms linear infinite;
+}
+
+.benney-manual-rig[data-face-state="error"] .manual-right-leg {
+  animation: manual-foot-error-right 260ms linear infinite;
+}
+
+.benney-manual-rig[data-face-state="celebrating"] .manual-rig-root,
+.benney-manual-rig[data-face-state="excited"] .manual-rig-root {
+  animation: manual-celebrate-hop 820ms cubic-bezier(0.2, 0.82, 0.28, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="searching"] .manual-face,
+.benney-manual-rig[data-face-state="processing"] .manual-face {
+  animation: manual-scan-face 2.2s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="lowEnergy"] .manual-rig-root {
+  animation: manual-low-energy 2.2s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="lowEnergy"] .manual-left-arm,
+.benney-manual-rig[data-face-state="sleeping"] .manual-left-arm,
+.benney-manual-rig[data-face-state="dreaming"] .manual-left-arm {
+  animation: manual-paw-droop-left 2.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="lowEnergy"] .manual-right-arm,
+.benney-manual-rig[data-face-state="sleeping"] .manual-right-arm,
+.benney-manual-rig[data-face-state="dreaming"] .manual-right-arm {
+  animation: manual-paw-droop-right 2.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="lowEnergy"] .manual-left-leg,
+.benney-manual-rig[data-face-state="sleeping"] .manual-left-leg,
+.benney-manual-rig[data-face-state="dreaming"] .manual-left-leg {
+  animation: manual-foot-droop-left 2.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="lowEnergy"] .manual-right-leg,
+.benney-manual-rig[data-face-state="sleeping"] .manual-right-leg,
+.benney-manual-rig[data-face-state="dreaming"] .manual-right-leg {
+  animation: manual-foot-droop-right 2.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="sleeping"] .manual-rig-root,
+.benney-manual-rig[data-face-state="dreaming"] .manual-rig-root {
+  animation: manual-sleep-breathe 2.8s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pondering"] .manual-rig-root {
+  animation: manual-ponder-sway 2.1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pondering"] .manual-face {
+  animation: manual-ponder-face 2.1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pondering"] .manual-left-arm {
+  animation: manual-ponder-paw-left 2.1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pondering"] .manual-right-arm {
+  animation: manual-ponder-paw-right 2.1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pondering"] .manual-tail {
+  animation: manual-ponder-tail 2.1s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="idea"] .manual-rig-root {
+  animation: manual-idea-body 1.5s cubic-bezier(0.18, 0.92, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="idea"] .manual-idea-pop {
+  animation: manual-idea-flash 1.5s cubic-bezier(0.18, 0.92, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="idea"] .manual-left-arm,
+.benney-manual-rig[data-face-state="amazed"] .manual-left-arm {
+  animation: manual-wow-paw-left 1.5s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="idea"] .manual-right-arm,
+.benney-manual-rig[data-face-state="amazed"] .manual-right-arm {
+  animation: manual-wow-paw-right 1.5s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="confused"] .manual-rig-root {
+  animation: manual-confused-tilt 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="confused"] .manual-face {
+  animation: manual-confused-face 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="confused"] .manual-question-mark {
+  animation: manual-question-wobble 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="confused"] .manual-left-arm {
+  animation: none;
+}
+
+.benney-manual-rig[data-face-state="confused"] .manual-right-arm {
+  animation: none;
+}
+
+.benney-manual-rig[data-face-state="reassuring"] .manual-rig-root {
+  animation: manual-reassuring-nod 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="reassuring"] .manual-heart-pop {
+  animation: manual-heart-float 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="reassuring"] .manual-left-arm {
+  animation: manual-reassuring-paw-left 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="reassuring"] .manual-right-arm {
+  animation: manual-reassuring-paw-right 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="amazed"] .manual-rig-root {
+  animation: manual-amazed-pop 1.4s cubic-bezier(0.18, 0.92, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="amazed"] .manual-left-leg {
+  animation: manual-foot-bounce-left 1.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="amazed"] .manual-right-leg {
+  animation: manual-foot-bounce-right 1.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="determined"] .manual-rig-root {
+  animation: manual-determined-set 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="determined"] .manual-left-arm {
+  animation: manual-determined-paw-left 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="determined"] .manual-right-arm {
+  animation: manual-determined-paw-right 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="determined"] .manual-left-leg {
+  animation: manual-determined-foot-left 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="determined"] .manual-right-leg {
+  animation: manual-determined-foot-right 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-top-screen {
+  animation: manual-screen-top-pull 2.6s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-top-grip {
+  animation: manual-top-grip-pull 2.6s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-top-paw-left {
+  animation: manual-top-paw-left 2.6s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-top-paw-right {
+  animation: manual-top-paw-right 2.6s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-rig-root {
+  animation: manual-pull-top-body 2.6s cubic-bezier(0.2, 0.82, 0.28, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-left-arm {
+  animation: manual-pull-top-left-paw 2.6s cubic-bezier(0.18, 0.92, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-right-arm {
+  animation: manual-pull-top-right-paw 2.6s cubic-bezier(0.18, 0.92, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-right-leg {
+  animation: manual-foot-jump-right 2.6s cubic-bezier(0.18, 0.82, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-left-leg {
+  animation: manual-foot-jump-left 2.6s cubic-bezier(0.18, 0.82, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullTop"] .manual-floor {
+  animation: manual-jump-shadow 2.6s cubic-bezier(0.18, 0.82, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] .manual-side-screen-left {
+  animation: manual-screen-left-pull 1.7s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] .manual-left-grip {
+  animation: manual-left-grip-pull 1.7s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] .manual-left-paw-grab {
+  animation: manual-left-paw-grab 1.7s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] .manual-rig-root {
+  animation: manual-side-tug-left 1.7s cubic-bezier(0.18, 0.9, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] .manual-left-arm {
+  animation: manual-pull-left-paw 1.7s cubic-bezier(0.18, 0.92, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] .manual-right-arm {
+  animation: manual-brace-right-paw 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pullLeft"] .manual-left-leg,
+.benney-manual-rig[data-face-state="pullLeft"] .manual-right-leg {
+  animation: manual-side-brace-feet-left 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] .manual-side-screen-right {
+  animation: manual-screen-right-pull 1.7s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] .manual-right-grip {
+  animation: manual-right-grip-pull 1.7s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] .manual-right-paw-grab {
+  animation: manual-right-paw-grab 1.7s cubic-bezier(0.17, 0.92, 0.21, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] .manual-rig-root {
+  animation: manual-side-tug-right 1.7s cubic-bezier(0.18, 0.9, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] .manual-right-arm {
+  animation: manual-pull-right-paw 1.7s cubic-bezier(0.18, 0.92, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] .manual-left-arm {
+  animation: manual-brace-left-paw 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pullRight"] .manual-left-leg,
+.benney-manual-rig[data-face-state="pullRight"] .manual-right-leg {
+  animation: manual-side-brace-feet-right 1.7s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="stretch"] .manual-rig-root {
+  animation: manual-cat-stretch 1.6s cubic-bezier(0.18, 0.82, 0.24, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="stretch"] .manual-left-arm {
+  animation: manual-stretch-paw-left 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="stretch"] .manual-right-arm {
+  animation: manual-stretch-paw-right 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="stretch"] .manual-tail {
+  animation: manual-tail-stretch 1.6s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pounce"] .manual-rig-root {
+  animation: manual-pounce-hop 1.4s cubic-bezier(0.18, 0.84, 0.24, 1) infinite;
+}
+
+.benney-manual-rig[data-face-state="pounce"] .manual-left-arm {
+  animation: manual-pounce-paw-left 1.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pounce"] .manual-right-arm {
+  animation: manual-pounce-paw-right 1.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="pounce"] .manual-scratch-trails {
+  animation: manual-scratch-flash 1.4s ease-out infinite;
+}
+
+.benney-manual-rig[data-face-state="tailSwish"] .manual-rig-root {
+  animation: manual-tail-swish-body 1.4s ease-in-out infinite;
+}
+
+.benney-manual-rig[data-face-state="tailSwish"] .manual-tail {
+  animation: manual-tail-big-swish 1.4s cubic-bezier(0.18, 0.9, 0.22, 1) infinite;
+}
+
+.benney-manual-rig[data-rig-debug]:not([data-rig-debug=""]) .manual-section,
+.benney-manual-rig[data-rig-debug]:not([data-rig-debug=""]) .manual-fx {
+  opacity: 0.06;
+  filter: grayscale(0.8);
+}
+
+.benney-manual-rig[data-rig-debug]:not([data-rig-debug=""]) .manual-fx {
+  opacity: 0 !important;
+}
+
+.benney-manual-rig[data-rig-debug]:not([data-rig-debug=""]) .manual-section * {
+  fill: rgba(72, 62, 53, 0.34);
+  stroke: none;
+}
+
+.benney-manual-rig[data-rig-debug="all"] .manual-section,
+.benney-manual-rig[data-rig-debug="head"] .manual-head,
+.benney-manual-rig[data-rig-debug="torso"] .manual-torso,
+.benney-manual-rig[data-rig-debug="leftEar"] .manual-left-ear,
+.benney-manual-rig[data-rig-debug="rightEar"] .manual-right-ear,
+.benney-manual-rig[data-rig-debug="leftArm"] .manual-left-arm,
+.benney-manual-rig[data-rig-debug="rightArm"] .manual-right-arm,
+.benney-manual-rig[data-rig-debug="leftLeg"] .manual-left-leg,
+.benney-manual-rig[data-rig-debug="rightLeg"] .manual-right-leg,
+.benney-manual-rig[data-rig-debug="tail"] .manual-tail,
+.benney-manual-rig[data-rig-debug="face"] .manual-face {
+  opacity: 1;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 10px rgba(218, 182, 255, 0.9)) !important;
+  animation: manual-debug-bounce 780ms ease-in-out infinite !important;
+}
+
+.benney-manual-rig[data-rig-debug="all"] .manual-section *,
+.benney-manual-rig[data-rig-debug="head"] .manual-head *,
+.benney-manual-rig[data-rig-debug="torso"] .manual-torso *,
+.benney-manual-rig[data-rig-debug="leftEar"] .manual-left-ear *,
+.benney-manual-rig[data-rig-debug="rightEar"] .manual-right-ear *,
+.benney-manual-rig[data-rig-debug="leftArm"] .manual-left-arm *,
+.benney-manual-rig[data-rig-debug="rightArm"] .manual-right-arm *,
+.benney-manual-rig[data-rig-debug="leftLeg"] .manual-left-leg *,
+.benney-manual-rig[data-rig-debug="rightLeg"] .manual-right-leg *,
+.benney-manual-rig[data-rig-debug="tail"] .manual-tail *,
+.benney-manual-rig[data-rig-debug="face"] .manual-face * {
+  fill: #d9b6ff !important;
+  stroke: #f6e9ff !important;
+}
+
+@keyframes manual-aura {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+}
+
+@keyframes manual-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -1.2px;
+  }
+}
+
+@keyframes manual-tail-idle {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 6deg;
+  }
+}
+
+@keyframes manual-floor-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scaleX(0.94);
+  }
+  50% {
+    opacity: 0.76;
+    transform: scaleX(1.04);
+  }
+}
+
+@keyframes manual-wave-pulse {
+  0%,
+  100% {
+    opacity: calc(var(--manual-wave-opacity) * 0.38);
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: var(--manual-wave-opacity);
+    transform: scale(1.08);
+  }
+}
+
+@keyframes manual-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes manual-sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes manual-z-drift {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.8);
+  }
+  22% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(5px, -12px) scale(1.2);
+  }
+}
+
+@keyframes manual-thought-bubble {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateY(0) scale(0.72);
+  }
+  46% {
+    opacity: 1;
+    transform: translateY(-1.6px) scale(1.08);
+  }
+  76% {
+    opacity: 0.48;
+    transform: translateY(-2.7px) scale(0.9);
+  }
+}
+
+@keyframes manual-idea-flash {
+  0%,
+  100% {
+    opacity: calc(var(--manual-idea-opacity) * 0.7);
+    transform: translateY(-7px) scale(0.54) rotate(-2deg);
+  }
+  28% {
+    opacity: var(--manual-idea-opacity);
+    transform: translateY(-8.7px) scale(0.68) rotate(2deg);
+  }
+  58% {
+    opacity: var(--manual-idea-opacity);
+    transform: translateY(-7.8px) scale(0.6) rotate(0deg);
+  }
+}
+
+@keyframes manual-question-wobble {
+  0%,
+  100% {
+    opacity: calc(var(--manual-question-opacity) * 0.72);
+    transform: translate(0, 0) rotate(-8deg) scale(0.92);
+  }
+  36% {
+    opacity: var(--manual-question-opacity);
+    transform: translate(0.9px, -1px) rotate(8deg) scale(1.1);
+  }
+  68% {
+    opacity: calc(var(--manual-question-opacity) * 0.82);
+    transform: translate(-0.45px, 0.2px) rotate(-3deg) scale(1);
+  }
+}
+
+@keyframes manual-heart-float {
+  0%,
+  100% {
+    opacity: calc(var(--manual-heart-opacity) * 0.7);
+    transform: translateY(0) scale(0.82);
+  }
+  44% {
+    opacity: var(--manual-heart-opacity);
+    transform: translateY(-2px) scale(1.08);
+  }
+  72% {
+    opacity: calc(var(--manual-heart-opacity) * 0.86);
+    transform: translateY(-0.8px) scale(0.94);
+  }
+}
+
+@keyframes manual-ear-twitch {
+  0%,
+  76%,
+  100% {
+    translate: 0 0;
+  }
+  84% {
+    translate: 0 -0.9px;
+  }
+  91% {
+    translate: 0 0.35px;
+  }
+}
+
+@keyframes manual-ear-outside-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  38% {
+    translate: 0.08px 0.1px;
+    rotate: -4deg;
+  }
+  62% {
+    translate: 0.02px -0.03px;
+    rotate: 2deg;
+  }
+}
+
+@keyframes manual-ear-outside-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  38% {
+    translate: -0.08px 0.1px;
+    rotate: 4deg;
+  }
+  62% {
+    translate: -0.02px -0.03px;
+    rotate: -2deg;
+  }
+}
+
+@keyframes manual-soft-blink {
+  0%,
+  88%,
+  100% {
+    scale: 1 1;
+  }
+  92%,
+  94% {
+    scale: 1.08 0.18;
+  }
+}
+
+@keyframes manual-wake-pop {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  42% {
+    translate: 0 -2px;
+    scale: 1.015;
+  }
+  70% {
+    translate: 0 0.5px;
+    scale: 0.995 1.004;
+  }
+}
+
+@keyframes manual-greeting-bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -1.1px;
+  }
+}
+
+@keyframes manual-speaking-breathe {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -0.75px;
+  }
+}
+
+@keyframes manual-thinking-breathe {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 0.9px;
+    rotate: -0.35deg;
+  }
+}
+
+@keyframes manual-confirm-nod {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  45% {
+    translate: 0 1px;
+  }
+  70% {
+    translate: 0 -0.45px;
+  }
+}
+
+@keyframes manual-happy-bounce {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  50% {
+    translate: 0 -1.8px;
+    scale: 1.01 0.997;
+  }
+}
+
+@keyframes manual-surprised-pop {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  45% {
+    translate: 0 -1.4px;
+    scale: 1.012;
+  }
+}
+
+@keyframes manual-proud-sway {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -0.55px;
+    rotate: 0.45deg;
+  }
+}
+
+@keyframes manual-focus-squint {
+  0%,
+  100% {
+    scale: 1 1;
+  }
+  50% {
+    scale: 1.12 0.72;
+  }
+}
+
+@keyframes manual-shy-sway {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 0.8px;
+    rotate: -0.35deg;
+  }
+}
+
+@keyframes manual-mouth-talk {
+  0%,
+  100% {
+    transform: translateY(var(--manual-mouth-y)) scale(0.94, 0.82);
+  }
+  50% {
+    transform: translateY(calc(var(--manual-mouth-y) + 0.45px)) scale(1.18, 1.24);
+  }
+}
+
+@keyframes manual-error-shake {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  25% {
+    translate: -1.4px 0;
+  }
+  50% {
+    translate: 1.4px -0.4px;
+  }
+  75% {
+    translate: -0.8px 0.6px;
+  }
+}
+
+@keyframes manual-celebrate-hop {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  52% {
+    translate: 0 -5px;
+  }
+}
+
+@keyframes manual-scan-face {
+  0%,
+  100% {
+    translate: -0.8px 0;
+  }
+  50% {
+    translate: 0.8px 0;
+  }
+}
+
+@keyframes manual-low-energy {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 1.4px;
+  }
+}
+
+@keyframes manual-sleep-breathe {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1 1;
+  }
+  50% {
+    translate: 0 1.1px;
+    scale: 1.006 0.996;
+  }
+}
+
+@keyframes manual-ponder-sway {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -0.1deg;
+  }
+  45% {
+    translate: 0 0.38px;
+    rotate: -0.45deg;
+  }
+  74% {
+    translate: 0 -0.1px;
+    rotate: 0.16deg;
+  }
+}
+
+@keyframes manual-ponder-face {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  46% {
+    translate: -0.5px -0.18px;
+    rotate: -1deg;
+  }
+}
+
+@keyframes manual-ponder-paw-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -1deg;
+  }
+  48% {
+    translate: 0.38px 0.38px;
+    rotate: -5deg;
+  }
+}
+
+@keyframes manual-ponder-paw-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  48% {
+    translate: -0.16px 0.18px;
+    rotate: 2deg;
+  }
+}
+
+@keyframes manual-ponder-tail {
+  0%,
+  100% {
+    rotate: -3deg;
+  }
+  50% {
+    rotate: -18deg;
+  }
+}
+
+@keyframes manual-idea-body {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  26% {
+    translate: 0 -3.1px;
+    scale: 1.018 0.99;
+  }
+  54% {
+    translate: 0 0.8px;
+    scale: 0.996 1.006;
+  }
+}
+
+@keyframes manual-wow-paw-left {
+  0%,
+  100% {
+    translate: 0.05px 0;
+    rotate: -1deg;
+  }
+  42% {
+    translate: 0.18px -1.2px;
+    rotate: -9deg;
+  }
+  72% {
+    translate: 0.08px -0.35px;
+    rotate: 2deg;
+  }
+}
+
+@keyframes manual-wow-paw-right {
+  0%,
+  100% {
+    translate: -0.05px 0;
+    rotate: 1deg;
+  }
+  42% {
+    translate: -0.18px -1.2px;
+    rotate: 9deg;
+  }
+  72% {
+    translate: -0.08px -0.35px;
+    rotate: -2deg;
+  }
+}
+
+@keyframes manual-confused-tilt {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  32% {
+    translate: -0.18px 0.16px;
+    rotate: -0.42deg;
+  }
+  68% {
+    translate: 0.18px -0.1px;
+    rotate: 0.38deg;
+  }
+}
+
+@keyframes manual-confused-face {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  44% {
+    translate: 0.42px 0.12px;
+    rotate: 1.6deg;
+  }
+}
+
+@keyframes manual-confused-paw-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.1px 0.12px;
+    rotate: 1.8deg;
+  }
+}
+
+@keyframes manual-confused-paw-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.12px -0.14px;
+    rotate: 2.4deg;
+  }
+}
+
+@keyframes manual-reassuring-nod {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  38% {
+    translate: 0 0.9px;
+    rotate: 0.35deg;
+  }
+  66% {
+    translate: 0 -0.35px;
+    rotate: -0.18deg;
+  }
+}
+
+@keyframes manual-reassuring-paw-left {
+  0%,
+  100% {
+    translate: 0.04px 0;
+    rotate: -1deg;
+  }
+  50% {
+    translate: 0.2px -0.52px;
+    rotate: -3.5deg;
+  }
+}
+
+@keyframes manual-reassuring-paw-right {
+  0%,
+  100% {
+    translate: -0.04px 0;
+    rotate: 1deg;
+  }
+  50% {
+    translate: -0.2px -0.52px;
+    rotate: 3.5deg;
+  }
+}
+
+@keyframes manual-amazed-pop {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  36% {
+    translate: 0 -2.2px;
+    scale: 1.025 0.992;
+  }
+  66% {
+    translate: 0 0.45px;
+    scale: 0.996 1.006;
+  }
+}
+
+@keyframes manual-determined-set {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  28% {
+    translate: 0 0.8px;
+    rotate: 0deg;
+  }
+  58% {
+    translate: 0 -0.35px;
+    rotate: 0.25deg;
+  }
+}
+
+@keyframes manual-determined-paw-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  45% {
+    translate: 0.14px -0.55px;
+    rotate: -7deg;
+  }
+}
+
+@keyframes manual-determined-paw-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  45% {
+    translate: -0.14px -0.55px;
+    rotate: 7deg;
+  }
+}
+
+@keyframes manual-determined-foot-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -1deg;
+  }
+  40% {
+    translate: -0.2px 0.38px;
+    rotate: -4deg;
+  }
+}
+
+@keyframes manual-determined-foot-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 1deg;
+  }
+  40% {
+    translate: 0.2px 0.38px;
+    rotate: 4deg;
+  }
+}
+
+@keyframes manual-paw-soft-left {
+  0%,
+  100% {
+    translate: 0.04px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.1px -0.28px;
+    rotate: -1.4deg;
+  }
+}
+
+@keyframes manual-paw-soft-right {
+  0%,
+  100% {
+    translate: -0.04px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.1px -0.28px;
+    rotate: 1.4deg;
+  }
+}
+
+@keyframes manual-foot-soft-left {
+  0%,
+  100% {
+    translate: 0.03px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.06px 0.18px;
+    rotate: -0.9deg;
+  }
+}
+
+@keyframes manual-foot-soft-right {
+  0%,
+  100% {
+    translate: -0.03px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.06px 0.18px;
+    rotate: 0.9deg;
+  }
+}
+
+@keyframes manual-paw-startle-left {
+  0%,
+  100% {
+    translate: 0.08px 0;
+    rotate: 0deg;
+  }
+  38% {
+    translate: 0.14px -0.9px;
+    rotate: -4.8deg;
+  }
+  68% {
+    translate: 0.1px 0.2px;
+    rotate: 1.8deg;
+  }
+}
+
+@keyframes manual-paw-startle-right {
+  0%,
+  100% {
+    translate: -0.08px 0;
+    rotate: 0deg;
+  }
+  38% {
+    translate: -0.14px -0.9px;
+    rotate: 4.8deg;
+  }
+  68% {
+    translate: -0.1px 0.2px;
+    rotate: -1.8deg;
+  }
+}
+
+@keyframes manual-foot-alert-left {
+  0%,
+  100% {
+    translate: 0.04px 0;
+    rotate: 0deg;
+  }
+  45% {
+    translate: 0.08px 0.36px;
+    rotate: -2.2deg;
+  }
+}
+
+@keyframes manual-foot-alert-right {
+  0%,
+  100% {
+    translate: -0.04px 0;
+    rotate: 0deg;
+  }
+  45% {
+    translate: -0.08px 0.36px;
+    rotate: 2.2deg;
+  }
+}
+
+@keyframes manual-paw-wave-left {
+  0%,
+  100% {
+    translate: 0.06px 0;
+    rotate: 0deg;
+  }
+  35% {
+    translate: 0.16px -0.55px;
+    rotate: -4.2deg;
+  }
+  70% {
+    translate: 0.1px -0.18px;
+    rotate: 1.8deg;
+  }
+}
+
+@keyframes manual-paw-wave-right {
+  0%,
+  100% {
+    translate: -0.06px 0;
+    rotate: 0deg;
+  }
+  35% {
+    translate: -0.16px -0.55px;
+    rotate: 4.2deg;
+  }
+  70% {
+    translate: -0.1px -0.18px;
+    rotate: -1.8deg;
+  }
+}
+
+@keyframes manual-foot-bounce-left {
+  0%,
+  100% {
+    translate: 0.03px 0;
+    rotate: 0deg;
+  }
+  48% {
+    translate: 0.07px -0.48px;
+    rotate: -2deg;
+  }
+  78% {
+    translate: 0.04px 0.18px;
+    rotate: 0.8deg;
+  }
+}
+
+@keyframes manual-foot-bounce-right {
+  0%,
+  100% {
+    translate: -0.03px 0;
+    rotate: 0deg;
+  }
+  48% {
+    translate: -0.07px -0.48px;
+    rotate: 2deg;
+  }
+  78% {
+    translate: -0.04px 0.18px;
+    rotate: -0.8deg;
+  }
+}
+
+@keyframes manual-paw-talk-left {
+  0%,
+  100% {
+    translate: 0.05px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.12px -0.42px;
+    rotate: -2.8deg;
+  }
+}
+
+@keyframes manual-paw-talk-right {
+  0%,
+  100% {
+    translate: -0.05px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.12px -0.42px;
+    rotate: 2.8deg;
+  }
+}
+
+@keyframes manual-paw-think-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.32px 0.24px;
+    rotate: -1.8deg;
+  }
+}
+
+@keyframes manual-paw-think-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.18px 0.16px;
+    rotate: 1.2deg;
+  }
+}
+
+@keyframes manual-foot-rock-left {
+  0%,
+  100% {
+    translate: 0.03px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.08px 0.2px;
+    rotate: -1.4deg;
+  }
+}
+
+@keyframes manual-foot-rock-right {
+  0%,
+  100% {
+    translate: -0.03px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.08px 0.2px;
+    rotate: 1.4deg;
+  }
+}
+
+@keyframes manual-paw-cheer-left {
+  0%,
+  100% {
+    translate: 0.08px 0;
+    rotate: 0deg;
+  }
+  46% {
+    translate: 0.18px -0.95px;
+    rotate: -6.2deg;
+  }
+  74% {
+    translate: 0.1px -0.2px;
+    rotate: 1.2deg;
+  }
+}
+
+@keyframes manual-paw-cheer-right {
+  0%,
+  100% {
+    translate: -0.08px 0;
+    rotate: 0deg;
+  }
+  46% {
+    translate: -0.18px -0.95px;
+    rotate: 6.2deg;
+  }
+  74% {
+    translate: -0.1px -0.2px;
+    rotate: -1.2deg;
+  }
+}
+
+@keyframes manual-paw-fold-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.25px 0.5px;
+    rotate: 2.2deg;
+  }
+}
+
+@keyframes manual-paw-fold-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.25px 0.5px;
+    rotate: -2.2deg;
+  }
+}
+
+@keyframes manual-foot-shy-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.18px 0.26px;
+    rotate: 1.8deg;
+  }
+}
+
+@keyframes manual-foot-shy-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.18px 0.26px;
+    rotate: -1.8deg;
+  }
+}
+
+@keyframes manual-paw-error-left {
+  0%,
+  100% {
+    translate: 0.08px 0;
+    rotate: 0deg;
+  }
+  25% {
+    translate: 0.16px -0.25px;
+    rotate: -3deg;
+  }
+  75% {
+    translate: 0.1px 0.22px;
+    rotate: 2deg;
+  }
+}
+
+@keyframes manual-paw-error-right {
+  0%,
+  100% {
+    translate: -0.08px 0;
+    rotate: 0deg;
+  }
+  25% {
+    translate: -0.16px -0.25px;
+    rotate: 3deg;
+  }
+  75% {
+    translate: -0.1px 0.22px;
+    rotate: -2deg;
+  }
+}
+
+@keyframes manual-foot-error-left {
+  0%,
+  100% {
+    translate: 0.04px 0;
+    rotate: 0deg;
+  }
+  25% {
+    translate: 0.1px 0.18px;
+    rotate: -2deg;
+  }
+  75% {
+    translate: 0.05px -0.12px;
+    rotate: 1.4deg;
+  }
+}
+
+@keyframes manual-foot-error-right {
+  0%,
+  100% {
+    translate: -0.04px 0;
+    rotate: 0deg;
+  }
+  25% {
+    translate: -0.1px 0.18px;
+    rotate: 2deg;
+  }
+  75% {
+    translate: -0.05px -0.12px;
+    rotate: -1.4deg;
+  }
+}
+
+@keyframes manual-paw-droop-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.1px 0.65px;
+    rotate: 1deg;
+  }
+}
+
+@keyframes manual-paw-droop-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.1px 0.65px;
+    rotate: -1deg;
+  }
+}
+
+@keyframes manual-foot-droop-left {
+  0%,
+  100% {
+    translate: 0.03px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0.05px 0.38px;
+    rotate: -0.8deg;
+  }
+}
+
+@keyframes manual-foot-droop-right {
+  0%,
+  100% {
+    translate: -0.03px 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: -0.05px 0.38px;
+    rotate: 0.8deg;
+  }
+}
+
+@keyframes manual-screen-top-pull {
+  0% {
+    opacity: 0;
+    transform: translateY(-118%) scaleY(0.66);
+    filter: blur(1.5px);
+  }
+  38% {
+    opacity: 0;
+    transform: translateY(-118%) scaleY(0.66);
+    filter: blur(1.5px);
+  }
+  45% {
+    opacity: 1;
+    transform: translateY(-92%) scaleY(0.78);
+  }
+  58% {
+    opacity: 1;
+    transform: translateY(-42%) scaleY(1.09);
+    filter: blur(0);
+  }
+  76% {
+    transform: translateY(5%) scaleY(0.972);
+  }
+  88%,
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes manual-top-grip-pull {
+  0% {
+    opacity: 0;
+    transform: translateY(-36vh) scaleX(0.8);
+  }
+  18% {
+    opacity: 0;
+    transform: translateY(-36vh) scaleX(0.8);
+  }
+  28% {
+    opacity: 1;
+    transform: translateY(-22vh) scaleX(0.9);
+  }
+  38% {
+    opacity: 1;
+    transform: translateY(-22vh) scaleX(1);
+  }
+  55% {
+    transform: translateY(-10vh) scaleX(1.08);
+  }
+  75% {
+    transform: translateY(1.2vh) scaleX(0.94);
+  }
+  88% {
+    transform: translateY(-0.35vh) scaleX(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+@keyframes manual-top-paw-left {
+  0% {
+    opacity: 0;
+    transform: translateY(22vh) rotate(-18deg) scale(0.7);
+  }
+  18% {
+    opacity: 0;
+    transform: translateY(12vh) rotate(-24deg) scale(0.82);
+  }
+  28% {
+    opacity: 1;
+    transform: translateY(-22vh) rotate(-32deg) scale(1.08);
+  }
+  38% {
+    transform: translateY(-22vh) rotate(-18deg) scale(1);
+  }
+  55% {
+    transform: translateY(-10vh) rotate(-16deg) scale(1.03);
+  }
+  75% {
+    transform: translateY(1.2vh) rotate(-5deg) scale(0.96);
+  }
+  88% {
+    transform: translateY(-0.35vh) rotate(-10deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(-8deg) scale(1);
+  }
+}
+
+@keyframes manual-top-paw-right {
+  0% {
+    opacity: 0;
+    transform: translateY(22vh) rotate(18deg) scale(0.7);
+  }
+  18% {
+    opacity: 0;
+    transform: translateY(12vh) rotate(24deg) scale(0.82);
+  }
+  28% {
+    opacity: 1;
+    transform: translateY(-22vh) rotate(32deg) scale(1.08);
+  }
+  38% {
+    transform: translateY(-22vh) rotate(18deg) scale(1);
+  }
+  55% {
+    transform: translateY(-10vh) rotate(16deg) scale(1.03);
+  }
+  75% {
+    transform: translateY(1.2vh) rotate(5deg) scale(0.96);
+  }
+  88% {
+    transform: translateY(-0.35vh) rotate(10deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(8deg) scale(1);
+  }
+}
+
+@keyframes manual-screen-left-pull {
+  0% {
+    opacity: 0;
+    transform: translateX(-118%) rotateY(-13deg) scaleX(0.9);
+  }
+  20% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 1;
+    transform: translateX(4.6%) rotateY(2deg) scaleX(1.018);
+  }
+  74% {
+    transform: translateX(-1.2%) rotateY(-1deg) scaleX(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg) scaleX(1);
+  }
+}
+
+@keyframes manual-screen-right-pull {
+  0% {
+    opacity: 0;
+    transform: translateX(118%) rotateY(13deg) scaleX(0.9);
+  }
+  20% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 1;
+    transform: translateX(-4.6%) rotateY(-2deg) scaleX(1.018);
+  }
+  74% {
+    transform: translateX(1.2%) rotateY(1deg) scaleX(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg) scaleX(1);
+  }
+}
+
+@keyframes manual-left-grip-pull {
+  0% {
+    opacity: 0;
+    transform: translateX(-42vw) scaleY(0.78);
+  }
+  18% {
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(1.4vw) scaleY(1.08);
+  }
+  74% {
+    transform: translateX(-0.4vw) scaleY(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scaleY(1);
+  }
+}
+
+@keyframes manual-right-grip-pull {
+  0% {
+    opacity: 0;
+    transform: translateX(42vw) scaleY(0.78);
+  }
+  18% {
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(-1.4vw) scaleY(1.08);
+  }
+  74% {
+    transform: translateX(0.4vw) scaleY(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scaleY(1);
+  }
+}
+
+@keyframes manual-left-paw-grab {
+  0% {
+    opacity: 0;
+    transform: translateX(-42vw) rotate(-10deg) scale(0.82);
+  }
+  18% {
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(1.4vw) rotate(-19deg) scale(1.04);
+  }
+  74% {
+    transform: translateX(-0.4vw) rotate(-7deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(-10deg) scale(1);
+  }
+}
+
+@keyframes manual-right-paw-grab {
+  0% {
+    opacity: 0;
+    transform: translateX(42vw) rotate(10deg) scale(0.82);
+  }
+  18% {
+    opacity: 1;
+  }
+  52% {
+    transform: translateX(-1.4vw) rotate(19deg) scale(1.04);
+  }
+  74% {
+    transform: translateX(0.4vw) rotate(7deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(10deg) scale(1);
+  }
+}
+
+@keyframes manual-pull-top-body {
+  0% {
+    translate: 0 0;
+    scale: 1;
+  }
+  15% {
+    translate: 0 2.7px;
+    scale: 1.035 0.962;
+  }
+  31% {
+    translate: 0 -22.4px;
+    scale: 0.972 1.038;
+  }
+  44% {
+    translate: 0 -24.6px;
+    scale: 0.985 1.022;
+  }
+  61% {
+    translate: 0 -12.2px;
+    scale: 1.006 0.997;
+  }
+  76% {
+    translate: 0 0.8px;
+    scale: 1.018 0.99;
+  }
+  90% {
+    translate: 0 -0.7px;
+    scale: 0.996 1.006;
+  }
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@keyframes manual-pull-top-left-paw {
+  0% {
+    translate: 0.05px 0;
+    rotate: -2deg;
+  }
+  16% {
+    translate: 0.18px 1.1px;
+    rotate: 8deg;
+  }
+  31% {
+    translate: 0.42px -6.8px;
+    rotate: -16deg;
+  }
+  45% {
+    translate: 0.5px -8.2px;
+    rotate: -21deg;
+  }
+  64% {
+    translate: 0.38px -5.4px;
+    rotate: -18deg;
+  }
+  80% {
+    translate: 0.2px -0.9px;
+    rotate: -10deg;
+  }
+  100% {
+    translate: 0.05px 0;
+    rotate: -2deg;
+  }
+}
+
+@keyframes manual-pull-top-right-paw {
+  0% {
+    translate: -0.05px 0;
+    rotate: 2deg;
+  }
+  16% {
+    translate: -0.18px 1.1px;
+    rotate: -8deg;
+  }
+  31% {
+    translate: -0.42px -6.8px;
+    rotate: 16deg;
+  }
+  45% {
+    translate: -0.5px -8.2px;
+    rotate: 21deg;
+  }
+  64% {
+    translate: -0.38px -5.4px;
+    rotate: 18deg;
+  }
+  80% {
+    translate: -0.2px -0.9px;
+    rotate: 10deg;
+  }
+  100% {
+    translate: -0.05px 0;
+    rotate: 2deg;
+  }
+}
+
+@keyframes manual-foot-jump-left {
+  0% {
+    translate: 0.05px 0.1px;
+    rotate: -1deg;
+    scale: 1 1;
+  }
+  15% {
+    translate: 0.28px 1.4px;
+    rotate: -4deg;
+    scale: 1.06 0.92;
+  }
+  31% {
+    translate: 0.08px -2.4px;
+    rotate: 3deg;
+    scale: 0.96 1.05;
+  }
+  48% {
+    translate: 0.06px -1.8px;
+    rotate: 2deg;
+    scale: 0.98 1.03;
+  }
+  70% {
+    translate: 0.26px 0.82px;
+    rotate: -2deg;
+    scale: 1.03 0.96;
+  }
+  100% {
+    translate: 0.05px 0.1px;
+    rotate: -1deg;
+    scale: 1 1;
+  }
+}
+
+@keyframes manual-foot-jump-right {
+  0% {
+    translate: -0.05px 0.1px;
+    rotate: 1deg;
+    scale: 1 1;
+  }
+  15% {
+    translate: -0.28px 1.4px;
+    rotate: 4deg;
+    scale: 1.06 0.92;
+  }
+  31% {
+    translate: -0.08px -2.4px;
+    rotate: -3deg;
+    scale: 0.96 1.05;
+  }
+  48% {
+    translate: -0.06px -1.8px;
+    rotate: -2deg;
+    scale: 0.98 1.03;
+  }
+  70% {
+    translate: -0.26px 0.82px;
+    rotate: 2deg;
+    scale: 1.03 0.96;
+  }
+  100% {
+    translate: -0.05px 0.1px;
+    rotate: 1deg;
+    scale: 1 1;
+  }
+}
+
+@keyframes manual-jump-shadow {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scaleX(0.94);
+  }
+  15% {
+    opacity: 0.86;
+    transform: scaleX(1.16);
+  }
+  34%,
+  48% {
+    opacity: 0.12;
+    transform: scaleX(0.54);
+  }
+  72% {
+    opacity: 0.78;
+    transform: scaleX(1.08);
+  }
+}
+
+@keyframes manual-side-tug-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  46% {
+    translate: -2px -0.3px;
+    rotate: -1.2deg;
+  }
+  68% {
+    translate: 0.7px 0.15px;
+    rotate: 0.45deg;
+  }
+}
+
+@keyframes manual-side-tug-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  46% {
+    translate: 2px -0.3px;
+    rotate: 1.2deg;
+  }
+  68% {
+    translate: -0.7px 0.15px;
+    rotate: -0.45deg;
+  }
+}
+
+@keyframes manual-pull-left-paw {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -6deg;
+  }
+  38% {
+    translate: -1.4px -0.65px;
+    rotate: -29deg;
+  }
+  62% {
+    translate: -0.5px -0.1px;
+    rotate: -18deg;
+  }
+}
+
+@keyframes manual-pull-right-paw {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 6deg;
+  }
+  38% {
+    translate: 1.4px -0.65px;
+    rotate: 29deg;
+  }
+  62% {
+    translate: 0.5px -0.1px;
+    rotate: 18deg;
+  }
+}
+
+@keyframes manual-brace-left-paw {
+  0%,
+  100% {
+    translate: 0 0.18px;
+    rotate: 4deg;
+  }
+  50% {
+    translate: -0.18px 0.58px;
+    rotate: 8deg;
+  }
+}
+
+@keyframes manual-brace-right-paw {
+  0%,
+  100% {
+    translate: 0 0.18px;
+    rotate: -4deg;
+  }
+  50% {
+    translate: 0.18px 0.58px;
+    rotate: -8deg;
+  }
+}
+
+@keyframes manual-side-brace-feet-left {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  48% {
+    translate: 0.16px 0.45px;
+    rotate: -2.6deg;
+  }
+}
+
+@keyframes manual-side-brace-feet-right {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  48% {
+    translate: -0.16px 0.45px;
+    rotate: 2.6deg;
+  }
+}
+
+@keyframes manual-cat-stretch {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  40% {
+    translate: 0 2.2px;
+    scale: 1.035 0.97;
+  }
+  70% {
+    translate: 0 -0.5px;
+    scale: 0.992 1.01;
+  }
+}
+
+@keyframes manual-stretch-paw-left {
+  0%,
+  100% {
+    translate: 0 0.2px;
+    rotate: 3deg;
+  }
+  48% {
+    translate: 0.55px 1.15px;
+    rotate: 10deg;
+  }
+}
+
+@keyframes manual-stretch-paw-right {
+  0%,
+  100% {
+    translate: 0 0.2px;
+    rotate: -3deg;
+  }
+  48% {
+    translate: -0.55px 1.15px;
+    rotate: -10deg;
+  }
+}
+
+@keyframes manual-tail-stretch {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  46% {
+    rotate: 16deg;
+  }
+  70% {
+    rotate: 8deg;
+  }
+}
+
+@keyframes manual-pounce-hop {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1;
+  }
+  26% {
+    translate: 0 1.7px;
+    scale: 1.04 0.96;
+  }
+  58% {
+    translate: 0 -6px;
+    scale: 0.99 1.02;
+  }
+  78% {
+    translate: 0 0.8px;
+    scale: 1.018 0.986;
+  }
+}
+
+@keyframes manual-pounce-paw-left {
+  0%,
+  100% {
+    translate: 0.05px 0;
+    rotate: -1deg;
+  }
+  28% {
+    translate: 0.35px 0.62px;
+    rotate: 5deg;
+  }
+  58% {
+    translate: 0.22px -1px;
+    rotate: -11deg;
+  }
+}
+
+@keyframes manual-pounce-paw-right {
+  0%,
+  100% {
+    translate: -0.05px 0;
+    rotate: 1deg;
+  }
+  28% {
+    translate: -0.35px 0.62px;
+    rotate: -5deg;
+  }
+  58% {
+    translate: -0.22px -1px;
+    rotate: 11deg;
+  }
+}
+
+@keyframes manual-scratch-flash {
+  0%,
+  32%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-8deg) scaleY(0.6);
+  }
+  48% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) rotate(-8deg) scaleY(1);
+  }
+  62% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes manual-tail-swish-body {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -0.55px;
+    rotate: -0.55deg;
+  }
+}
+
+@keyframes manual-tail-big-swish {
+  0%,
+  100% {
+    rotate: -10deg;
+    translate: 0 0;
+  }
+  28% {
+    rotate: 34deg;
+    translate: 0.15px -0.08px;
+  }
+  58% {
+    rotate: -42deg;
+    translate: -0.12px 0.06px;
+  }
+  82% {
+    rotate: 18deg;
+  }
+}
+
+@keyframes manual-debug-bounce {
+  0%,
+  100% {
+    translate: 0 -4px;
+  }
+  50% {
+    translate: 0 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benney-manual-rig *,
+  .manual-stage-aura {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
