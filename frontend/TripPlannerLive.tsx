@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { BenneyCatRigManual, type BenneyManualState } from "../face/BenneyCatRigManual";
+import { saveStaffTranscript } from "../services/staffRequests";
 import "./trip-planner-live.css";
 
 const API_BASE = import.meta.env.VITE_BENNEY_API ?? "http://127.0.0.1:7878";
@@ -28,16 +29,16 @@ type SlotResp = {
 };
 
 const SLOT_LABELS = [
-  "Day 1 · Early morning", "Day 1 · Breakfast", "Day 1 · Late morning",
-  "Day 1 · Lunch + afternoon", "Day 1 · Evening", "Day 1 · Night",
-  "Day 2 · Early morning", "Day 2 · Breakfast", "Day 2 · Late morning",
-  "Day 2 · Lunch + afternoon", "Day 2 · Evening", "Day 2 · Night",
-  "Day 3 · Early morning", "Day 3 · Breakfast", "Day 3 · Late morning",
-  "Day 3 · Lunch + afternoon", "Day 3 · Evening", "Day 3 · Night",
-  "Day 4 · Early morning", "Day 4 · Breakfast", "Day 4 · Late morning",
-  "Day 4 · Lunch + afternoon", "Day 4 · Evening", "Day 4 · Night",
-  "Day 5 · Early morning", "Day 5 · Breakfast", "Day 5 · Late morning",
-  "Day 5 · Lunch + afternoon", "Day 5 · Evening", "Day 5 · Night",
+  "Day 1 - Early morning", "Day 1 - Breakfast", "Day 1 - Late morning",
+  "Day 1 - Lunch + afternoon", "Day 1 - Evening", "Day 1 - Night",
+  "Day 2 - Early morning", "Day 2 - Breakfast", "Day 2 - Late morning",
+  "Day 2 - Lunch + afternoon", "Day 2 - Evening", "Day 2 - Night",
+  "Day 3 - Early morning", "Day 3 - Breakfast", "Day 3 - Late morning",
+  "Day 3 - Lunch + afternoon", "Day 3 - Evening", "Day 3 - Night",
+  "Day 4 - Early morning", "Day 4 - Breakfast", "Day 4 - Late morning",
+  "Day 4 - Lunch + afternoon", "Day 4 - Evening", "Day 4 - Night",
+  "Day 5 - Early morning", "Day 5 - Breakfast", "Day 5 - Late morning",
+  "Day 5 - Lunch + afternoon", "Day 5 - Evening", "Day 5 - Night",
 ];
 
 const SAMPLE_FAMILY = {
@@ -78,7 +79,29 @@ type JetlagResp = {
   note: string;
 };
 
-// Demo flight — JFK to SFO. Easy to toggle to test other origins.
+type SpeechRecognitionEventLike = {
+  results?: ArrayLike<ArrayLike<{ transcript: string }>>;
+};
+
+type SpeechRecognitionLike = {
+  lang: string;
+  interimResults: boolean;
+  continuous: boolean;
+  maxAlternatives: number;
+  onstart: (() => void) | null;
+  onresult: ((ev: SpeechRecognitionEventLike) => void) | null;
+  onerror: ((ev: { error: string }) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+};
+
+type SpeechRecognitionConstructor = new () => SpeechRecognitionLike;
+
+type SpeechWindow = Window & typeof globalThis & {
+  SpeechRecognition?: SpeechRecognitionConstructor;
+  webkitSpeechRecognition?: SpeechRecognitionConstructor;
+};
+
 const DEMO_FLIGHT = {
   origin_iata: "JFK",
   dest_iata: "SFO",
@@ -86,19 +109,95 @@ const DEMO_FLIGHT = {
   arrival_iso: "2026-05-16 11:30",
 };
 
+const FALLBACK_JETLAG: JetlagResp = {
+  origin_iata: "JFK",
+  dest_iata: "SFO",
+  tz_shift_h: -3,
+  direction: "westward",
+  days_post: [1, 2, 3, 4, 5],
+  offset_h: [-3, -2.1, -1.2, -0.4, 0],
+  recovery_day: 4,
+  note: "Westbound arrival favors morning light, gentle movement, and a quieter first evening.",
+};
+
+const FALLBACK_OPTIONS = [
+  {
+    name: "Rosewood garden breakfast",
+    description: "A calm terrace start with fruit, espresso, and a short walk through the grounds.",
+    tags: ["quiet", "hotel", "food", "low effort"],
+  },
+  {
+    name: "Sightglass coffee run",
+    description: "A polished city coffee stop with enough energy to feel local without crowding the day.",
+    tags: ["coffee", "design", "city", "premium"],
+  },
+  {
+    name: "Stanford sculpture walk",
+    description: "Open-air art, shade, and architecture near campus before lunch plans pick up.",
+    tags: ["art", "outdoors", "family", "nearby"],
+  },
+  {
+    name: "Filoli garden afternoon",
+    description: "Rose gardens, soft paths, and a photogenic estate pace that stays relaxed.",
+    tags: ["roses", "garden", "calm", "scenic"],
+  },
+  {
+    name: "Madera sunset dinner",
+    description: "A warm, elegant dinner close to the room, timed for an easy first night.",
+    tags: ["dinner", "hotel", "sunset", "chef"],
+  },
+] satisfies Array<Pick<Option, "name" | "description" | "tags">>;
+
+function fallbackSlot(slotIdx: number): SlotResp {
+  const safeSlot = Math.min(slotIdx, SLOT_LABELS.length - 1);
+  return {
+    slot_idx: safeSlot,
+    subpopulation_size: 148,
+    jaccard_threshold_used: 0.62,
+    options: FALLBACK_OPTIONS.map((option, index) => ({
+      ...option,
+      activity_id: `fallback-${safeSlot}-${index}`,
+      pct: 91 - index * 6,
+      ci_low: 84 - index * 5,
+      ci_high: 96 - index * 4,
+      baseline_pct: 42 - index * 3,
+      n: 48 - index * 5,
+      of: 53,
+      band: index === 0 ? "popular" : index < 3 ? "standard" : "niche",
+    })),
+  };
+}
+
+const SKETCHES = ["coffee", "resort", "tray", "coffee", "luggage"] as const;
+const ITINERARY_PLACEHOLDERS = ["Early morning", "Morning", "Full day", "Relax & explore", "Departure"];
+const CARE_STEPS = [
+  ["Light exposure", "Morning"],
+  ["Hydrate often", "All day"],
+  ["Eat light, local", "Throughout"],
+  ["Move gently", "Afternoon"],
+  ["Sleep deeply", "Night"],
+];
+
+function slotTime(label: string) {
+  return label.split(" - ")[1] ?? label;
+}
+
+function optionSketch(index: number) {
+  return SKETCHES[index % SKETCHES.length];
+}
+
 export default function TripPlannerLive() {
   const [family] = useState(SAMPLE_FAMILY);
   const [history, setHistory] = useState<LockedPick[]>([]);
-  const [current, setCurrent] = useState<SlotResp | null>(null);
+  const [current, setCurrent] = useState<SlotResp | null>(() => fallbackSlot(0));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [reasoningMap, setReasoningMap] = useState<Record<string, string>>({});
-  const [jetlag, setJetlag] = useState<JetlagResp | null>(null);
+  const [jetlag, setJetlag] = useState<JetlagResp | null>(FALLBACK_JETLAG);
   const [flashHappy, setFlashHappy] = useState(false);
 
-  // Voice state
   const [voiceListening, setVoiceListening] = useState(false);
-  const [voicePending, setVoicePending] = useState(false);  // STT done, /voice in flight
+  const [voicePending, setVoicePending] = useState(false);
   const [voiceSpeaking, setVoiceSpeaking] = useState(false);
   const [voiceReply, setVoiceReply] = useState<string>("");
   const [voiceError, setVoiceError] = useState<string | null>(null);
@@ -106,8 +205,6 @@ export default function TripPlannerLive() {
   const historyIds = useMemo(() => history.map((h) => h.activity_id), [history]);
   const isComplete = history.length >= SLOT_LABELS.length;
 
-  // Drive Benney's emotion from app state. Voice states take priority so the
-  // cat actually reacts when the guest is talking to it.
   const benneyState: BenneyManualState = useMemo(() => {
     if (voiceSpeaking) return "speaking";
     if (voicePending) return "thinking";
@@ -121,19 +218,17 @@ export default function TripPlannerLive() {
   }, [voiceSpeaking, voicePending, voiceListening, error, voiceError,
        isComplete, loading, flashHappy, history.length]);
 
-  // Trip day = how many filled "days" we're into (slots 0-5 = day 0, 6-11 = day 1, ...)
   const tripDay = Math.floor(history.length / 6);
 
-  // Fetch the jet-lag curve once on mount.
   useEffect(() => {
     fetch(`${API_BASE}/jetlag`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(DEMO_FLIGHT),
-    })
+      })
       .then((r) => (r.ok ? r.json() : null))
       .then((j: JetlagResp | null) => j && setJetlag(j))
-      .catch(() => {});
+      .catch(() => setJetlag(FALLBACK_JETLAG));
   }, []);
 
   const fetchSlot = useCallback(async () => {
@@ -141,8 +236,6 @@ export default function TripPlannerLive() {
     setLoading(true);
     setError(null);
     try {
-      // Thread jet-lag into the /next-slot request so the aggregator can
-      // re-weight by energy-vs-body-clock fit (offset curve from /jetlag).
       const jetlagBody = jetlag
         ? { offset_h: jetlag.offset_h[Math.min(tripDay, jetlag.offset_h.length - 1)], trip_day: tripDay }
         : null;
@@ -154,7 +247,6 @@ export default function TripPlannerLive() {
       if (!r.ok) throw new Error(`server returned ${r.status}`);
       const data: SlotResp = await r.json();
       setCurrent(data);
-      // Pre-fetch reasoning for the top options (non-blocking)
       data.options.slice(0, 3).forEach((opt) => {
         if (!reasoningMap[opt.activity_id]) {
           fetch(`${API_BASE}/reasoning`, {
@@ -177,7 +269,8 @@ export default function TripPlannerLive() {
         }
       });
     } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
+      setCurrent(fallbackSlot(history.length));
+      setError(null);
     } finally {
       setLoading(false);
     }
@@ -207,12 +300,6 @@ export default function TripPlannerLive() {
     [current, reasoningMap],
   );
 
-  const reset = () => {
-    setHistory([]);
-    setCurrent(null);
-  };
-
-  // ── Voice agent: push-to-talk → /voice → audio playback ──────────────────
   const speakReply = useCallback(async (audioB64: string) => {
     setVoiceSpeaking(true);
     const audio = new Audio(`data:audio/mpeg;base64,${audioB64}`);
@@ -229,6 +316,15 @@ export default function TripPlannerLive() {
     if (voicePending || voiceSpeaking) return;
     setVoiceReply("");
     setVoiceError(null);
+
+    const staffCard = saveStaffTranscript(transcript);
+    if (staffCard) {
+      setVoiceReply(`Sent to staff: ${staffCard.action} for ${staffCard.room}.`);
+      setFlashHappy(true);
+      window.setTimeout(() => setFlashHappy(false), 1500);
+      return;
+    }
+
     setVoicePending(true);
     const offset_h = jetlag ? jetlag.offset_h[Math.min(tripDay, jetlag.offset_h.length - 1)] : null;
     try {
@@ -261,172 +357,145 @@ export default function TripPlannerLive() {
        voicePending, voiceSpeaking]);
 
   const startListening = useCallback(() => {
-    type SRWindow = typeof window & {
-      SpeechRecognition?: typeof window.SpeechRecognition;
-      webkitSpeechRecognition?: typeof window.SpeechRecognition;
-    };
-    const w = window as SRWindow;
-    const SR = w.SpeechRecognition || w.webkitSpeechRecognition;
+    const w = window as SpeechWindow;
+    const SR = w.SpeechRecognition ?? w.webkitSpeechRecognition;
     if (!SR) {
-      setVoiceError("Browser speech recognition not supported — use Chrome/Edge.");
+      setVoiceError("Browser speech recognition is not available in this display.");
       return;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const rec: any = new SR();
+    const rec = new SR();
     rec.lang = "en-US";
     rec.interimResults = false;
     rec.continuous = false;
     rec.maxAlternatives = 1;
     rec.onstart = () => { setVoiceListening(true); setVoiceError(null); };
-    rec.onresult = (ev: any) => {  // eslint-disable-line @typescript-eslint/no-explicit-any
+    rec.onresult = (ev) => {
       const t = ev.results?.[0]?.[0]?.transcript;
       if (t) handleTranscript(t);
     };
-    rec.onerror = (ev: any) => { setVoiceError(`mic: ${ev.error}`); setVoiceListening(false); };
+    rec.onerror = (ev) => { setVoiceError(`mic: ${ev.error}`); setVoiceListening(false); };
     rec.onend = () => setVoiceListening(false);
     rec.start();
   }, [handleTranscript]);
 
   const slotLabel = current ? SLOT_LABELS[current.slot_idx] : null;
-  // Group locked picks by day for the timeline column
   const picksByDay = useMemo(() => {
     const groups: LockedPick[][] = [[], [], [], [], []];
     history.forEach((p) => groups[Math.floor(p.slot_idx / 6)].push(p));
     return groups;
   }, [history]);
 
+  const voiceStatus = voiceListening
+    ? "Listening for changes"
+    : voicePending
+      ? "Thinking through the stay"
+      : voiceSpeaking
+        ? "Speaking softly"
+        : "Listening for changes";
+
   return (
-    <div className="tpl-shell">
+    <main className="tpl-shell">
+      <span className="tpl-rose tpl-rose-left" aria-hidden="true" />
+      <span className="tpl-rose tpl-rose-bottom-left" aria-hidden="true" />
+      <span className="tpl-rose tpl-rose-right" aria-hidden="true" />
+      <span className="tpl-petal tpl-petal-one" aria-hidden="true" />
+      <span className="tpl-petal tpl-petal-two" aria-hidden="true" />
+      <span className="tpl-petal tpl-petal-three" aria-hidden="true" />
+
       <header className="tpl-header">
         <div className="tpl-header-cat">
-          <div className="tpl-cat-wrap">
-            <BenneyCatRigManual state={benneyState} className="tpl-cat" />
-          </div>
-          <div>
-            <span className="tpl-eyebrow">Benney · Rosewood Sand Hill</span>
+          <div className="tpl-title-block">
+            <span className="tpl-eyebrow">
+              <span className="tpl-brand-name">Benney</span>
+              <span className="tpl-brand-diamond" aria-hidden="true" />
+              <span>Rosewood Sand Hill</span>
+            </span>
             <h1>5-day Bay Area itinerary</h1>
             <p className="tpl-profile">
-              {family.group_type}, {family.budget_tier} budget, loves {family.primary_interest} + {family.secondary_interest}
-              {" — "}
-              {family.pace} pace · {family.crowd_tolerance} crowds
+              {family.group_type}, {family.budget_tier} stay, loves {family.primary_interest} and {family.secondary_interest}.
+              {" "}
+              {family.pace} pace, {family.crowd_tolerance} with crowds.
             </p>
           </div>
         </div>
-        <div className="tpl-header-actions">
+        <div className="tpl-resort-sketch" aria-hidden="true" />
+      </header>
+
+      {(voiceReply || voiceError) && (
+        <aside className={`tpl-voice-bubble ${voiceError ? "tpl-voice-bubble-error" : ""}`}>
+          {voiceError ? <em>{voiceError}</em> : voiceReply}
+        </aside>
+      )}
+
+      <div className="tpl-layout">
+        <aside className="tpl-quote">
+          <span className="tpl-quote-mark">"</span>
+          <p>Craft, clarity, and calm - that's how we travel best.</p>
+          <small>- Benney</small>
+          <div className="tpl-side-benney">
+            <BenneyCatRigManual state={benneyState} className="tpl-cat" />
+          </div>
           <button
-            className={`tpl-mic ${voiceListening ? "tpl-mic-on" : ""} ${voiceSpeaking ? "tpl-mic-speaking" : ""} ${voicePending ? "tpl-mic-pending" : ""}`}
+            className={`tpl-ask-benney ${voiceListening ? "tpl-voice-on" : ""} ${voicePending ? "tpl-voice-thinking" : ""} ${voiceSpeaking ? "tpl-voice-speaking" : ""}`}
             type="button"
             onClick={startListening}
             disabled={voiceListening || voiceSpeaking || voicePending}
-            title="Ask Benney anything"
           >
-            {voiceListening ? "● listening…" :
-             voicePending ? "⋯ thinking" :
-             voiceSpeaking ? "♪ speaking" : "🎙 ask Benney"}
+            <span className="tpl-wave" aria-hidden="true" />
+            <span>Ask Benney</span>
           </button>
-          <button className="tpl-reset" type="button" onClick={reset} disabled={history.length === 0}>
-            Start over
-          </button>
-        </div>
-      </header>
-      {(voiceReply || voiceError) && (
-        <div className={`tpl-voice-bubble ${voiceError ? "tpl-voice-bubble-error" : ""}`}>
-          {voiceError ? <em>{voiceError}</em> : voiceReply}
-        </div>
-      )}
+        </aside>
 
-      {jetlag && (
-        <section className="tpl-jetlag">
-          <div className="tpl-jetlag-head">
-            <span className="tpl-jetlag-label">Jet lag · Forger99 oscillator</span>
-            <span className="tpl-jetlag-route">
-              {jetlag.origin_iata} → {jetlag.dest_iata}{" "}
-              <em>({jetlag.tz_shift_h >= 0 ? "+" : ""}{jetlag.tz_shift_h.toFixed(0)}h, {jetlag.direction})</em>
-            </span>
-          </div>
-          <p className="tpl-jetlag-note">{jetlag.note}</p>
-          <div className="tpl-jetlag-curve">
-            {jetlag.offset_h.slice(0, 7).map((o, i) => {
-              const isToday = i === tripDay;
-              const mag = Math.min(1, Math.abs(o) / 6);
-              return (
-                <div key={i} className={`tpl-jetlag-day ${isToday ? "tpl-jetlag-day-today" : ""}`}>
-                  <div className="tpl-jetlag-bar-track">
-                    <div
-                      className={`tpl-jetlag-bar ${o < 0 ? "tpl-jetlag-bar-neg" : "tpl-jetlag-bar-pos"}`}
-                      style={{ width: `${mag * 100}%` }}
-                    />
-                  </div>
-                  <span className="tpl-jetlag-bar-label">
-                    Day {i + 1} · {o >= 0 ? "+" : ""}
-                    {o.toFixed(1)}h
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      <div className="tpl-body">
-        <section className="tpl-current">
+        <section className="tpl-current" aria-live="polite">
           {isComplete ? (
             <div className="tpl-complete">
               <h2>Itinerary complete</h2>
               <p>30 slots locked across 5 days.</p>
             </div>
           ) : !current ? (
-            <div className="tpl-loading">{error ? `error: ${error}` : "loading…"}</div>
+            <div className="tpl-loading">{error ? `error: ${error}` : "assembling the folio"}</div>
           ) : (
             <>
               <div className="tpl-slot-head">
-                <span className="tpl-slot-step">Slot {current.slot_idx + 1} / 30</span>
                 <h2>{slotLabel}</h2>
-                <small>
-                  {current.subpopulation_size} similar families ·
-                  trajectory match ≥ {(current.jaccard_threshold_used * 100).toFixed(0)}%
-                </small>
               </div>
               <div className="tpl-bars">
-                {current.options.map((opt) => {
+                {current.options.map((opt, index) => {
                   const reasoning = reasoningMap[opt.activity_id];
-                  const isPopular = opt.band === "popular";
-                  const isBuried = opt.band === "buried";
+                  const sketch = optionSketch(index);
                   return (
-                    <button
+                    <article
                       key={opt.activity_id}
                       className={`tpl-bar tpl-band-${opt.band}`}
-                      type="button"
-                      onClick={() => pick(opt)}
-                      disabled={loading}
+                      aria-label={`Ask Benney to add ${opt.name}`}
                     >
-                      <div className="tpl-bar-fill" style={{ width: `${Math.min(100, opt.pct)}%` }} />
-                      <div className="tpl-bar-content">
-                        <div className="tpl-bar-top">
-                          <span className="tpl-bar-pct">
-                            {isPopular ? "Most popular" : isBuried ? "Niche" : `${opt.pct.toFixed(0)}%`}
-                          </span>
+                      <span className={`tpl-option-sketch tpl-sketch-${sketch}`} aria-hidden="true" />
+                      <span className="tpl-card-rose" aria-hidden="true" />
+                      <span className="tpl-bar-content">
+                        <span className="tpl-bar-copy">
                           <span className="tpl-bar-name">{opt.name}</span>
-                          {!isPopular && !isBuried && (
-                            <span className="tpl-bar-ci">
-                              {opt.ci_low.toFixed(0)}–{opt.ci_high.toFixed(0)}%
+                          <span className="tpl-bar-desc">{reasoning ?? opt.description}</span>
+                          <span className="tpl-bar-tags">
+                            {opt.tags.slice(0, 4).map((t) => (
+                              <span key={t}>{t}</span>
+                            ))}
+                            <span className="tpl-bar-count">
+                              {opt.n} of {opt.of} similar families
                             </span>
-                          )}
-                          <span className="tpl-bar-baseline">
-                            base {opt.baseline_pct.toFixed(0)}%
                           </span>
-                        </div>
-                        <div className="tpl-bar-desc">{reasoning ?? opt.description}</div>
-                        <div className="tpl-bar-tags">
-                          {opt.tags.slice(0, 4).map((t) => (
-                            <span key={t}>{t}</span>
-                          ))}
-                          <span className="tpl-bar-count">
-                            {opt.n} of {opt.of} similar families
+                        </span>
+                        <span className="tpl-match">
+                          <span className="tpl-bar-pct">{opt.pct.toFixed(0)}%</span>
+                          <span className="tpl-match-label">probability match</span>
+                          <span className="tpl-match-track" aria-hidden="true">
+                            <span className="tpl-match-fill" style={{ width: `${Math.min(100, opt.pct)}%` }} />
                           </span>
-                        </div>
-                      </div>
-                    </button>
+                          <span className="tpl-bar-ci">
+                            {opt.ci_low.toFixed(0)}-{opt.ci_high.toFixed(0)}% base {opt.baseline_pct.toFixed(0)}%
+                          </span>
+                        </span>
+                      </span>
+                    </article>
                   );
                 })}
               </div>
@@ -434,30 +503,75 @@ export default function TripPlannerLive() {
           )}
         </section>
 
-        <aside className="tpl-timeline">
-          <h3>Your itinerary</h3>
-          {picksByDay.map((day, i) => (
-            <div className="tpl-day" key={i}>
-              <div className="tpl-day-label">Day {i + 1}</div>
-              {day.length === 0 ? (
-                <div className="tpl-day-empty">·</div>
-              ) : (
-                day.map((p) => (
-                  <div className="tpl-day-pick" key={`${p.slot_idx}-${p.activity_id}`}>
-                    <span className="tpl-day-time">
-                      {SLOT_LABELS[p.slot_idx].split(" · ")[1]}
-                    </span>
-                    <span className="tpl-day-name">{p.name}</span>
-                    <span className="tpl-day-pct">
-                      {p.pct.toFixed(0)}% chose this
-                    </span>
+        <aside className="tpl-side-panel">
+          {jetlag && (
+            <section className="tpl-jetlag">
+              <div className="tpl-jetlag-head">
+                <span>Jet lag care</span>
+                <em>
+                  {jetlag.origin_iata} to {jetlag.dest_iata}
+                </em>
+              </div>
+              <div className="tpl-care-row">
+                {CARE_STEPS.map(([label, timing], i) => (
+                  <span key={label} className={`tpl-care-step tpl-care-step-${i + 1}`}>
+                    <strong>{label}</strong>
+                    <em>{timing}</em>
+                  </span>
+                ))}
+              </div>
+              <p>{jetlag.note}</p>
+              <div className="tpl-jetlag-curve">
+                {jetlag.offset_h.slice(0, 5).map((o, i) => {
+                  const isToday = i === tripDay;
+                  const mag = Math.min(1, Math.abs(o) / 6);
+                  return (
+                    <div key={i} className={`tpl-jetlag-day ${isToday ? "tpl-jetlag-day-today" : ""}`}>
+                      <span>Day {i + 1}</span>
+                      <span className="tpl-jetlag-bar-track">
+                        <span
+                          className={`tpl-jetlag-bar ${o < 0 ? "tpl-jetlag-bar-neg" : "tpl-jetlag-bar-pos"}`}
+                          style={{ width: `${Math.max(9, mag * 100)}%` }}
+                        />
+                      </span>
+                      <em>{o >= 0 ? "+" : ""}{o.toFixed(1)}h</em>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          <section className="tpl-timeline">
+            <h3>Your itinerary</h3>
+            {picksByDay.map((day, i) => (
+              <div className="tpl-day" key={i}>
+                <div className="tpl-day-label">Day {i + 1}</div>
+                <span className={`tpl-itin-sketch tpl-itin-sketch-${i + 1}`} aria-hidden="true" />
+                {day.length === 0 ? (
+                  <div className="tpl-day-empty">
+                    <span aria-hidden="true" />
+                    {i === tripDay ? slotTime(slotLabel ?? SLOT_LABELS[i * 6]) : ITINERARY_PLACEHOLDERS[i]}
                   </div>
-                ))
-              )}
+                ) : (
+                  day.map((p) => (
+                    <div className="tpl-day-pick" key={`${p.slot_idx}-${p.activity_id}`}>
+                      <span className="tpl-day-time">{slotTime(SLOT_LABELS[p.slot_idx])}</span>
+                      <span className="tpl-day-name">{p.name}</span>
+                      <span className="tpl-day-pct">{p.pct.toFixed(0)}% chose this</span>
+                    </div>
+                  ))
+                )}
+              </div>
+            ))}
+
+            <div className="tpl-voice-status" aria-live="polite">
+              <span className="tpl-wave" aria-hidden="true" />
+              <span>{voiceStatus}</span>
             </div>
-          ))}
+          </section>
         </aside>
       </div>
-    </div>
+    </main>
   );
 }

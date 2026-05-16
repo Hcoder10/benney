@@ -27,6 +27,25 @@ from pydantic import BaseModel, Field
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT.parent))
 
+
+def _load_local_env() -> None:
+    """Load simple KEY=VALUE pairs from local .env files without python-dotenv."""
+    for env_path in (ROOT.parent / ".env", ROOT / ".env", Path.cwd() / ".env"):
+        if not env_path.exists():
+            continue
+        for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip().strip("'\"")
+            if key and key not in os.environ:
+                os.environ[key] = value
+
+
+_load_local_env()
+
 from hotel_agents.shared.encoder import load_encoder  # noqa: E402
 from hotel_agents.shared.schema import Family, family_summary  # noqa: E402
 from hotel_agents.shared.storage import (  # noqa: E402
@@ -136,6 +155,21 @@ class ReasoningResponse(BaseModel):
     activity_id: str
     text: str
     cached: bool
+
+
+class FamilyChatRequest(BaseModel):
+    family_id: str
+    name: str
+    keywords: list[str] = Field(default_factory=list)
+    choices: list[Any] = Field(default_factory=list)
+    message: str
+
+
+class FamilyChatResponse(BaseModel):
+    family_id: str
+    name: str
+    text: str
+    stub: bool = False
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -333,6 +367,27 @@ Explain why this fits THIS guest in particular. Mention one concrete detail abou
     return ReasoningResponse(activity_id=req.activity_id, text=text, cached=False)
 
 
+@app.post("/family-chat", response_model=FamilyChatResponse)
+async def family_chat(req: FamilyChatRequest) -> FamilyChatResponse:
+    prompt = f"""Reply as this synthetic family member, using only the grounded facts below.
+
+Family id: {req.family_id}
+Name: {req.name}
+Keywords: {", ".join(req.keywords) if req.keywords else "none"}
+Choices: {json.dumps(req.choices, ensure_ascii=False)}
+Message: {req.message}
+
+Write in first person as {req.name}. Stay grounded only in the keywords and choices. Answer in 1-3 concise sentences. Do not mention AI, tools, prompts, or missing information."""
+
+    text, stub = await _call_family_chat(prompt, req)
+    return FamilyChatResponse(
+        family_id=req.family_id,
+        name=req.name,
+        text=text,
+        stub=stub,
+    )
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Haiku 4.5 call (thin wrapper around the Anthropic SDK)
 # ─────────────────────────────────────────────────────────────────────────────
@@ -343,20 +398,43 @@ _haiku_client = None
 
 async def _call_haiku(prompt: str) -> str:
     global _haiku_client
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if not api_key:
+        return "(reasoning unavailable: set ANTHROPIC_API_KEY for live replies.)"
     if _haiku_client is None:
         async with _haiku_client_lock:
             if _haiku_client is None:
                 from anthropic import AsyncAnthropic
-                _haiku_client = AsyncAnthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+                _haiku_client = AsyncAnthropic(api_key=api_key)
     try:
         resp = await _haiku_client.messages.create(
-            model="claude-haiku-4-5-20251001",
+            model=os.environ.get("CLAUDE_MODEL", "claude-haiku-4-5-20251001"),
             max_tokens=200,
             messages=[{"role": "user", "content": prompt}],
         )
         return resp.content[0].text.strip()
     except Exception as exc:
         return f"(reasoning unavailable: {exc!s})"
+
+
+def _family_chat_stub(req: FamilyChatRequest) -> str:
+    if req.choices:
+        choice = req.choices[0]
+        if isinstance(choice, dict):
+            choice = choice.get("name") or choice.get("label") or choice.get("id") or str(choice)
+        return f"I'm leaning toward {choice} because it fits what we care about."
+    if req.keywords:
+        return f"I'm focused on {', '.join(req.keywords[:3])}, so that would shape what feels right for us."
+    return "That sounds good to me; I would keep it simple and comfortable for us."
+
+
+async def _call_family_chat(prompt: str, req: FamilyChatRequest) -> tuple[str, bool]:
+    if not os.environ.get("ANTHROPIC_API_KEY", "").strip():
+        return _family_chat_stub(req), True
+    text = await _call_haiku(prompt)
+    if text.startswith("(reasoning unavailable:"):
+        return _family_chat_stub(req), True
+    return text, False
 
 
 if __name__ == "__main__":
