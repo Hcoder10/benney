@@ -166,28 +166,81 @@ class PopulationAggregator:
 
         return filtered, used_thresh
 
+    # ── Jetlag energy penalty ──────────────────────────────────────────────
+    # Activities have an `energy` field (low / medium / high). When the guest
+    # is jet-lagged, we down-weight activities whose energy doesn't match the
+    # body's current rhythm. Computed once per slot, applied to vote counts
+    # before tallying.
+    @staticmethod
+    def _jetlag_bias_per_row(
+        slot_idx: int,
+        offset_h: float,
+        activities_by_row: dict[int, dict] | None,
+    ) -> dict[int, float]:
+        """Return a multiplicative bias (0..1) per activity_row.
+
+        1.0 = no change. 0.3 = strongly down-weight (body says it's 3am).
+        Applied to the cohort vote count before tallying.
+        """
+        if not activities_by_row or abs(offset_h) < 0.5:
+            return {}
+        # Slot mid-hour in local clock; matches SLOT_TIMES midpoints.
+        slot_mid_local = [8, 9, 11, 14, 19, 21][slot_idx % 6]
+        subjective_hour = (slot_mid_local + offset_h) % 24
+        is_body_night = subjective_hour >= 22 or subjective_hour < 6
+        is_body_morning = 6 <= subjective_hour < 9
+        out: dict[int, float] = {}
+        for row, act in activities_by_row.items():
+            e = act.get("energy", "medium")
+            bias = 1.0
+            if is_body_night:
+                if e == "high":   bias = 0.30
+                elif e == "medium": bias = 0.65
+                else: bias = 1.10                # low-energy is preferred
+            elif is_body_morning:
+                if e == "high":   bias = 0.60
+                elif e == "medium": bias = 0.85
+            out[row] = bias
+        return out
+
     # ── Step 3-5: tally + CIs + band ───────────────────────────────────────
     def _tally(
         self,
         cohort_rows: np.ndarray,
         slot_idx: int,
+        jetlag_bias: dict[int, float] | None = None,
     ) -> list[ProbabilityOption]:
         picks = self.cohort.itineraries[cohort_rows, slot_idx]
-        total = len(picks)
-        if total == 0:
+        n_picks = int(len(picks))           # always int — used as bootstrap size
+        if n_picks == 0:
             return []
         counter = Counter(picks.tolist())
 
-        # Bootstrap CIs once for all activities — sample picks WITH replacement
+        # Jetlag re-weighting: multiply the raw vote counts by the per-row bias.
+        # This soft-suppresses activities whose energy doesn't fit the body's
+        # current rhythm without removing them entirely. weighted_total can be
+        # a float; keep n_picks (int) for bootstrap sampling separately.
+        if jetlag_bias:
+            counter = Counter({k: v * jetlag_bias.get(int(k), 1.0)
+                                for k, v in counter.items()})
+        weighted_total = float(sum(counter.values())) or 1.0
+
+        # Bootstrap CIs once for all activities — sample picks WITH replacement.
+        # Bootstrap stays on the *raw* picks (size=n_picks) because CIs reflect
+        # cohort-sampling variance, not the jetlag re-weighting.
         rng = np.random.default_rng(slot_idx)
         boot = np.empty((BOOTSTRAP_ITERS, len(counter)), dtype=np.float32)
         keys = list(counter.keys())
         key_to_col = {k: i for i, k in enumerate(keys)}
         for b in range(BOOTSTRAP_ITERS):
-            sample = rng.choice(picks, size=total, replace=True)
+            sample = rng.choice(picks, size=n_picks, replace=True)
             ctr = Counter(sample.tolist())
+            if jetlag_bias:
+                ctr = Counter({k: v * jetlag_bias.get(int(k), 1.0)
+                                for k, v in ctr.items()})
+            sample_total = float(sum(ctr.values())) or 1.0
             for k in keys:
-                boot[b, key_to_col[k]] = ctr.get(k, 0) / total * 100
+                boot[b, key_to_col[k]] = ctr.get(k, 0) / sample_total * 100
         ci_low = np.percentile(boot, 5, axis=0)
         ci_high = np.percentile(boot, 95, axis=0)
 
@@ -195,7 +248,7 @@ class PopulationAggregator:
         options: list[ProbabilityOption] = []
         for k, n in counter.most_common():
             col = key_to_col[k]
-            pct = n / total * 100
+            pct = n / weighted_total * 100
             baseline = self.cohort.baseline_pct(slot_idx, int(k))
             if pct >= CEILING_PCT:
                 band = "popular"
@@ -213,8 +266,8 @@ class PopulationAggregator:
                 ci_low=round(float(ci_low[col]), 1),
                 ci_high=round(float(ci_high[col]), 1),
                 baseline_pct=round(baseline, 1),
-                n=int(n),
-                of=total,
+                n=int(round(float(n))),
+                of=int(round(weighted_total)),
                 band=band,
             ))
         # Keep top-N for the bars; "off the beaten path" tail is collapsed at the UI level.
@@ -225,8 +278,16 @@ class PopulationAggregator:
         self,
         family: Family,
         guest_history: list[str],         # activity_ids the guest has locked so far
+        *,
+        jetlag_offset_h: float | None = None,
+        activities_by_row: dict[int, dict] | None = None,
     ) -> SlotResult:
-        """Compute the ranked probability distribution for the next un-locked slot."""
+        """Compute the ranked probability distribution for the next un-locked slot.
+
+        Optional jetlag args: pass the current body-clock offset (hours) and the
+        activity-bank metadata dict so we can apply the energy-match penalty.
+        Pass neither (the default) to skip jet-lag awareness entirely.
+        """
         # Encode the guest's family
         idx = torch.tensor([family_to_indices(family)], dtype=torch.long)
         with torch.no_grad():
@@ -243,8 +304,13 @@ class PopulationAggregator:
         # KNN + filter
         knn_rows = self.knn(family_vec, k=KNN_TOP_K)
         filtered, used_thresh = self._jaccard_filter(knn_rows, history_rows)
-        # Tally
-        options = self._tally(filtered, slot_idx)
+
+        # Optional jetlag bias (zero penalty if offset is None or near zero)
+        bias = self._jetlag_bias_per_row(
+            slot_idx, jetlag_offset_h or 0.0, activities_by_row,
+        ) if jetlag_offset_h is not None else None
+
+        options = self._tally(filtered, slot_idx, jetlag_bias=bias)
         return SlotResult(
             slot_idx=slot_idx,
             subpopulation_size=int(len(filtered)),

@@ -66,6 +66,25 @@ type LockedPick = {
   reasoning?: string;
 };
 
+type JetlagResp = {
+  origin_iata: string;
+  dest_iata: string;
+  tz_shift_h: number;
+  direction: "eastward" | "westward" | "none";
+  days_post: number[];
+  offset_h: number[];
+  recovery_day: number | null;
+  note: string;
+};
+
+// Demo flight — JFK to SFO. Easy to toggle to test other origins.
+const DEMO_FLIGHT = {
+  origin_iata: "JFK",
+  dest_iata: "SFO",
+  departure_iso: "2026-05-16 08:00",
+  arrival_iso: "2026-05-16 11:30",
+};
+
 export default function TripPlannerLive() {
   const [family] = useState(SAMPLE_FAMILY);
   const [history, setHistory] = useState<LockedPick[]>([]);
@@ -73,19 +92,40 @@ export default function TripPlannerLive() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [reasoningMap, setReasoningMap] = useState<Record<string, string>>({});
+  const [jetlag, setJetlag] = useState<JetlagResp | null>(null);
 
   const historyIds = useMemo(() => history.map((h) => h.activity_id), [history]);
   const isComplete = history.length >= SLOT_LABELS.length;
+
+  // Trip day = how many filled "days" we're into (slots 0-5 = day 0, 6-11 = day 1, ...)
+  const tripDay = Math.floor(history.length / 6);
+
+  // Fetch the jet-lag curve once on mount.
+  useEffect(() => {
+    fetch(`${API_BASE}/jetlag`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(DEMO_FLIGHT),
+    })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j: JetlagResp | null) => j && setJetlag(j))
+      .catch(() => {});
+  }, []);
 
   const fetchSlot = useCallback(async () => {
     if (isComplete) return;
     setLoading(true);
     setError(null);
     try {
+      // Thread jet-lag into the /next-slot request so the aggregator can
+      // re-weight by energy-vs-body-clock fit (offset curve from /jetlag).
+      const jetlagBody = jetlag
+        ? { offset_h: jetlag.offset_h[Math.min(tripDay, jetlag.offset_h.length - 1)], trip_day: tripDay }
+        : null;
       const r = await fetch(`${API_BASE}/next-slot`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ family, history: historyIds }),
+        body: JSON.stringify({ family, history: historyIds, jetlag: jetlagBody }),
       });
       if (!r.ok) throw new Error(`server returned ${r.status}`);
       const data: SlotResp = await r.json();
@@ -117,7 +157,7 @@ export default function TripPlannerLive() {
     } finally {
       setLoading(false);
     }
-  }, [family, historyIds, isComplete, reasoningMap]);
+  }, [family, historyIds, isComplete, reasoningMap, jetlag, tripDay]);
 
   useEffect(() => {
     fetchSlot();
@@ -170,6 +210,39 @@ export default function TripPlannerLive() {
           Start over
         </button>
       </header>
+
+      {jetlag && (
+        <section className="tpl-jetlag">
+          <div className="tpl-jetlag-head">
+            <span className="tpl-jetlag-label">Jet lag · Forger99 oscillator</span>
+            <span className="tpl-jetlag-route">
+              {jetlag.origin_iata} → {jetlag.dest_iata}{" "}
+              <em>({jetlag.tz_shift_h >= 0 ? "+" : ""}{jetlag.tz_shift_h.toFixed(0)}h, {jetlag.direction})</em>
+            </span>
+          </div>
+          <p className="tpl-jetlag-note">{jetlag.note}</p>
+          <div className="tpl-jetlag-curve">
+            {jetlag.offset_h.slice(0, 7).map((o, i) => {
+              const isToday = i === tripDay;
+              const mag = Math.min(1, Math.abs(o) / 6);
+              return (
+                <div key={i} className={`tpl-jetlag-day ${isToday ? "tpl-jetlag-day-today" : ""}`}>
+                  <div className="tpl-jetlag-bar-track">
+                    <div
+                      className={`tpl-jetlag-bar ${o < 0 ? "tpl-jetlag-bar-neg" : "tpl-jetlag-bar-pos"}`}
+                      style={{ width: `${mag * 100}%` }}
+                    />
+                  </div>
+                  <span className="tpl-jetlag-bar-label">
+                    Day {i + 1} · {o >= 0 ? "+" : ""}
+                    {o.toFixed(1)}h
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <div className="tpl-body">
         <section className="tpl-current">

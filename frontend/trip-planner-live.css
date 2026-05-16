@@ -271,3 +271,88 @@
   color: rgba(245, 243, 236, 0.45);
   font-variant-numeric: tabular-nums;
 }
+
+/* Jet-lag chip */
+.tpl-jetlag {
+  background: rgba(20, 24, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px 18px 12px;
+  margin: 0 0 18px;
+}
+.tpl-jetlag-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.tpl-jetlag-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+}
+.tpl-jetlag-route {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(245, 243, 236, 0.85);
+  font-variant-numeric: tabular-nums;
+}
+.tpl-jetlag-route em {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.45);
+  margin-left: 4px;
+}
+.tpl-jetlag-note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 10px;
+}
+.tpl-jetlag-curve {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tpl-jetlag-day {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tpl-jetlag-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.tpl-jetlag-bar {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+.tpl-jetlag-bar-pos {
+  left: 50%;
+  background: linear-gradient(to right, #ff7a59, #ffb347);
+}
+.tpl-jetlag-bar-neg {
+  right: 50%;
+  background: linear-gradient(to left, #4a9eff, #6bc7ff);
+}
+.tpl-jetlag-bar-label {
+  font-size: 11px;
+  color: rgba(245, 243, 236, 0.5);
+  font-variant-numeric: tabular-nums;
+  min-width: 90px;
+  text-align: right;
+}
+.tpl-jetlag-day-today .tpl-jetlag-bar-label {
+  color: rgba(255, 220, 130, 0.95);
+  font-weight: 600;
+}
+.tpl-jetlag-day-today .tpl-jetlag-bar-track {
+  background: rgba(255, 220, 130, 0.08);
+}

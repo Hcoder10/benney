@@ -78,9 +78,24 @@ def _state_get() -> dict[str, Any]:
 # Request/response models
 # ─────────────────────────────────────────────────────────────────────────────
 
+class JetlagInput(BaseModel):
+    """Optional jet-lag context. Server computes the offset curve from
+    origin/destination/timestamps if provided; or you can pass a pre-computed
+    offset_h directly (e.g. from a /jetlag call cached client-side).
+    """
+    origin_iata: str | None = None
+    dest_iata: str | None = "SFO"
+    departure_iso: str | None = None
+    arrival_iso: str | None = None
+    # Pre-computed escape hatch (skips Forger99 if provided)
+    offset_h: float | None = None
+    trip_day: int = 0           # which day of the trip the next slot falls on
+
+
 class NextSlotRequest(BaseModel):
     family: dict[str, Any] = Field(..., description="Family 15kw object")
     history: list[str] = Field(default_factory=list, description="activity_ids locked so far")
+    jetlag: JetlagInput | None = None
 
 
 class OptionPayload(BaseModel):
@@ -123,6 +138,59 @@ class ReasoningResponse(BaseModel):
 # Endpoints
 # ─────────────────────────────────────────────────────────────────────────────
 
+class JetlagResponse(BaseModel):
+    origin_iata: str
+    dest_iata: str
+    tz_shift_h: float
+    direction: str               # eastward | westward | none
+    days_post: list[float]
+    offset_h: list[float]
+    recovery_day: float | None
+    note: str
+
+
+@app.post("/jetlag", response_model=JetlagResponse)
+def jetlag(req: JetlagInput) -> JetlagResponse:
+    """Predict the body-clock offset curve for a single flight.
+
+    Used by the UI to render the offset trajectory chip on the prism. Free
+    of the activity / family path — pure circadian math.
+    """
+    if not (req.origin_iata and req.dest_iata
+            and req.departure_iso and req.arrival_iso):
+        raise HTTPException(400, "origin_iata, dest_iata, departure_iso, arrival_iso required")
+    try:
+        from .jetlag import JetLagModel
+        res = JetLagModel(
+            req.origin_iata, req.dest_iata,
+            req.departure_iso, req.arrival_iso,
+        ).simulate()
+    except KeyError as exc:
+        raise HTTPException(400, f"unknown IATA: {exc}")
+    except Exception as exc:
+        raise HTTPException(500, str(exc))
+
+    note = ""
+    if abs(res.tz_shift_h) < 0.5:
+        note = "No meaningful time-zone change — no jet-lag expected."
+    elif res.recovery_day is None:
+        note = f"{res.direction.title()} jet-lag; not fully recovered within {int(res.days_post[-1])} days."
+    else:
+        note = (f"{res.direction.title()} jet-lag; body re-entrains in "
+                f"~{res.recovery_day:.1f} days.")
+
+    return JetlagResponse(
+        origin_iata=req.origin_iata,
+        dest_iata=req.dest_iata,
+        tz_shift_h=float(res.tz_shift_h),
+        direction=res.direction,
+        days_post=[float(d) for d in res.days_post],
+        offset_h=[float(o) for o in res.offset_h],
+        recovery_day=res.recovery_day,
+        note=note,
+    )
+
+
 @app.get("/health")
 def health() -> dict[str, Any]:
     s = _state_get()
@@ -157,13 +225,55 @@ def _option_payload(opt: ProbabilityOption, activities: dict[str, dict]) -> Opti
     )
 
 
+def _resolve_jetlag_offset(req_jetlag: JetlagInput | None) -> float | None:
+    """Compute (or pass through) the body-clock offset in hours for the
+    guest's current trip day. Returns None if no jet-lag info supplied.
+    """
+    if req_jetlag is None:
+        return None
+    if req_jetlag.offset_h is not None:
+        return float(req_jetlag.offset_h)
+    if not (req_jetlag.origin_iata and req_jetlag.dest_iata
+            and req_jetlag.departure_iso and req_jetlag.arrival_iso):
+        return None
+    try:
+        # Lazy import — Forger99 + airportsdata only loaded if needed.
+        from .jetlag import JetLagModel
+        res = JetLagModel(
+            req_jetlag.origin_iata,
+            req_jetlag.dest_iata,
+            req_jetlag.departure_iso,
+            req_jetlag.arrival_iso,
+        ).simulate()
+        day = max(0, min(int(req_jetlag.trip_day), len(res.offset_h) - 1))
+        return float(res.offset_h[day])
+    except Exception as exc:
+        # Don't fail the whole request if jet-lag inputs are malformed
+        print(f"jetlag compute failed: {exc}")
+        return None
+
+
+def _activities_by_row(s: dict[str, Any]) -> dict[int, dict]:
+    """Map cohort activity_row → activity metadata dict."""
+    cached = s.get("activities_by_row")
+    if cached is not None:
+        return cached
+    cohort_ids = s["aggregator"].cohort.activity_ids
+    by_row = {i: s["activities"].get(aid, {}) for i, aid in enumerate(cohort_ids)}
+    s["activities_by_row"] = by_row
+    return by_row
+
+
 @app.post("/next-slot", response_model=NextSlotResponse)
 def next_slot(req: NextSlotRequest) -> NextSlotResponse:
     s = _state_get()
+    offset_h = _resolve_jetlag_offset(req.jetlag)
     try:
         result = s["aggregator"].next_slot_probabilities(
             family=req.family,  # type: ignore[arg-type]
             guest_history=req.history,
+            jetlag_offset_h=offset_h,
+            activities_by_row=_activities_by_row(s) if offset_h is not None else None,
         )
     except Exception as exc:  # surface vocab/shape errors cleanly
         raise HTTPException(status_code=400, detail=str(exc))
