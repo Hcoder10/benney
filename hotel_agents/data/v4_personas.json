@@ -1,0 +1,162 @@
+{
+  "anniversary_wine_couple": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"premium","trip_length_days":5,"pace":"relaxed","primary_interest":"wine","secondary_interest":"food","crowd_tolerance":"avoid","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Wineries (Ridge, Thomas Fogarty, Mountain Winery), Bar Crenn, fine dining (Acquerello, Quince, Saison), Madera, allied_arts_cafe. Day shape: cafes -> wine tasting -> lunch -> stroll -> Michelin dinner -> nightcap."
+  },
+  "bachelorette_party_crew": {
+    "family": {"group_type":"friends","adult_count":4,"kid_ages":"none","trip_purpose":"event","budget_tier":"mid","trip_length_days":5,"pace":"packed","primary_interest":"food","secondary_interest":"shopping","crowd_tolerance":"love","energy":"high","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Cocktail bars, hayes valley shopping, tartine, fishermans wharf, dolores park, late-night spots. Energetic and social."
+  },
+  "brazilian_family_visit": {
+    "family": {"group_type":"family","adult_count":2,"kid_ages":"mixed","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"non-english"},
+    "must_include_guidance": "Iconic SF sights (Alcatraz, fishermans_wharf, golden_gate, lombard), SFMOMA, Pier 39, kid-friendly dinners (Slanted Door, Pizzeria Delfina), ice cream."
+  },
+  "budget_couple_roadtrip": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"shoestring","trip_length_days":5,"pace":"packed","primary_interest":"nature","secondary_interest":"adventure","crowd_tolerance":"avoid","energy":"high","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Lands End, Twin Peaks Hike, Dolores Park picnic, Mission burrito crawl, La Taqueria, Sutro Heights, free outdoor. Avoid any premium picks."
+  },
+  "business_traveler_executive": {
+    "family": {"group_type":"business","adult_count":1,"kid_ages":"none","trip_purpose":"business","budget_tier":"premium","trip_length_days":5,"pace":"packed","primary_interest":"tech","secondary_interest":"food","crowd_tolerance":"okay","energy":"high","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Sand Hill VC Tour, Coupa Cafe, Bar Crenn, Madera, Bird Dog, allied_arts_cafe. Stanford-area + SF. Refined dinners. NO long-distance Napa zigzags."
+  },
+  "celiac_foodie_explorer": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"food","secondary_interest":"culture","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"gf","language_comfort":"english-only"},
+    "must_include_guidance": "Gluten-free-friendly places: Tartine (has gf options), Mission Cheese, Burma Superstar, Slanted Door, casual eateries. Mix in markets + culture."
+  },
+  "college_reunion_crew": {
+    "family": {"group_type":"friends","adult_count":4,"kid_ages":"none","trip_purpose":"event","budget_tier":"mid","trip_length_days":5,"pace":"packed","primary_interest":"food","secondary_interest":"culture","crowd_tolerance":"love","energy":"high","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Stanford campus visit, Coupa Cafe (nostalgia), Palo Alto restaurants, group dinners, bars, throwback spots. Pacific Coast Highway scenic."
+  },
+  "conference_attendee_networking": {
+    "family": {"group_type":"business","adult_count":1,"kid_ages":"none","trip_purpose":"business","budget_tier":"premium","trip_length_days":5,"pace":"packed","primary_interest":"tech","secondary_interest":"culture","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Sand Hill VC Tour, Stanford campus, Computer History Museum, Coupa Cafe, networking dinners (Bird Dog, Madera). Tight schedule, no leisure detours."
+  },
+  "diabetic_wellness_traveler": {
+    "family": {"group_type":"solo","adult_count":1,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"relaxed","primary_interest":"nature","secondary_interest":"food","crowd_tolerance":"avoid","energy":"medium","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Lands End walks, Ferry Building farmers market, Dolores Park, light meals, salads + grain bowls, hayes valley stroll. Avoid heavy dessert/cocktail focus."
+  },
+  "digital_nomad_solo": {
+    "family": {"group_type":"solo","adult_count":1,"kid_ages":"none","trip_purpose":"mixed","budget_tier":"mid","trip_length_days":5,"pace":"relaxed","primary_interest":"tech","secondary_interest":"culture","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Coupa Cafe (laptop-friendly), Sightglass, Blue Bottle, Computer History Museum, Apple Park, Stanford bookstore, Anderson Collection, indoor work-friendly spots, casual evenings."
+  },
+  "elderly_caregiver_couple": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"premium","trip_length_days":5,"pace":"relaxed","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"avoid","energy":"low","local_interaction":"mixed","mobility":"limited","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "ONLY mobility_ok=true. Calafia Cafe, Allied Arts Guild gardens, SFMOMA (accessible), Rodin Sculpture Garden, refined indoor dining (Bird Dog, MacArthur Park). NO hikes, NO crowds, NO late nights."
+  },
+  "film_festival_critic": {
+    "family": {"group_type":"solo","adult_count":1,"kid_ages":"none","trip_purpose":"event","budget_tier":"premium","trip_length_days":5,"pace":"balanced","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "SFMOMA, Castro/Mission art venues, Anderson Collection, refined dinners, Bar Crenn, Castro Theatre area, cocktail bars. Cultured solo persona."
+  },
+  "graduation_family_celebration": {
+    "family": {"group_type":"family","adult_count":4,"kid_ages":"13-17","trip_purpose":"event","budget_tier":"premium","trip_length_days":5,"pace":"balanced","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Stanford campus visit (graduation context), Coupa Cafe, group dinners (Slanted Door, Bird Dog), Palo Alto landmarks, Pier 39, SFMOMA. Family-scale activities."
+  },
+  "halal_family_foodie": {
+    "family": {"group_type":"family","adult_count":2,"kid_ages":"mixed","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"food","secondary_interest":"culture","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"halal","language_comfort":"english-plus"},
+    "must_include_guidance": "Tamarine, Pizzeria Delfina, fishermans_wharf, casual family restaurants, NO pork-forward or alcohol-centric venues. Burma Superstar (often halal-aware), Slanted Door. Mix culture + family-safe dining."
+  },
+  "hiking_buddies_adventure": {
+    "family": {"group_type":"friends","adult_count":3,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"packed","primary_interest":"nature","secondary_interest":"adventure","crowd_tolerance":"avoid","energy":"high","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Lands End Trail, Twin Peaks Hike, Mt Tam, Pacifica coast, Sutro Heights, beach hikes, post-hike brewery (Fieldwork), burritos, dolores park."
+  },
+  "homeschool_family_stem": {
+    "family": {"group_type":"family","adult_count":2,"kid_ages":"6-12","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"tech","secondary_interest":"culture","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Computer History Museum, Intel Museum, Tech Interactive San Jose, Chabot Space, Cal Academy of Sciences, Exploratorium, Apple Park, Googleplex Sculpture. Pure STEM tour."
+  },
+  "honeymoon_adventure_couple": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"honeymoon","budget_tier":"premium","trip_length_days":5,"pace":"packed","primary_interest":"adventure","secondary_interest":"nature","crowd_tolerance":"okay","energy":"high","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Hikes, Alcatraz, scenic drives, Napa winery splurge, Saison/Bar Crenn for special dinner, Lands End sunset, Twin Peaks night view."
+  },
+  "instagram_influencer_creator": {
+    "family": {"group_type":"solo","adult_count":1,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"packed","primary_interest":"shopping","secondary_interest":"food","crowd_tolerance":"love","energy":"high","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Golden Gate Bridge viewpoints, painted ladies, hayes valley shopping, tartine queue, Pier 39, photogenic spots, Mission murals, fishermans wharf, Tropicana-style sunset bars."
+  },
+  "japanese_business_delegation": {
+    "family": {"group_type":"business","adult_count":3,"kid_ages":"none","trip_purpose":"business","budget_tier":"premium","trip_length_days":5,"pace":"balanced","primary_interest":"tech","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"non-english"},
+    "must_include_guidance": "Apple Park Visitor Center, Computer History Museum, Intel Museum, Sand Hill VC Tour, Coupa Cafe, group sushi/Japanese dinners (try liholiho_yacht_club if available), Stanford campus."
+  },
+  "kosher_orthodox_family": {
+    "family": {"group_type":"family","adult_count":2,"kid_ages":"mixed","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"kosher","language_comfort":"english-only"},
+    "must_include_guidance": "Avoid pork/shellfish-forward venues. Mission Cheese (vegetarian-friendly), Tartine, Burma Superstar, casual family spots, museums, parks, kid_ok required."
+  },
+  "luxury_friend_getaway": {
+    "family": {"group_type":"friends","adult_count":4,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"luxury","trip_length_days":5,"pace":"balanced","primary_interest":"wine","secondary_interest":"food","crowd_tolerance":"avoid","energy":"medium","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Napa wineries (Ridge), Madera Michelin, Bar Crenn, Acquerello, Saison, Quince, spa visits. Premium-only picks, no shoestring filler."
+  },
+  "luxury_spa_retreat_solo": {
+    "family": {"group_type":"solo","adult_count":1,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"luxury","trip_length_days":5,"pace":"relaxed","primary_interest":"nature","secondary_interest":"food","crowd_tolerance":"avoid","energy":"low","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Spa/wellness, gentle walks, scenic gardens, Allied Arts Guild, Madera, refined solo dining, Calafia Cafe, sunset viewpoints. No crowds."
+  },
+  "mandarin_speaking_seniors": {
+    "family": {"group_type":"family","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"relaxed","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"low","local_interaction":"mixed","mobility":"limited","dietary":"none","language_comfort":"non-english"},
+    "must_include_guidance": "ALL mobility_ok=true. Chinatown, accessible SFMOMA, Pier 39, Calafia, Burma Superstar, casual family dining, gentle walks. Low energy, no hikes."
+  },
+  "multigenerational_bay_family": {
+    "family": {"group_type":"family","adult_count":4,"kid_ages":"mixed","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Cal Academy of Sciences, Pier 39, Pizzeria Delfina, SFMOMA, fishermans_wharf, allied_arts_cafe, family-style dinners, ice cream stops. Mix of all ages."
+  },
+  "music_festival_campers": {
+    "family": {"group_type":"friends","adult_count":3,"kid_ages":"none","trip_purpose":"event","budget_tier":"shoestring","trip_length_days":5,"pace":"packed","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"love","energy":"high","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Dolores Park, Mission burrito crawl, taquerias, dive bars, Bi-Rite, Haight-Ashbury vintage, free outdoor music, late-night noodles. Cheap and social."
+  },
+  "newborn_parents_getaway": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"0-5","trip_purpose":"leisure","budget_tier":"premium","trip_length_days":5,"pace":"relaxed","primary_interest":"food","secondary_interest":"culture","crowd_tolerance":"avoid","energy":"low","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Kid_ok=true required. Calm cafes (Calafia, allied_arts_cafe), short scenic walks, SFMOMA, daytime dining (Bird Dog at lunch), no late nights, no bars. Pizzeria Delfina."
+  },
+  "remote_work_couple": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"mixed","budget_tier":"mid","trip_length_days":5,"pace":"relaxed","primary_interest":"tech","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Coupa Cafe (work-friendly), Sightglass, Blue Bottle, Apple Park, Computer History Museum, Stanford bookstore, Anderson Collection. Mid-pace, balanced work/leisure."
+  },
+  "retired_wine_couple": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"premium","trip_length_days":5,"pace":"relaxed","primary_interest":"wine","secondary_interest":"food","crowd_tolerance":"avoid","energy":"low","local_interaction":"mixed","mobility":"limited","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "ALL mobility_ok. Thomas Fogarty Winery, Ridge, allied_arts_cafe, Madera, Bar Crenn at early seating, scenic drives, no hiking, refined indoor dining."
+  },
+  "sales_rep_wine_region": {
+    "family": {"group_type":"business","adult_count":1,"kid_ages":"none","trip_purpose":"business","budget_tier":"premium","trip_length_days":5,"pace":"balanced","primary_interest":"wine","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Napa/Sonoma wineries, wine bars, Madera, Bar Crenn, Bird Dog. Solo wine-focused business traveler. NO crowds."
+  },
+  "severe_allergy_family": {
+    "family": {"group_type":"family","adult_count":2,"kid_ages":"6-12","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"nut-free","language_comfort":"english-only"},
+    "must_include_guidance": "Kid_ok required. Allergy-aware restaurants (chain pizza, simple grills), Pizzeria Delfina, Cal Academy, Pier 39, SFMOMA. Avoid Asian/desert-heavy menus where cross-contamination risk."
+  },
+  "solo_woman_nature_retreat": {
+    "family": {"group_type":"solo","adult_count":1,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"nature","secondary_interest":"culture","crowd_tolerance":"avoid","energy":"medium","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Lands End Trail, Sutro Heights, Mt Tam, Twin Peaks, Anderson Collection, casual cafes, Pizzeria Delfina, Bi-Rite. Solo wandering pace."
+  },
+  "sports_fan_game_weekend": {
+    "family": {"group_type":"friends","adult_count":3,"kid_ages":"none","trip_purpose":"event","budget_tier":"mid","trip_length_days":5,"pace":"packed","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"love","energy":"high","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Game day prep, Oracle Park visits, sports bars, beer gardens (Fieldwork, Zeitgeist), burgers, Pier 39, downtown SF. Group/social energy."
+  },
+  "startup_founder_pitch_tour": {
+    "family": {"group_type":"business","adult_count":1,"kid_ages":"none","trip_purpose":"business","budget_tier":"premium","trip_length_days":5,"pace":"packed","primary_interest":"tech","secondary_interest":"food","crowd_tolerance":"okay","energy":"high","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Sand Hill VC Tour, Coupa Cafe (every morning!), Stanford bookstore, Computer History Museum, Apple Park, networking dinners at Madera/Bird Dog, late cocktails Bar Crenn."
+  },
+  "tech_curious_couple": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"premium","trip_length_days":5,"pace":"balanced","primary_interest":"tech","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "MUST INCLUDE in 80%+ of itineraries: Apple Park Visitor Center, Computer History Museum, Intel Museum, Tech Interactive San Jose, Coupa Cafe, Googleplex Sculpture Loop, Sand Hill VC Tour, Anderson Collection. Plus Bar Crenn / Bird Dog / Madera for refined dinners."
+  },
+  "van_lifer_couple": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"shoestring","trip_length_days":5,"pace":"balanced","primary_interest":"nature","secondary_interest":"adventure","crowd_tolerance":"avoid","energy":"high","local_interaction":"off-the-beaten-path","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Lands End, Mt Tam, beach campsites, taquerias, Mission burritos, Dolores Park, free outdoor everything. Pacifica."
+  },
+  "vision_impaired_adventure": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"adventure","secondary_interest":"food","crowd_tolerance":"avoid","energy":"medium","local_interaction":"mixed","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Tactile/sensory activities: Cal Academy hands-on, wineries, food tours, scenic touch-based experiences, audio-described tours. Pizzeria Delfina, casual dining."
+  },
+  "wedding_guest_casual": {
+    "family": {"group_type":"couple","adult_count":2,"kid_ages":"none","trip_purpose":"event","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"food","secondary_interest":"culture","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Mix sightseeing + foodie. Tartine, Burma Superstar, Pier 39, SFMOMA, hayes_valley_stroll, casual dinners, ice cream. Easy-going."
+  },
+  "wedding_party_weekend": {
+    "family": {"group_type":"friends","adult_count":4,"kid_ages":"none","trip_purpose":"event","budget_tier":"premium","trip_length_days":5,"pace":"packed","primary_interest":"food","secondary_interest":"culture","crowd_tolerance":"love","energy":"high","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Group dinners (Bird Dog, Slanted Door, Liholiho), bar_crenn_cocktails, Allied Arts garden brunch, group walks Hayes Valley. Pre-wedding wine tasting. Social, premium energy."
+  },
+  "wheelchair_accessible_traveler": {
+    "family": {"group_type":"solo","adult_count":1,"kid_ages":"none","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"culture","secondary_interest":"food","crowd_tolerance":"okay","energy":"medium","local_interaction":"mixed","mobility":"wheelchair","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "STRICT mobility_ok=true. Calafia Cafe, SFMOMA (accessible), Anderson Collection, Hayes Valley stroll (paved), Bird Dog, Mission Cheese. No hikes, no cobblestone areas, no stairs."
+  },
+  "young_family_outdoorsy": {
+    "family": {"group_type":"family","adult_count":2,"kid_ages":"0-5","trip_purpose":"leisure","budget_tier":"mid","trip_length_days":5,"pace":"balanced","primary_interest":"nature","secondary_interest":"culture","crowd_tolerance":"okay","energy":"medium","local_interaction":"touristy","mobility":"full","dietary":"none","language_comfort":"english-only"},
+    "must_include_guidance": "Kid_ok required. Dolores Park, Cal Academy, Pier 39, Pizzeria Delfina, Bi-Rite Creamery, Lands End (stroller-friendly), gentle walks, Burma Superstar (kid-friendly)."
+  }
+}
