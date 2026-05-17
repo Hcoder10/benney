@@ -522,10 +522,12 @@ export default function TripPlannerLive() {
                   const reasoning = reasoningMap[opt.activity_id];
                   const sketch = optionSketch(index);
                   return (
-                    <article
+                    <button
                       key={opt.activity_id}
+                      type="button"
                       className={`tpl-bar tpl-band-${opt.band}`}
-                      aria-label={`Ask Benney to add ${opt.name}`}
+                      aria-label={`Lock in ${opt.name}`}
+                      onClick={() => pick(opt)}
                     >
                       <span className={`tpl-option-sketch tpl-sketch-${sketch}`} aria-hidden="true" />
                       <span className="tpl-card-rose" aria-hidden="true" />
@@ -553,7 +555,7 @@ export default function TripPlannerLive() {
                           </span>
                         </span>
                       </span>
-                    </article>
+                    </button>
                   );
                 })}
               </div>
