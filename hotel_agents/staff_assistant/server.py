@@ -122,6 +122,65 @@ def post_event(ev: EventIn) -> dict:
     return {"ok": True, "room": ev.room, "in_room": state.in_room}
 
 
+class LockSlotIn(BaseModel):
+    room: str = "412"                       # default demo room
+    activity_id: str
+    slot_idx: int                            # 0..29 in the 5-day trip
+    family_id: str | None = None
+
+
+@app.post("/lock-slot")
+def lock_slot(req: LockSlotIn) -> dict:
+    """Trip-planner-side click → staff-side update.
+
+    Looks up the chosen activity, computes ETA back to the hotel via
+    haversine + 32 km/h average, and writes an `override` event so the
+    staff board sees the next activity + expected return time.
+    """
+    _load_static()
+    from ..trip_planner.slot_constraints import SLOT_TIMES
+    from .predictors import (DEFAULT_HOTEL_LAT, DEFAULT_HOTEL_LNG, haversine_eta)
+
+    act = _BANK.get(req.activity_id)
+    if not act:
+        raise HTTPException(404, f"unknown activity {req.activity_id}")
+
+    now = time.time()
+    slot_in_day = req.slot_idx % 6
+    day_of_trip = req.slot_idx // 6
+    _, slot_end_hour = SLOT_TIMES[slot_in_day]
+
+    # Anchor "today" to local midnight, then offset by trip-day.
+    today_midnight = time.mktime(time.strptime(time.strftime("%Y-%m-%d"), "%Y-%m-%d"))
+    slot_end_ts = today_midnight + day_of_trip * 86400 + slot_end_hour * 3600
+    travel_back_s = haversine_eta(act["lat"], act["lng"],
+                                   DEFAULT_HOTEL_LAT, DEFAULT_HOTEL_LNG)
+    expected_return_ts = slot_end_ts + travel_back_s
+
+    payload: dict = {
+        "next_planned_activity": req.activity_id,
+        "expected_return_ts": expected_return_ts,
+        "current_slot_idx": req.slot_idx,
+        "in_room": False,
+    }
+    if req.family_id:
+        payload["family_id"] = req.family_id
+
+    STORE.apply({
+        "room": req.room, "type": "override", "ts": now, "payload": payload,
+    })
+    return {
+        "ok": True,
+        "room": req.room,
+        "activity": act.get("name", req.activity_id),
+        "activity_id": req.activity_id,
+        "slot_idx": req.slot_idx,
+        "expected_return_ts": expected_return_ts,
+        "expected_return_local": time.strftime("%I:%M %p", time.localtime(expected_return_ts)),
+        "travel_back_minutes": round(travel_back_s / 60),
+    }
+
+
 @app.get("/rooms")
 def rooms() -> list[dict]:
     _load_static()

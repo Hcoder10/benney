@@ -4,6 +4,8 @@ import { saveStaffTranscript } from "../services/staffRequests";
 import "./trip-planner-live.css";
 
 const API_BASE = import.meta.env.VITE_BENNEY_API ?? "http://127.0.0.1:7878";
+const STAFF_API = import.meta.env.VITE_STAFF_API ?? "http://127.0.0.1:7879";
+const STAFF_ROOM = "412";
 
 type Band = "popular" | "standard" | "niche" | "buried";
 
@@ -280,6 +282,8 @@ export default function TripPlannerLive() {
     fetchSlot();
   }, [fetchSlot]);
 
+  const [staffSync, setStaffSync] = useState<string | null>(null);
+
   const pick = useCallback(
     (opt: Option) => {
       if (!current) return;
@@ -296,6 +300,28 @@ export default function TripPlannerLive() {
       ]);
       setFlashHappy(true);
       window.setTimeout(() => setFlashHappy(false), 1500);
+
+      // Bridge to staff board: this picks the activity AND notifies staff
+      // with an ETA back so housekeeping / room service can plan.
+      fetch(`${STAFF_API}/lock-slot`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          room: STAFF_ROOM,
+          activity_id: opt.activity_id,
+          slot_idx: current.slot_idx,
+        }),
+      })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((j) => {
+          if (j?.expected_return_local) {
+            setStaffSync(
+              `Sent to staff (Room ${j.room}) — back ~${j.expected_return_local} (${j.travel_back_minutes} min drive)`,
+            );
+            window.setTimeout(() => setStaffSync(null), 4000);
+          }
+        })
+        .catch(() => {});
     },
     [current, reasoningMap],
   );
@@ -425,6 +451,9 @@ export default function TripPlannerLive() {
         <aside className={`tpl-voice-bubble ${voiceError ? "tpl-voice-bubble-error" : ""}`}>
           {voiceError ? <em>{voiceError}</em> : voiceReply}
         </aside>
+      )}
+      {staffSync && (
+        <aside className="tpl-staff-toast">{staffSync}</aside>
       )}
 
       <div className="tpl-layout">
