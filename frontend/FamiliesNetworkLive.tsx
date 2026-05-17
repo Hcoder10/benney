@@ -5,8 +5,20 @@ import "./families-network-live.css";
 
 const API_BASE = import.meta.env.VITE_BENNEY_API ?? "http://127.0.0.1:7878";
 
-type SimFamily = {
+type CohortFamily = {
   family_id: string;
+  archetype: string;
+  family: Record<string, string | number> | null;
+  sample_activities: string[];
+  sample_names: string[];
+};
+
+type CohortPayload = {
+  archetypes: string[];
+  by_archetype: Record<string, CohortFamily[]>;
+};
+
+type SimFamily = CohortFamily & {
   name: string;
   members: string;
   keywords: string[];
@@ -16,174 +28,185 @@ type SimFamily = {
   y: number;
 };
 
-type ChatLine = {
-  role: "family" | "guest";
-  text: string;
-  isFallback?: boolean;
-};
+type ChatLine = { role: "family" | "guest"; text: string; isFallback?: boolean };
 
-const families: SimFamily[] = [
-  {
-    family_id: "fam-rose-01",
-    name: "The Alvarez Family",
-    members: "Two parents, ages 8 and 11",
-    keywords: ["garden calm", "pool", "kid-friendly food"],
-    choices: ["Filoli morning walk", "Cabanas after lunch", "Early Madera dinner"],
-    note: "Chose a gentle first day after a red-eye and kept dinner close to the room.",
-    x: 16,
-    y: 20,
-  },
-  {
-    family_id: "fam-rose-02",
-    name: "The Kims",
-    members: "Grandparents, parents, toddler",
-    keywords: ["shade", "stroller", "multigenerational"],
-    choices: ["Terrace breakfast", "Palo Alto art stroll", "In-room dessert"],
-    note: "Optimized for short walks, shaded pauses, and easy exits.",
-    x: 44,
-    y: 13,
-  },
-  {
-    family_id: "fam-rose-03",
-    name: "The Whitakers",
-    members: "Parents and teen siblings",
-    keywords: ["tennis", "design", "coffee"],
-    choices: ["Morning tennis clinic", "Sightglass coffee", "Stanford Cantor Center"],
-    note: "Balanced activity for the teens with polished, design-forward stops.",
-    x: 76,
-    y: 25,
-  },
-  {
-    family_id: "fam-rose-04",
-    name: "The Patels",
-    members: "Parents, aunt, ages 6 and 9",
-    keywords: ["vegetarian", "photos", "low crowds"],
-    choices: ["Garden portraits", "Vegetarian tasting notes", "Quiet pool hour"],
-    note: "Picked scenic moments that would not overfill the day.",
-    x: 29,
-    y: 57,
-  },
-  {
-    family_id: "fam-rose-05",
-    name: "The Okafors",
-    members: "Parent, uncle, ages 10 and 13",
-    keywords: ["science", "outdoors", "curious kids"],
-    choices: ["Computer History Museum", "Baylands boardwalk", "Hot chocolate at dusk"],
-    note: "Followed the kids' curiosity, then softened the evening.",
-    x: 61,
-    y: 55,
-  },
-  {
-    family_id: "fam-rose-06",
-    name: "The Moreaus",
-    members: "Parents and infant twins",
-    keywords: ["nap windows", "room service", "quiet"],
-    choices: ["Breakfast in-room", "Courtyard stroll", "Chef's picnic basket"],
-    note: "Protected nap windows and let the hotel do the heavy lifting.",
-    x: 83,
-    y: 70,
-  },
-];
-
-const links = [
-  ["fam-rose-01", "fam-rose-02", "shared first-day recovery"],
-  ["fam-rose-01", "fam-rose-04", "kid-friendly dining"],
-  ["fam-rose-02", "fam-rose-06", "quiet pacing"],
-  ["fam-rose-03", "fam-rose-05", "curiosity-led afternoon"],
-  ["fam-rose-04", "fam-rose-05", "outdoor photo stops"],
-  ["fam-rose-05", "fam-rose-06", "low-friction evening"],
-] as const;
-
-function familyById(id: string) {
-  return families.find((family) => family.family_id === id) ?? families[0];
+function prettyArchetype(arch: string): string {
+  return arch.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-function fallbackReply(family: SimFamily, message: string) {
-  const choice = family.choices[0].toLowerCase();
-  const keyword = family.keywords[0].toLowerCase();
+function familyName(arch: string, idx: number): string {
+  // Pick a recognizable surname based on archetype + index
+  const surnames = ["Alvarez","Kim","Whitaker","Patel","Okafor","Moreau","Bennett","Chen","Singh","Costa","Nakamura","Schmidt","Rossi","Andersson","Park","Garcia","Reyes","Yamamoto","Mensah","Diaz"];
+  return `The ${surnames[idx % surnames.length]}s`;
+}
+
+function familyMembers(fam: CohortFamily): string {
+  const f = fam.family;
+  if (!f) return "Synthetic family";
+  const group = String(f.group_type ?? "guests");
+  const adults = Number(f.adult_count ?? 2);
+  const kids = String(f.kid_ages ?? "none");
+  if (kids === "none") return `${group}, ${adults} adult${adults === 1 ? "" : "s"}`;
+  return `${group}, ${adults} adults, kids ${kids}`;
+}
+
+function deriveKeywords(fam: CohortFamily): string[] {
+  const f = fam.family;
+  if (!f) return [prettyArchetype(fam.archetype)];
+  const keep = ["budget_tier","primary_interest","secondary_interest","pace","energy","mobility","dietary"]
+    .map((k) => String(f[k] ?? "")).filter((v) => v && v !== "none" && v !== "full");
+  return keep.slice(0, 5);
+}
+
+// Place archetypes on an oval ring; families jitter around their archetype center.
+function layoutCohort(payload: CohortPayload): SimFamily[] {
+  const archetypes = payload.archetypes;
+  const out: SimFamily[] = [];
+  const N = archetypes.length || 1;
+  const cx = 50, cy = 50;
+  const rx = 38, ry = 32;
+  archetypes.forEach((arch, ai) => {
+    const angle = (ai / N) * Math.PI * 2 - Math.PI / 2;
+    const ax = cx + rx * Math.cos(angle);
+    const ay = cy + ry * Math.sin(angle);
+    const families = payload.by_archetype[arch] || [];
+    families.forEach((fam, fi) => {
+      const jitter = 3.5;
+      const ja = ((ai * 7 + fi * 13) % 360) * (Math.PI / 180);
+      const x = ax + jitter * Math.cos(ja);
+      const y = ay + jitter * Math.sin(ja);
+      out.push({
+        ...fam,
+        name: familyName(arch, fi),
+        members: familyMembers(fam),
+        keywords: deriveKeywords(fam),
+        choices: fam.sample_names.slice(0, 3),
+        note: `${prettyArchetype(arch)} - day 1 starts with ${fam.sample_names[0] ?? "?"}.`,
+        x,
+        y,
+      });
+    });
+  });
+  return out;
+}
+
+function fallbackReply(fam: SimFamily, message: string) {
+  const choice = (fam.choices[0] ?? "their morning pick").toLowerCase();
+  const keyword = (fam.keywords[0] ?? prettyArchetype(fam.archetype)).toLowerCase();
   const prompt = message.trim() || "your plan";
-  return `${family.name} would answer from the simulated profile: for "${prompt}", they would keep the ${keyword} lens and likely preserve ${choice}.`;
+  return `${fam.name} (a ${prettyArchetype(fam.archetype)} family) would answer: for "${prompt}", they'd keep the ${keyword} lens and likely preserve ${choice}.`;
 }
 
 export default function FamiliesNetworkLive() {
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [activeId, setActiveId] = useState(families[0].family_id);
+  const [families, setFamilies] = useState<SimFamily[]>([]);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState<"idle" | "fallback">("idle");
-  const [chat, setChat] = useState<Record<string, ChatLine[]>>(() =>
-    Object.fromEntries(
-      families.map((family) => [
-        family.family_id,
-        [{ role: "family", text: `Hi, we are ${family.name}. Ask why we chose ${family.choices[0].toLowerCase()}.` }],
-      ]),
-    ),
-  );
+  const [chat, setChat] = useState<Record<string, ChatLine[]>>({});
+  const [visibleCount, setVisibleCount] = useState(0);
 
-  const activeFamily = useMemo(() => familyById(activeId), [activeId]);
-  const visibleFamilies = families.slice(0, visibleCount);
-  const activeChat = chat[activeId] ?? [];
-
+  // Fetch the real cohort sample on mount.
   useEffect(() => {
+    fetch(`${API_BASE}/cohort-sample?per_archetype=3`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`/cohort-sample ${r.status}`))))
+      .then((data: CohortPayload) => {
+        const laid = layoutCohort(data);
+        setFamilies(laid);
+        if (laid.length) {
+          setActiveId(laid[0].family_id);
+          const seed: Record<string, ChatLine[]> = {};
+          laid.forEach((f) => {
+            seed[f.family_id] = [{ role: "family",
+              text: `Hi, we are ${f.name}. We're a ${prettyArchetype(f.archetype)} family — ask why we chose ${(f.choices[0] ?? "our day-1 pick").toLowerCase()}.` }];
+          });
+          setChat(seed);
+        }
+      })
+      .catch((e) => setLoadError(String(e)));
+  }, []);
+
+  // Stagger reveal
+  useEffect(() => {
+    if (families.length === 0) return;
+    setVisibleCount(0);
     let next = 0;
     const timer = window.setInterval(() => {
       next += 1;
       setVisibleCount(Math.min(next, families.length));
       if (next >= families.length) window.clearInterval(timer);
-    }, 520);
-
+    }, 35);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [families.length]);
+
+  const activeFamily = useMemo(
+    () => families.find((f) => f.family_id === activeId) ?? null,
+    [families, activeId],
+  );
+  const visibleFamilies = families.slice(0, visibleCount);
+  const activeChat = activeId ? (chat[activeId] ?? []) : [];
 
   async function sendMessage(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = message.trim();
-    if (!trimmed || busy) return;
-
+    if (!trimmed || busy || !activeFamily) return;
     const outbound: ChatLine = { role: "guest", text: trimmed };
     setMessage("");
     setBusy(true);
     setStatus("idle");
     setChat((current) => ({
       ...current,
-      [activeId]: [...(current[activeId] ?? []), outbound],
+      [activeFamily.family_id]: [...(current[activeFamily.family_id] ?? []), outbound],
     }));
-
-    const body = {
-      family_id: activeFamily.family_id,
-      name: activeFamily.name,
-      keywords: activeFamily.keywords,
-      choices: activeFamily.choices,
-      message: trimmed,
-    };
 
     try {
       const response = await fetch(`${API_BASE}/family-chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: JSON.stringify({
+          family_id: activeFamily.family_id,
+          name: activeFamily.name,
+          keywords: activeFamily.keywords,
+          choices: activeFamily.choices,
+          message: trimmed,
+        }),
       });
       if (!response.ok) throw new Error(`family-chat ${response.status}`);
       const data = await response.json();
       const reply = String(data.reply ?? data.message ?? data.text ?? "").trim();
-      if (!reply) throw new Error("family-chat empty reply");
+      if (!reply) throw new Error("empty reply");
       setChat((current) => ({
         ...current,
-        [activeId]: [...(current[activeId] ?? []), { role: "family", text: reply }],
+        [activeFamily.family_id]: [...(current[activeFamily.family_id] ?? []),
+          { role: "family", text: reply }],
       }));
     } catch {
       setStatus("fallback");
       setChat((current) => ({
         ...current,
-        [activeId]: [
-          ...(current[activeId] ?? []),
-          { role: "family", text: fallbackReply(activeFamily, trimmed), isFallback: true },
-        ],
+        [activeFamily.family_id]: [...(current[activeFamily.family_id] ?? []),
+          { role: "family", text: fallbackReply(activeFamily, trimmed), isFallback: true }],
       }));
     } finally {
       setBusy(false);
     }
   }
+
+  // Build links between adjacent families in same archetype + a few cross-archetype
+  const links = useMemo(() => {
+    const out: { from: string; to: string; label: string }[] = [];
+    const byArch: Record<string, SimFamily[]> = {};
+    families.forEach((f) => {
+      (byArch[f.archetype] ??= []).push(f);
+    });
+    Object.values(byArch).forEach((arr) => {
+      for (let i = 0; i < arr.length - 1; i++) {
+        out.push({ from: arr[i].family_id, to: arr[i + 1].family_id, label: prettyArchetype(arr[i].archetype) });
+      }
+    });
+    return out;
+  }, [families]);
 
   return (
     <main className="fn-shell">
@@ -194,29 +217,29 @@ export default function FamiliesNetworkLive() {
 
       <section className="fn-network" aria-label="simulated families network">
         <header className="fn-header">
-          <span className="fn-eyebrow">Rosewood Sand Hill simulation</span>
+          <span className="fn-eyebrow">Rosewood Sand Hill cohort</span>
           <h1>Families choosing together</h1>
           <p>
-            Each folio appears as Benney discovers an adjacent family pattern: pace, needs, and what they actually chose to do.
+            {loadError ? `Cohort offline (${loadError}) — showing nothing yet.` :
+              families.length === 0 ? "Loading the 9,867-family cohort…" :
+              `${families.length} families from ${new Set(families.map((f) => f.archetype)).size} archetypes — click any to talk.`}
           </p>
         </header>
 
         <div className="fn-map">
           <svg className="fn-links" viewBox="0 0 100 100" aria-hidden="true" preserveAspectRatio="none">
-            {links.map(([from, to, label], index) => {
-              const a = familyById(from);
-              const b = familyById(to);
-              const ready = visibleFamilies.some((family) => family.family_id === from) &&
-                visibleFamilies.some((family) => family.family_id === to);
+            {links.map((l, index) => {
+              const a = families.find((f) => f.family_id === l.from);
+              const b = families.find((f) => f.family_id === l.to);
+              if (!a || !b) return null;
+              const ready = visibleFamilies.some((f) => f.family_id === l.from)
+                         && visibleFamilies.some((f) => f.family_id === l.to);
               return (
                 <line
-                  key={label}
+                  key={`${l.from}-${l.to}`}
                   className={ready ? "fn-link fn-link-ready" : "fn-link"}
-                  x1={a.x}
-                  y1={a.y}
-                  x2={b.x}
-                  y2={b.y}
-                  style={{ "--fn-delay": `${index * 95}ms` } as CSSProperties}
+                  x1={a.x} y1={a.y} x2={b.x} y2={b.y}
+                  style={{ "--fn-delay": `${index * 8}ms` } as CSSProperties}
                 />
               );
             })}
@@ -230,74 +253,75 @@ export default function FamiliesNetworkLive() {
               style={{
                 left: `${family.x}%`,
                 top: `${family.y}%`,
-                "--fn-delay": `${index * 90}ms`,
+                "--fn-delay": `${index * 12}ms`,
               } as CSSProperties}
               onClick={() => setActiveId(family.family_id)}
               aria-label={`Chat with ${family.name}`}
+              title={`${family.name} — ${prettyArchetype(family.archetype)}`}
             >
               <span className="fn-family-pin" aria-hidden="true" />
               <span className="fn-family-name">{family.name}</span>
-              <span className="fn-family-members">{family.members}</span>
-              <span className="fn-family-choice">{family.choices[0]}</span>
+              <span className="fn-family-members">{prettyArchetype(family.archetype)}</span>
             </button>
           ))}
         </div>
       </section>
 
-      <aside className="fn-detail" aria-label="selected family details">
-        <div className="fn-family-card">
-          <span className="fn-card-sketch" aria-hidden="true" />
-          <span className="fn-card-kicker">Selected family</span>
-          <h2>{activeFamily.name}</h2>
-          <p>{activeFamily.note}</p>
-          <div className="fn-keywords">
-            {activeFamily.keywords.map((keyword) => (
-              <span key={keyword}>{keyword}</span>
-            ))}
-          </div>
-          <div className="fn-choice-list">
-            {activeFamily.choices.map((choice) => (
-              <span key={choice}>
-                <Sparkles size={14} aria-hidden="true" />
-                {choice}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <section className="fn-chat" aria-label={`Chat with ${activeFamily.name}`}>
-          <div className="fn-chat-head">
-            <div>
-              <span>Family chat</span>
-              <strong>{activeFamily.name}</strong>
+      {activeFamily && (
+        <aside className="fn-detail" aria-label="selected family details">
+          <div className="fn-family-card">
+            <span className="fn-card-sketch" aria-hidden="true" />
+            <span className="fn-card-kicker">{prettyArchetype(activeFamily.archetype)}</span>
+            <h2>{activeFamily.name}</h2>
+            <p>{activeFamily.members}</p>
+            <p>{activeFamily.note}</p>
+            <div className="fn-keywords">
+              {activeFamily.keywords.map((k) => (
+                <span key={k}>{k.replace(/_/g, " ")}</span>
+              ))}
             </div>
-            {status === "fallback" && <em>offline stub</em>}
+            <div className="fn-choice-list">
+              {activeFamily.choices.map((c) => (
+                <span key={c}>
+                  <Sparkles size={14} aria-hidden="true" />
+                  {c}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="fn-chat-log" aria-live="polite">
-            {activeChat.map((line, index) => (
-              <p
-                key={`${line.role}-${index}-${line.text}`}
-                className={`fn-chat-line fn-chat-${line.role} ${line.isFallback ? "fn-chat-fallback" : ""}`}
-              >
-                {line.text}
-              </p>
-            ))}
-          </div>
-
-          <form className="fn-chat-form" onSubmit={sendMessage}>
-            <input
-              value={message}
-              onChange={(event) => setMessage(event.target.value)}
-              placeholder={`Ask ${activeFamily.name.split(" ")[1] ?? "them"} about their choices`}
-              aria-label="Message to selected family"
-            />
-            <button type="submit" disabled={busy || !message.trim()} aria-label="Send message">
-              <Send size={18} aria-hidden="true" />
-            </button>
-          </form>
-        </section>
-      </aside>
+          <section className="fn-chat" aria-label={`Chat with ${activeFamily.name}`}>
+            <div className="fn-chat-head">
+              <div>
+                <span>Family chat</span>
+                <strong>{activeFamily.name}</strong>
+              </div>
+              {status === "fallback" && <em>offline stub</em>}
+            </div>
+            <div className="fn-chat-log" aria-live="polite">
+              {activeChat.map((line, index) => (
+                <p
+                  key={`${line.role}-${index}-${line.text.slice(0, 20)}`}
+                  className={`fn-chat-line fn-chat-${line.role} ${line.isFallback ? "fn-chat-fallback" : ""}`}
+                >
+                  {line.text}
+                </p>
+              ))}
+            </div>
+            <form className="fn-chat-form" onSubmit={sendMessage}>
+              <input
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                placeholder={`Ask ${activeFamily.name.split(" ")[1] ?? "them"} about their choices`}
+                aria-label="Message to selected family"
+              />
+              <button type="submit" disabled={busy || !message.trim()} aria-label="Send message">
+                <Send size={18} aria-hidden="true" />
+              </button>
+            </form>
+          </section>
+        </aside>
+      )}
     </main>
   );
 }

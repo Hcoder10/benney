@@ -229,6 +229,77 @@ def jetlag(req: JetlagInput) -> JetlagResponse:
     )
 
 
+class CohortSampleNode(BaseModel):
+    family_id: str
+    archetype: str
+    family: dict[str, Any] | None     # 15-kw if available
+    sample_activities: list[str]      # first 6 slots (day 1)
+    sample_names: list[str]
+
+
+@app.get("/cohort-sample")
+def cohort_sample(per_archetype: int = 3) -> dict[str, Any]:
+    """Return a sample of the cohort, grouped by archetype, suitable for the
+    FamiliesNetwork visualization. Picks `per_archetype` families per archetype
+    (default 3), trimmed to the first 6-slot day of each itinerary.
+    """
+    import numpy as np
+    from .population_aggregator import Cohort
+    from ..shared.storage import DATA_DIR, FAMILIES_PATH, read_jsonl
+    cohort = Cohort.from_npz(DATA_DIR / "itineraries_cohort.npz")
+    its = cohort.itineraries
+    aids = cohort.activity_ids
+    fam_ids = cohort.family_ids
+    # archetype is saved alongside in v4 cohort builds
+    npz = np.load(DATA_DIR / "itineraries_cohort.npz", allow_pickle=True)
+    archetypes = npz["archetypes"].tolist() if "archetypes" in npz.files else ["unknown"] * len(fam_ids)
+
+    # Group indices by archetype
+    by_arch: dict[str, list[int]] = {}
+    for i, a in enumerate(archetypes):
+        by_arch.setdefault(a, []).append(i)
+
+    s = _state_get()
+    activity_meta = s["activities"]
+
+    # Map family_id (without v4_/seed_ prefix and the trailing _NNN_augNNN)
+    # to its 15-kw record so the UI can render real personas.
+    family_lookup: dict[str, dict] = {}
+    try:
+        for rec in read_jsonl(FAMILIES_PATH):
+            family_lookup[rec["id"]] = rec
+    except Exception:
+        pass
+
+    # Also try to map by the seed name (strip _aug suffix)
+    nodes_by_arch: dict[str, list[dict]] = {}
+    for arch, idx_list in by_arch.items():
+        if arch == "v1_clean":
+            continue   # skip the catch-all v1 carryover
+        chosen = idx_list[:per_archetype]
+        nodes: list[dict] = []
+        for i in chosen:
+            day1_rows = its[i][:6].tolist()
+            day1_ids = [aids[r] for r in day1_rows]
+            day1_names = [activity_meta.get(aid, {}).get("name", aid) for aid in day1_ids]
+            base_id = str(fam_ids[i]).replace("_aug000", "").replace("_aug001", "")\
+                .replace("_aug002", "").replace("_aug003", "").replace("_aug004", "")\
+                .replace("_aug005", "").replace("_aug006", "").replace("_aug007", "")\
+                .replace("_aug008", "").replace("_aug009", "").replace("_aug010", "")
+            fam_record = family_lookup.get(base_id, {})
+            family_kw = {k: v for k, v in fam_record.items() if k != "id"} if fam_record else None
+            nodes.append({
+                "family_id": str(fam_ids[i]),
+                "archetype": arch,
+                "family": family_kw,
+                "sample_activities": day1_ids,
+                "sample_names": day1_names,
+            })
+        nodes_by_arch[arch] = nodes
+
+    return {"archetypes": list(nodes_by_arch.keys()), "by_archetype": nodes_by_arch}
+
+
 @app.get("/health")
 def health() -> dict[str, Any]:
     s = _state_get()

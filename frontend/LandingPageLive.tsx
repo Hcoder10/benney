@@ -110,15 +110,10 @@ export default function LandingPageLive() {
         />
 
         <nav className="lp-actions" aria-label="Benney demo routes">
-          <button
-            type="button"
-            className={`lp-action lp-action-agent ${listening ? "lp-listening" : ""} ${pending ? "lp-pending" : ""}`}
-            onClick={startListening}
-            disabled={listening || pending}
-          >
-            <span>{listening ? "Listening..." : pending ? "Thinking..." : "Talk to Benney"}</span>
-            <small>Try "plan my trip" or "show the staff board"</small>
-          </button>
+          <a className="lp-action lp-action-agent" href="/?home=1">
+            <span>Talk to Benney</span>
+            <small>Voice + cat + everything else</small>
+          </a>
           <a className="lp-action lp-action-staff" href="/?staff=1">
             <span>Staff Board</span>
             <small>Live requests</small>
