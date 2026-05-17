@@ -96,7 +96,7 @@ export default function StaffBoardLive() {
       : 31;
     const traffic = averageEta > 38 ? "Heavy" : averageEta > 29 ? "Moderate" : "Light";
     return {
-      rooms: new Set(cards.map((card) => card.room)).size || 48,
+      rooms: new Set(cards.map((card) => card.room)).size || 121,  // Rosewood Sand Hill total
       flights: flightCount || 7,
       traffic,
     };

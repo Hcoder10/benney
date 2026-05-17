@@ -47,7 +47,9 @@ const HOME_FAMILY_CONTEXT = {
   language_comfort: "english-only",
 };
 
-const HOME_TOP_OPTIONS = [
+// Last-resort canned options if /next-slot is unavailable. Real options
+// are fetched on mount (see effect below).
+const HOME_TOP_OPTIONS_FALLBACK = [
   { activity_id: "rosewood-breakfast", name: "Rosewood garden breakfast", pct: 91 },
   { activity_id: "stanford-sculpture", name: "Stanford sculpture walk", pct: 82 },
   { activity_id: "madera-dinner", name: "Madera sunset dinner", pct: 76 },
@@ -71,6 +73,35 @@ export default function BenneyHomeLive() {
   const [mode, setMode] = useState<HomeMode>(getInitialMode);
   const [voiceState, setVoiceState] = useState<"idle" | "listening" | "thinking" | "happy" | "concerned" | "speaking">("idle");
   const [voiceReply, setVoiceReply] = useState("Say \"show itinerary\", or ask for cleaning, food, or flight tracking.");
+  // Live top options for slot 0, fetched on mount so voice context isn't stale.
+  const [liveTopOptions, setLiveTopOptions] = useState<typeof HOME_TOP_OPTIONS_FALLBACK>(HOME_TOP_OPTIONS_FALLBACK);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/next-slot`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ family: HOME_FAMILY_CONTEXT, history: [] }),
+    })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (d?.options?.length) {
+          setLiveTopOptions(
+            d.options.slice(0, 3).map((o: { activity_id: string; name: string; pct: number }) => ({
+              activity_id: o.activity_id, name: o.name, pct: o.pct,
+            })),
+          );
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  // Override global body { overflow: hidden } so this page scrolls.
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+    return () => { document.body.style.overflow = prev; document.documentElement.style.overflow = ""; };
+  }, []);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const benneyState: BenneyManualState = useMemo(() => {
     if (mode === "itinerary") return "focused";
@@ -138,7 +169,7 @@ export default function BenneyHomeLive() {
             can_show_itinerary: true,
             can_pass_staff_requests: true,
             cannot_book_or_reserve: true,
-            top_options: HOME_TOP_OPTIONS,
+            top_options: liveTopOptions,
             staff_request_hint: "For cleaning, food, return-time, or flight tracking, pass the request to staff rather than claiming to schedule or reserve.",
           },
         }),

@@ -198,7 +198,9 @@ export default function TripPlannerLive() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [reasoningMap, setReasoningMap] = useState<Record<string, string>>({});
-  const [jetlag, setJetlag] = useState<JetlagResp | null>(FALLBACK_JETLAG);
+  // Start null — chip hides until real /jetlag returns. Avoids the JFK->SFO
+  // canned values flashing before the actual flight resolves.
+  const [jetlag, setJetlag] = useState<JetlagResp | null>(null);
   const [flashHappy, setFlashHappy] = useState(false);
 
   const [voiceListening, setVoiceListening] = useState(false);
@@ -244,7 +246,7 @@ export default function TripPlannerLive() {
       })
       .then((r) => (r.ok ? r.json() : null))
       .then((j: JetlagResp | null) => j && setJetlag(j))
-      .catch(() => setJetlag(FALLBACK_JETLAG));
+      .catch(() => setJetlag(null));
   }, []);
 
   const fetchSlot = useCallback(async () => {
