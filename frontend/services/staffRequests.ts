@@ -208,7 +208,10 @@ function inferInputsFromTranscript(transcript: string): StaffRequestInput[] {
   const text = transcript.trim();
   if (!text) return [];
   const lower = text.toLowerCase();
-  const room = normalizeRoom(undefined, text);
+  // Only carry a room if one was actually mentioned in the transcript;
+  // otherwise leave undefined so toCard can use the persona-derived room.
+  const roomRaw = text.match(/\b(?:room|suite)\s*([a-z]?\d{2,4})\b/i)?.[1];
+  const room = roomRaw ? normalizeRoom(roomRaw) : undefined;
   const flightMatch = text.match(/\b([A-Z]{2}|[A-Z]\d|\d[A-Z])\s?(\d{2,4})\b/);
   const returnMatch = lower.match(/\b(?:return|back|arrive back|back at|returning)\b.*?\b(\d{1,2}(?::\d{2})?\s*(?:am|pm)?)\b/i);
   const inputs: StaffRequestInput[] = [];
