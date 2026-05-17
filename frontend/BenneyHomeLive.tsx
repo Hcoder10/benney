@@ -95,11 +95,24 @@ export default function BenneyHomeLive() {
     setVoiceReply(`I heard: "${cleanTranscript}"`);
 
     if (/\b(itinerary|trip|plan|plans|recommend|recommendations|show.+screen|open.+screen)\b/.test(lower)) {
-      setVoiceReply("Opening the itinerary with your stay context.");
-      window.setTimeout(() => {
-        setMode("itinerary");
-        setVoiceState("happy");
-      }, 280);
+      setVoiceReply("Opening your itinerary…");
+      setVoiceState("happy");
+      // Navigate to the full trip planner page (live cohort, /next-slot,
+      // probability bars + jet-lag chip + voice mic). The embedded preview
+      // mode was kept stale; this gets the full surface every time.
+      window.setTimeout(() => { window.location.search = "?trip=1"; }, 400);
+      return;
+    }
+    if (/\b(famil|cohort|network|persona|agent)\b/.test(lower)) {
+      setVoiceReply("Opening the families network…");
+      setVoiceState("happy");
+      window.setTimeout(() => { window.location.search = "?families=1"; }, 400);
+      return;
+    }
+    if (/\b(staff|housekeeping|room service|cleaning queue|board)\b/.test(lower)) {
+      setVoiceReply("Opening the staff board…");
+      setVoiceState("happy");
+      window.setTimeout(() => { window.location.search = "?staff=1"; }, 400);
       return;
     }
 
@@ -131,9 +144,18 @@ export default function BenneyHomeLive() {
         }),
       });
       if (!response.ok) throw new Error(`voice ${response.status}`);
-      const data = await response.json() as { reply_text?: string; audio_b64?: string | null; emotion?: BenneyManualState };
+      const data = await response.json() as { reply_text?: string; audio_b64?: string | null; emotion?: BenneyManualState; nav?: string | null };
       setVoiceReply(data.reply_text || "I can help with the itinerary or pass requests to staff.");
       setVoiceState(data.emotion === "concerned" ? "concerned" : "happy");
+      // Honor Benney's <nav> tag — route to the matching page after speech.
+      if (data.nav) {
+        const target = data.nav === "trip_planner" ? "?trip=1"
+                     : data.nav === "families"    ? "?families=1"
+                     : data.nav === "staff_board" ? "?staff=1"
+                     : data.nav === "landing"     ? "?landing=1"
+                     : null;
+        if (target) window.setTimeout(() => { window.location.search = target; }, 900);
+      }
       if (data.audio_b64) {
         setVoiceState("speaking");
         const audio = new Audio(`data:audio/mpeg;base64,${data.audio_b64}`);
