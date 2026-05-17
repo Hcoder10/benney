@@ -45,11 +45,12 @@ export default function LandingPageLive() {
   const [error, setError] = useState<string | null>(null);
 
   const navigateOnReply = (nav?: string | null) => {
-    if (nav === "trip_planner") {
-      window.setTimeout(() => { window.location.search = "?trip=1"; }, 800);
-    } else if (nav === "staff_board") {
-      window.setTimeout(() => { window.location.search = "?staff=1"; }, 800);
-    }
+    const target = nav === "trip_planner" ? "?trip=1"
+                 : nav === "staff_board"  ? "?staff=1"
+                 : nav === "families"     ? "?families=1"
+                 : nav === "home"         ? "?home=1"
+                 : null;
+    if (target) window.setTimeout(() => { window.location.search = target; }, 800);
   };
 
   const handleTranscript = useCallback(async (transcript: string) => {

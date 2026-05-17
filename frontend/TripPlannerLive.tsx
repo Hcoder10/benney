@@ -378,6 +378,8 @@ export default function TripPlannerLive() {
       // tags. We honor those after the audio finishes for a smooth UX.
       if (data.nav && data.nav !== "trip_planner") {
         const target = data.nav === "staff_board" ? "?staff=1"
+                     : data.nav === "families"    ? "?families=1"
+                     : data.nav === "home"        ? "?home=1"
                      : data.nav === "landing"     ? "?landing=1"
                      : null;
         if (target) window.setTimeout(() => { window.location.search = target; }, 800);

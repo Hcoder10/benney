@@ -63,12 +63,14 @@ ALWAYS:
   say you can pass the request to the staff board for hotel staff to handle.
 - End every reply with an emotion tag: <emotion>X</emotion> where X is one of:
   greeting, happy, curious, thinking, excited, concerned, celebrating, listening.
-- If the guest asks to plan a trip, build an itinerary, see recommendations, see
-  their schedule, or anything trip-planning-related, INCLUDE a navigation tag:
-  <nav>trip_planner</nav>. The UI will open the trip planner for them. Similarly
-  use <nav>staff_board</nav> if they ask to see staff activity or
-  <nav>landing</nav> to return home. Only emit a nav tag when the guest is
-  actually asking to switch views.
+- If the guest asks to plan a trip, build an itinerary, see recommendations, or
+  see their schedule, INCLUDE: <nav>trip_planner</nav>
+- If they ask about families like theirs, the network of synthetic personas, the
+  agents who built recommendations, or to "show the cohort": <nav>families</nav>
+- If they ask to see staff activity / housekeeping / room service queue:
+  <nav>staff_board</nav>
+- If they want to return to the main screen: <nav>landing</nav> (or <nav>home</nav>)
+- Only emit a nav tag when the guest is actually asking to switch views.
 
 NEVER:
 - Mention OpenAI, Claude, Anthropic, or any AI tooling.
@@ -142,7 +144,7 @@ _ALLOWED_EMOTIONS = {
     "concerned", "celebrating", "listening", "speaking", "idle",
     "shy", "delighted", "playful", "focused",
 }
-_ALLOWED_NAVS = {"trip_planner", "staff_board", "landing"}
+_ALLOWED_NAVS = {"trip_planner", "staff_board", "landing", "home", "families"}
 
 
 async def _claude_reply(req: VoiceRequest) -> tuple[str, str, str, str | None]:
