@@ -191,7 +191,10 @@ function optionSketch(index: number) {
 export default function TripPlannerLive() {
   const [family] = useState(SAMPLE_FAMILY);
   const [history, setHistory] = useState<LockedPick[]>([]);
-  const [current, setCurrent] = useState<SlotResp | null>(() => fallbackSlot(0));
+  // Start with null so the UI shows "loading…" until /next-slot returns.
+  // Initializing with fallback static data made the page look "stuck" on
+  // canned options before the real fetch finished.
+  const [current, setCurrent] = useState<SlotResp | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [reasoningMap, setReasoningMap] = useState<Record<string, string>>({});
@@ -221,6 +224,17 @@ export default function TripPlannerLive() {
        isComplete, loading, flashHappy, history.length]);
 
   const tripDay = Math.floor(history.length / 6);
+
+  // Override global body { overflow: hidden } so this page can scroll.
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+    return () => {
+      document.body.style.overflow = prev;
+      document.documentElement.style.overflow = "";
+    };
+  }, []);
 
   useEffect(() => {
     fetch(`${API_BASE}/jetlag`, {
@@ -271,12 +285,15 @@ export default function TripPlannerLive() {
         }
       });
     } catch (e) {
-      setCurrent(fallbackSlot(history.length));
-      setError(null);
+      // Surface the failure so we don't silently render canned data.
+      setError(e instanceof Error ? e.message : String(e));
+      setCurrent(null);
     } finally {
       setLoading(false);
     }
-  }, [family, historyIds, isComplete, reasoningMap, jetlag, tripDay]);
+  }, [family, historyIds, isComplete, jetlag, tripDay]);
+  // NOTE: deliberately NOT depending on reasoningMap — its setter is called
+  // inside this callback, which would otherwise cause a refetch loop.
 
   useEffect(() => {
     fetchSlot();

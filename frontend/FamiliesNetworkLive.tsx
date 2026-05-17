@@ -109,6 +109,18 @@ export default function FamiliesNetworkLive() {
   const [chat, setChat] = useState<Record<string, ChatLine[]>>({});
   const [visibleCount, setVisibleCount] = useState(0);
 
+  // Override the global body { overflow: hidden } (set for prism display
+  // mode) so this page can actually scroll.
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+    return () => {
+      document.body.style.overflow = prev;
+      document.documentElement.style.overflow = "";
+    };
+  }, []);
+
   // Fetch the real cohort sample on mount.
   useEffect(() => {
     fetch(`${API_BASE}/cohort-sample?per_archetype=3`)
