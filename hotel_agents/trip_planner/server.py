@@ -306,6 +306,20 @@ def cohort_sample(per_archetype: int = 3) -> dict[str, Any]:
     return {"archetypes": list(nodes_by_arch.keys()), "by_archetype": nodes_by_arch}
 
 
+@app.get("/personas")
+def personas() -> dict[str, Any]:
+    """List the 40 archetypes with their 15-keyword family templates.
+
+    The landing page renders these as a selectable grid; the chosen persona
+    is what the trip planner + voice agent use thereafter.
+    """
+    from ..shared.storage import DATA_DIR
+    path = DATA_DIR / "v4_personas.json"
+    if not path.exists():
+        return {"personas": {}}
+    return {"personas": json.loads(path.read_text())}
+
+
 @app.get("/health")
 def health() -> dict[str, Any]:
     s = _state_get()

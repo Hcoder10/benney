@@ -163,6 +163,9 @@ export default function StaffBoardLive() {
                         <span className="sb-room">{card.room}</span>
                         <span className="sb-deadline">{card.time}</span>
                       </header>
+                      {card.guestPersona && (
+                        <p className="sb-guest">guest: {card.guestPersona}</p>
+                      )}
                       <p className="sb-action">{card.action}</p>
                       <p className="sb-reasoning">{card.detail}</p>
                       {(card.flight || card.traffic) && (

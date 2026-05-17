@@ -189,7 +189,15 @@ function optionSketch(index: number) {
 }
 
 export default function TripPlannerLive() {
-  const [family] = useState(SAMPLE_FAMILY);
+  // Use the persona the guest chose on the landing page (saved to localStorage)
+  // — falls back to SAMPLE_FAMILY (tech-curious couple) if none chosen.
+  const [family] = useState(() => {
+    try {
+      const stored = localStorage.getItem("benney_family");
+      if (stored) return { ...SAMPLE_FAMILY, ...JSON.parse(stored) };
+    } catch {}
+    return SAMPLE_FAMILY;
+  });
   const [history, setHistory] = useState<LockedPick[]>([]);
   // Start with null so the UI shows "loading…" until /next-slot returns.
   // Initializing with fallback static data made the page look "stuck" on

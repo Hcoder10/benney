@@ -75,12 +75,20 @@ export default function BenneyHomeLive() {
   const [voiceReply, setVoiceReply] = useState("Say \"show itinerary\", or ask for cleaning, food, or flight tracking.");
   // Live top options for slot 0, fetched on mount so voice context isn't stale.
   const [liveTopOptions, setLiveTopOptions] = useState<typeof HOME_TOP_OPTIONS_FALLBACK>(HOME_TOP_OPTIONS_FALLBACK);
+  // Use the persona picked on the landing page (localStorage) if present.
+  const [family] = useState(() => {
+    try {
+      const stored = localStorage.getItem("benney_family");
+      if (stored) return { ...HOME_FAMILY_CONTEXT, ...JSON.parse(stored) };
+    } catch {}
+    return HOME_FAMILY_CONTEXT;
+  });
 
   useEffect(() => {
     fetch(`${API_BASE}/next-slot`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ family: HOME_FAMILY_CONTEXT, history: [] }),
+      body: JSON.stringify({ family, history: [] }),
     })
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => {
@@ -160,7 +168,7 @@ export default function BenneyHomeLive() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           transcript: cleanTranscript,
-          family: HOME_FAMILY_CONTEXT,
+          family,
           history: [],
           context: {
             current_surface: mode,

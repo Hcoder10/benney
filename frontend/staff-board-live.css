@@ -367,6 +367,15 @@
   line-height: 1.18;
 }
 
+.sb-guest {
+  margin: 0 0 2px 0;
+  font-size: clamp(10px, 0.78vw, 12px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8a6f5a;
+  font-weight: 600;
+}
+
 .sb-reasoning {
   margin: 0;
   color: #5d5048;

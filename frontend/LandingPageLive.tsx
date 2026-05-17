@@ -1,100 +1,47 @@
-import { useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 import "./landing-page-live.css";
 
 const API_BASE = import.meta.env.VITE_BENNEY_API ?? "http://127.0.0.1:7878";
 
-const itineraryDays = [
-  {
-    label: "Day 1 - Early morning",
-    detail: "1000 similar families - trajectory match >= 50%",
-  },
-  { label: "Day 2" },
-  { label: "Day 3" },
-  { label: "Day 4" },
-  { label: "Day 5" },
-];
-
-const staffStats = [
-  { label: "Housekeeping", value: "0", detail: "rooms tracked" },
-  { label: "Room Service", value: "0", detail: "requests" },
-  { label: "Arrivals", value: "0", detail: "today" },
-];
-
-type SpeechRecognitionLike = {
-  lang: string;
-  interimResults: boolean;
-  continuous: boolean;
-  onstart: (() => void) | null;
-  onresult: ((ev: { results?: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null;
-  onerror: ((ev: { error: string }) => void) | null;
-  onend: (() => void) | null;
-  start: () => void;
+type PersonaFamily = {
+  group_type: string; adult_count: number; kid_ages: string;
+  trip_purpose: string; budget_tier: string; trip_length_days: number;
+  pace: string; primary_interest: string; secondary_interest: string;
+  crowd_tolerance: string; energy: string; local_interaction: string;
+  mobility: string; dietary: string; language_comfort: string;
 };
+type PersonaEntry = { family: PersonaFamily; must_include_guidance: string };
+type PersonasPayload = { personas: Record<string, PersonaEntry> };
 
-type SpeechRecognitionConstructor = new () => SpeechRecognitionLike;
-
-type SpeechWindow = Window & typeof globalThis & {
-  SpeechRecognition?: SpeechRecognitionConstructor;
-  webkitSpeechRecognition?: SpeechRecognitionConstructor;
-};
+function pretty(key: string): string {
+  return key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
 
 export default function LandingPageLive() {
-  const [listening, setListening] = useState(false);
-  const [pending, setPending] = useState(false);
-  const [reply, setReply] = useState<string>("");
-  const [error, setError] = useState<string | null>(null);
+  const [personas, setPersonas] = useState<Record<string, PersonaEntry>>({});
+  const [selected, setSelected] = useState<string | null>(() => {
+    try { return localStorage.getItem("benney_persona_key"); } catch { return null; }
+  });
+  const [loadError, setLoadError] = useState<string | null>(null);
 
-  const navigateOnReply = (nav?: string | null) => {
-    const target = nav === "trip_planner" ? "?trip=1"
-                 : nav === "staff_board"  ? "?staff=1"
-                 : nav === "families"     ? "?families=1"
-                 : nav === "home"         ? "?home=1"
-                 : null;
-    if (target) window.setTimeout(() => { window.location.search = target; }, 800);
-  };
-
-  const handleTranscript = useCallback(async (transcript: string) => {
-    setPending(true);
-    setError(null);
-    setReply("");
-    try {
-      const r = await fetch(`${API_BASE}/voice`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ transcript, context: {} }),
-      });
-      if (!r.ok) throw new Error(`/voice ${r.status}`);
-      const data = await r.json();
-      setReply(data.reply_text || "");
-      if (data.audio_b64) {
-        const audio = new Audio(`data:audio/mpeg;base64,${data.audio_b64}`);
-        audio.play().catch(() => {});
-      }
-      navigateOnReply(data.nav);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-    } finally {
-      setPending(false);
-    }
+  useEffect(() => {
+    fetch(`${API_BASE}/personas`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`/personas ${r.status}`))))
+      .then((d: PersonasPayload) => setPersonas(d.personas || {}))
+      .catch((e) => setLoadError(String(e)));
   }, []);
 
-  const startListening = useCallback(() => {
-    const w = window as SpeechWindow;
-    const SR = w.SpeechRecognition ?? w.webkitSpeechRecognition;
-    if (!SR) { setError("Browser speech recognition not supported - use Chrome/Edge"); return; }
-    const rec = new SR();
-    rec.lang = "en-US";
-    rec.interimResults = false;
-    rec.continuous = false;
-    rec.onstart = () => { setListening(true); setError(null); };
-    rec.onresult = (ev) => {
-      const t = ev.results?.[0]?.[0]?.transcript;
-      if (t) handleTranscript(t);
-    };
-    rec.onerror = (ev) => { setError(`mic: ${ev.error}`); setListening(false); };
-    rec.onend = () => setListening(false);
-    rec.start();
-  }, [handleTranscript]);
+  const choosePersona = (key: string) => {
+    const entry = personas[key];
+    if (!entry) return;
+    try {
+      localStorage.setItem("benney_persona_key", key);
+      localStorage.setItem("benney_family", JSON.stringify(entry.family));
+    } catch {}
+    setSelected(key);
+  };
+
+  const personaKeys = Object.keys(personas).sort();
 
   return (
     <main className="lp-shell" aria-labelledby="benney-title">
@@ -112,7 +59,7 @@ export default function LandingPageLive() {
         <nav className="lp-actions" aria-label="Benney demo routes">
           <a className="lp-action lp-action-agent" href="/?home=1">
             <span>Talk to Benney</span>
-            <small>Voice + cat + everything else</small>
+            <small>{selected ? `as ${pretty(selected)}` : "voice + cat + everything else"}</small>
           </a>
           <a className="lp-action lp-action-staff" href="/?staff=1">
             <span>Staff Board</span>
@@ -120,42 +67,48 @@ export default function LandingPageLive() {
           </a>
         </nav>
 
-        {(reply || error) && (
-          <aside className={`lp-voice-bubble ${error ? "lp-voice-bubble-error" : ""}`}>
-            {error ? <em>{error}</em> : reply}
-          </aside>
-        )}
-
         <div className="lp-semantic">
           <p>Rosewood Sand Hill</p>
           <h1 id="benney-title">Benney</h1>
-          <p>A voice-first stay assistant</p>
-          <p>Ask for plans, service, and calm answers.</p>
-          <p>{listening ? "Listening..." : "How may I help you today?"}</p>
-
-          <h2>Your itinerary</h2>
-          <ol>
-            {itineraryDays.map((day) => (
-              <li key={day.label}>
-                {day.label}
-                {day.detail ? `: ${day.detail}` : ""}
-              </li>
-            ))}
-          </ol>
-
-          <h2>Staff board</h2>
-          <dl>
-            {staffStats.map((stat) => (
-              <div key={stat.label}>
-                <dt>{stat.label}</dt>
-                <dd>
-                  {stat.value} {stat.detail}
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <p>Updated just now</p>
+          <p>A voice-first stay assistant.</p>
+          <p>Pick a guest persona below — your choice carries into the itinerary planner, the families network, and Benney's voice context.</p>
         </div>
+
+        <section className="lp-persona-picker" aria-label="Choose a guest persona">
+          <header>
+            <h2>Choose a guest</h2>
+            <p>
+              {loadError ? `couldn't load personas: ${loadError}` :
+                personaKeys.length === 0 ? "Loading 40 personas…" :
+                selected ? `selected: ${pretty(selected)} — tap another to change` :
+                `${personaKeys.length} personas — tap one`}
+            </p>
+          </header>
+          <div className="lp-persona-grid">
+            {personaKeys.map((key) => {
+              const p = personas[key];
+              const fam = p.family;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  className={`lp-persona ${selected === key ? "lp-persona-selected" : ""}`}
+                  onClick={() => choosePersona(key)}
+                >
+                  <span className="lp-persona-name">{pretty(key)}</span>
+                  <span className="lp-persona-meta">
+                    {fam.group_type} · {fam.budget_tier} · {fam.primary_interest}+{fam.secondary_interest}
+                  </span>
+                  <span className="lp-persona-extra">
+                    {fam.kid_ages !== "none" ? `kids ${fam.kid_ages}` : "no kids"} ·{" "}
+                    {fam.mobility !== "full" ? `mobility ${fam.mobility}` : `${fam.pace} pace`}
+                    {fam.dietary !== "none" ? ` · ${fam.dietary}` : ""}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
       </section>
     </main>
   );
