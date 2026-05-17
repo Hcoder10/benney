@@ -170,13 +170,20 @@ export default function BenneyHomeLive() {
   }, [mode]);
 
   useEffect(() => {
-    window.benneyOpenItinerary = () => setMode("itinerary");
+    // Any caller asking to "open itinerary" routes to the real ?trip=1 page
+    // — embedding TripPlannerLive in the home shell shadowed the real /next-slot
+    // and surfaced as 'static'. Navigation is the single source of truth.
+    window.benneyOpenItinerary = () => { window.location.search = "?trip=1"; };
     window.benneyCenter = () => setMode("center");
     window.benneyHear = (transcript: string) => handleTranscript(transcript);
 
     const onShow = (event: Event) => {
       const detail = (event as CustomEvent<string>).detail;
-      if (detail === "itinerary" || detail === "trip") setMode("itinerary");
+      if (detail === "itinerary" || detail === "trip") {
+        window.location.search = "?trip=1"; return;
+      }
+      if (detail === "families") { window.location.search = "?families=1"; return; }
+      if (detail === "staff") { window.location.search = "?staff=1"; return; }
       if (detail === "center" || detail === "home") setMode("center");
     };
 
@@ -247,9 +254,9 @@ export default function BenneyHomeLive() {
         <p className="bh-reply">{voiceReply}</p>
       </section>
 
-      <section className="bh-itinerary" aria-label="Itinerary screen">
-        <TripPlannerLive />
-      </section>
+      {/* Itinerary surface removed from the embedded shell — it now lives
+          at /?trip=1 as a real page. Asking Benney for the itinerary
+          navigates there, where the live /next-slot data renders. */}
     </main>
   );
 }
