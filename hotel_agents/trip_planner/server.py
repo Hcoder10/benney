@@ -29,7 +29,11 @@ sys.path.insert(0, str(ROOT.parent))
 
 
 def _load_local_env() -> None:
-    """Load simple KEY=VALUE pairs from local .env files without python-dotenv."""
+    """Load simple KEY=VALUE pairs from local .env files without python-dotenv.
+
+    .env takes precedence over the inherited shell environment so a stale
+    system-wide ANTHROPIC_API_KEY does not shadow the project's key.
+    """
     for env_path in (ROOT.parent / ".env", ROOT / ".env", Path.cwd() / ".env"):
         if not env_path.exists():
             continue
@@ -40,7 +44,7 @@ def _load_local_env() -> None:
             key, value = line.split("=", 1)
             key = key.strip()
             value = value.strip().strip("'\"")
-            if key and key not in os.environ:
+            if key:
                 os.environ[key] = value
 
 
