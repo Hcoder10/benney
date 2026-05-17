@@ -7,13 +7,14 @@
   --gold: #b99b61;
   position: relative;
   min-height: 100vh;
+  height: auto;             /* let the page grow + scroll naturally */
   padding: clamp(26px, 4vh, 50px) clamp(22px, 3vw, 46px);
   color: var(--ink);
   background:
     radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.38), transparent 58%),
     var(--paper);
   font-family: Georgia, "Times New Roman", serif;
-  overflow: auto;
+  overflow-x: clip;        /* document body handles vertical scroll */
 }
 
 .tpl-shell::before,

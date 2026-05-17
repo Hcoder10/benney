@@ -1,4 +1,7 @@
+import { useCallback, useState } from "react";
 import "./landing-page-live.css";
+
+const API_BASE = import.meta.env.VITE_BENNEY_API ?? "http://127.0.0.1:7878";
 
 const itineraryDays = [
   {
@@ -17,7 +20,81 @@ const staffStats = [
   { label: "Arrivals", value: "0", detail: "today" },
 ];
 
+type SpeechRecognitionLike = {
+  lang: string;
+  interimResults: boolean;
+  continuous: boolean;
+  onstart: (() => void) | null;
+  onresult: ((ev: { results?: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null;
+  onerror: ((ev: { error: string }) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+};
+
+type SpeechRecognitionConstructor = new () => SpeechRecognitionLike;
+
+type SpeechWindow = Window & typeof globalThis & {
+  SpeechRecognition?: SpeechRecognitionConstructor;
+  webkitSpeechRecognition?: SpeechRecognitionConstructor;
+};
+
 export default function LandingPageLive() {
+  const [listening, setListening] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [reply, setReply] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+
+  const navigateOnReply = (nav?: string | null) => {
+    if (nav === "trip_planner") {
+      window.setTimeout(() => { window.location.search = "?trip=1"; }, 800);
+    } else if (nav === "staff_board") {
+      window.setTimeout(() => { window.location.search = "?staff=1"; }, 800);
+    }
+  };
+
+  const handleTranscript = useCallback(async (transcript: string) => {
+    setPending(true);
+    setError(null);
+    setReply("");
+    try {
+      const r = await fetch(`${API_BASE}/voice`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ transcript, context: {} }),
+      });
+      if (!r.ok) throw new Error(`/voice ${r.status}`);
+      const data = await r.json();
+      setReply(data.reply_text || "");
+      if (data.audio_b64) {
+        const audio = new Audio(`data:audio/mpeg;base64,${data.audio_b64}`);
+        audio.play().catch(() => {});
+      }
+      navigateOnReply(data.nav);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setPending(false);
+    }
+  }, []);
+
+  const startListening = useCallback(() => {
+    const w = window as SpeechWindow;
+    const SR = w.SpeechRecognition ?? w.webkitSpeechRecognition;
+    if (!SR) { setError("Browser speech recognition not supported - use Chrome/Edge"); return; }
+    const rec = new SR();
+    rec.lang = "en-US";
+    rec.interimResults = false;
+    rec.continuous = false;
+    rec.onstart = () => { setListening(true); setError(null); };
+    rec.onresult = (ev) => {
+      const t = ev.results?.[0]?.[0]?.transcript;
+      if (t) handleTranscript(t);
+    };
+    rec.onerror = (ev) => { setError(`mic: ${ev.error}`); setListening(false); };
+    rec.onend = () => setListening(false);
+    rec.start();
+  }, [handleTranscript]);
+
   return (
     <main className="lp-shell" aria-labelledby="benney-title">
       <section className="lp-frame" aria-label="Benney Rosewood Sand Hill landing screen">
@@ -32,22 +109,33 @@ export default function LandingPageLive() {
         />
 
         <nav className="lp-actions" aria-label="Benney demo routes">
-          <a className="lp-action lp-action-agent" href="/?home=1">
-            <span>Voice Agent</span>
-            <small>Talk to Benney</small>
-          </a>
+          <button
+            type="button"
+            className={`lp-action lp-action-agent ${listening ? "lp-listening" : ""} ${pending ? "lp-pending" : ""}`}
+            onClick={startListening}
+            disabled={listening || pending}
+          >
+            <span>{listening ? "Listening..." : pending ? "Thinking..." : "Talk to Benney"}</span>
+            <small>Try "plan my trip" or "show the staff board"</small>
+          </button>
           <a className="lp-action lp-action-staff" href="/?staff=1">
             <span>Staff Board</span>
             <small>Live requests</small>
           </a>
         </nav>
 
+        {(reply || error) && (
+          <aside className={`lp-voice-bubble ${error ? "lp-voice-bubble-error" : ""}`}>
+            {error ? <em>{error}</em> : reply}
+          </aside>
+        )}
+
         <div className="lp-semantic">
           <p>Rosewood Sand Hill</p>
           <h1 id="benney-title">Benney</h1>
           <p>A voice-first stay assistant</p>
           <p>Ask for plans, service, and calm answers.</p>
-          <p>Listening...</p>
+          <p>{listening ? "Listening..." : "How may I help you today?"}</p>
 
           <h2>Your itinerary</h2>
           <ol>
@@ -71,7 +159,6 @@ export default function LandingPageLive() {
             ))}
           </dl>
           <p>Updated just now</p>
-          <p>How may I help you today?</p>
         </div>
       </section>
     </main>

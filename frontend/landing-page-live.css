@@ -143,3 +143,39 @@
     align-content: start;
   }
 }
+
+/* Voice bubble + listening states on landing */
+.lp-listening {
+  outline: 2px solid rgba(255, 80, 80, 0.6);
+  outline-offset: 2px;
+  animation: lp-pulse 1.2s infinite;
+}
+.lp-pending {
+  opacity: 0.7;
+}
+@keyframes lp-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 80, 80, 0.4); }
+  50%      { box-shadow: 0 0 0 10px rgba(255, 80, 80, 0); }
+}
+.lp-voice-bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  transform: translateX(-50%);
+  max-width: 60ch;
+  padding: 12px 18px;
+  background: rgba(255, 252, 245, 0.96);
+  border: 1px solid rgba(112, 78, 62, 0.32);
+  border-radius: 10px;
+  color: #2b221d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: 0 10px 26px rgba(64, 42, 30, 0.18);
+  z-index: 5;
+}
+.lp-voice-bubble-error {
+  background: rgba(255, 235, 235, 0.96);
+  border-color: rgba(168, 68, 63, 0.35);
+  color: #6b1f1c;
+}

@@ -63,6 +63,12 @@ ALWAYS:
   say you can pass the request to the staff board for hotel staff to handle.
 - End every reply with an emotion tag: <emotion>X</emotion> where X is one of:
   greeting, happy, curious, thinking, excited, concerned, celebrating, listening.
+- If the guest asks to plan a trip, build an itinerary, see recommendations, see
+  their schedule, or anything trip-planning-related, INCLUDE a navigation tag:
+  <nav>trip_planner</nav>. The UI will open the trip planner for them. Similarly
+  use <nav>staff_board</nav> if they ask to see staff activity or
+  <nav>landing</nav> to return home. Only emit a nav tag when the guest is
+  actually asking to switch views.
 
 NEVER:
 - Mention OpenAI, Claude, Anthropic, or any AI tooling.
@@ -86,6 +92,7 @@ class VoiceResponse(BaseModel):
     emotion: str
     voice_source: str         # "elevenlabs" | "none"
     llm_source: str           # "claude" | "stub"
+    nav: str | None = None    # "trip_planner" | "staff_board" | "landing" | None
 
 
 def _client() -> AsyncAnthropic | None:
@@ -129,20 +136,22 @@ def _build_context_block(req: VoiceRequest) -> str:
 
 
 _EMOTION_RE = re.compile(r"<emotion>([a-z_]+)</emotion>", re.I)
+_NAV_RE = re.compile(r"<nav>([a-z_]+)</nav>", re.I)
 _ALLOWED_EMOTIONS = {
     "greeting", "happy", "curious", "thinking", "excited",
     "concerned", "celebrating", "listening", "speaking", "idle",
     "shy", "delighted", "playful", "focused",
 }
+_ALLOWED_NAVS = {"trip_planner", "staff_board", "landing"}
 
 
-async def _claude_reply(req: VoiceRequest) -> tuple[str, str, str]:
-    """Returns (reply_text, emotion, llm_source)."""
+async def _claude_reply(req: VoiceRequest) -> tuple[str, str, str, str | None]:
+    """Returns (reply_text, emotion, llm_source, nav_target)."""
     client = _client()
     if client is None:
         return (
             f"I heard: {req.transcript[:60]}. (Voice agent stub — set ANTHROPIC_API_KEY for live replies.)",
-            "curious", "stub",
+            "curious", "stub", None,
         )
     user_msg = (
         f"Guest said: \"{req.transcript}\"\n\n"
@@ -158,10 +167,14 @@ async def _claude_reply(req: VoiceRequest) -> tuple[str, str, str]:
     text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text").strip()
     m = _EMOTION_RE.search(text)
     raw_emotion = m.group(1).lower() if m else "happy"
-    # Whitelist to prevent bad tags leaking through to the cat rig
     emotion = raw_emotion if raw_emotion in _ALLOWED_EMOTIONS else "happy"
-    clean = _EMOTION_RE.sub("", text).strip()
-    return clean, emotion, "claude"
+    n = _NAV_RE.search(text)
+    raw_nav = n.group(1).lower() if n else None
+    nav = raw_nav if raw_nav in _ALLOWED_NAVS else None
+    # Strip tags from text before TTS so the speech doesn't say the tag names
+    clean = _EMOTION_RE.sub("", text)
+    clean = _NAV_RE.sub("", clean).strip()
+    return clean, emotion, "claude", nav
 
 
 async def _elevenlabs_tts(text: str) -> str | None:
@@ -197,7 +210,7 @@ async def _elevenlabs_tts(text: str) -> str | None:
 async def voice(req: VoiceRequest) -> VoiceResponse:
     if not req.transcript.strip():
         raise HTTPException(400, "transcript is empty")
-    reply_text, emotion, llm_source = await _claude_reply(req)
+    reply_text, emotion, llm_source, nav = await _claude_reply(req)
     audio_b64 = await _elevenlabs_tts(reply_text)
     return VoiceResponse(
         reply_text=reply_text,
@@ -205,6 +218,7 @@ async def voice(req: VoiceRequest) -> VoiceResponse:
         emotion=emotion,
         voice_source="elevenlabs" if audio_b64 else "none",
         llm_source=llm_source,
+        nav=nav,
     )
 
 

@@ -374,6 +374,14 @@ export default function TripPlannerLive() {
       const data = await r.json();
       setVoiceReply(data.reply_text || "");
       if (data.audio_b64) await speakReply(data.audio_b64);
+      // Benney can navigate the user between views by emitting <nav>...</nav>
+      // tags. We honor those after the audio finishes for a smooth UX.
+      if (data.nav && data.nav !== "trip_planner") {
+        const target = data.nav === "staff_board" ? "?staff=1"
+                     : data.nav === "landing"     ? "?landing=1"
+                     : null;
+        if (target) window.setTimeout(() => { window.location.search = target; }, 800);
+      }
     } catch (e) {
       setVoiceError(e instanceof Error ? e.message : String(e));
     } finally {
