@@ -11,6 +11,8 @@ type CohortFamily = {
   family: Record<string, string | number> | null;
   sample_activities: string[];
   sample_names: string[];
+  full_activities?: string[];
+  full_names?: string[];
 };
 
 type CohortPayload = {
@@ -161,6 +163,13 @@ export default function FamiliesNetworkLive() {
     }));
 
     try {
+      // Pass the FULL 30-slot itinerary (with day labels) so the family
+      // can answer questions about any pick, not just day 1.
+      const labeledFullPlan = (activeFamily.full_names ?? activeFamily.choices).map((name, i) => {
+        const day = Math.floor(i / 6) + 1;
+        const slot = ["7am cafe","9am breakfast","11am tour","2pm lunch","7pm dinner","9pm bar"][i % 6];
+        return `Day ${day} ${slot}: ${name}`;
+      });
       const response = await fetch(`${API_BASE}/family-chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -168,7 +177,7 @@ export default function FamiliesNetworkLive() {
           family_id: activeFamily.family_id,
           name: activeFamily.name,
           keywords: activeFamily.keywords,
-          choices: activeFamily.choices,
+          choices: labeledFullPlan,
           message: trimmed,
         }),
       });

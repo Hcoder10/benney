@@ -279,9 +279,13 @@ def cohort_sample(per_archetype: int = 3) -> dict[str, Any]:
         chosen = idx_list[:per_archetype]
         nodes: list[dict] = []
         for i in chosen:
-            day1_rows = its[i][:6].tolist()
-            day1_ids = [aids[r] for r in day1_rows]
-            day1_names = [activity_meta.get(aid, {}).get("name", aid) for aid in day1_ids]
+            # Full 30-slot itinerary (5 days), not just day 1, so chat can
+            # reason about any pick.
+            full_rows = its[i].tolist()
+            full_ids = [aids[r] for r in full_rows]
+            full_names = [activity_meta.get(aid, {}).get("name", aid) for aid in full_ids]
+            day1_ids = full_ids[:6]
+            day1_names = full_names[:6]
             base_id = str(fam_ids[i]).replace("_aug000", "").replace("_aug001", "")\
                 .replace("_aug002", "").replace("_aug003", "").replace("_aug004", "")\
                 .replace("_aug005", "").replace("_aug006", "").replace("_aug007", "")\
@@ -294,6 +298,8 @@ def cohort_sample(per_archetype: int = 3) -> dict[str, Any]:
                 "family": family_kw,
                 "sample_activities": day1_ids,
                 "sample_names": day1_names,
+                "full_activities": full_ids,
+                "full_names": full_names,
             })
         nodes_by_arch[arch] = nodes
 

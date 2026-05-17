@@ -21,7 +21,7 @@
     linear-gradient(315deg, rgba(77, 135, 144, 0.1), transparent 36%),
     var(--paper);
   font-family: Georgia, "Times New Roman", serif;
-  overflow: hidden;
+  overflow-x: clip;        /* let document body handle vertical scroll */
 }
 
 .fn-shell::before {
